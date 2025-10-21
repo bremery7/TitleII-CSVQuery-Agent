@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Data Agent</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background-color: #1a1f3a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            color: #e0e0e0;
+            font-size: 1.5rem;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        h3 {
+            color: #a0a0a0;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .upload-section {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        #csvFile {
+            display: none;
+        }
+
+        .upload-btn, .manage-btn {
+            background: #4a90e2;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .upload-btn:hover, .manage-btn:hover {
+            background: #3a7bc8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+        }
+
+        .manage-btn {
+            background: #e74c3c;
+        }
+
+        .manage-btn:hover {
+            background: #c0392b;
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+        }
+
+        .file-label {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: #252d47;
+            margin: 10% auto;
+            padding: 30px;
+            border: 1px solid #3d4571;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .close {
+            color: #a0a0a0;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close:hover {
+            color: #ffffff;
+        }
+
+        .file-list {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .file-item {
+            background: #1f2640;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #3d4571;
+        }
+
+        .file-item:hover {
+            background: #2d3561;
+        }
+
+        .file-item input[type="checkbox"] {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .file-item label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .delete-btn {
+            background: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .delete-btn:hover {
+            background: #c0392b;
+        }
+
+        .delete-btn:disabled {
+            background: #555;
+            cursor: not-allowed;
+        }
+
+        .cancel-btn {
+            background: #6c757d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .cancel-btn:hover {
+            background: #5a6268;
+        }
+
+        .info {
+            background: linear-gradient(135deg, #2d3561 0%, #3d4571 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #4a90e2;
+        }
+
+        .info p {
+            margin-bottom: 10px;
+            color: #d0d0d0;
+        }
+
+        .info strong {
+            color: #4a90e2;
+        }
+
+        .info-toggle {
+            background: linear-gradient(135deg, #2d3561 0%, #3d4571 100%);
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 4px solid #4a90e2;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s;
+                }
+
+        .info-toggle:hover {
+            background: linear-gradient(135deg, #3d4571 0%, #4d5581 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(74, 144, 226, 0.2);
+        }
+
+        .info-toggle span:first-child {
+            color: #4a90e2;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .info-toggle span:last-child {
+            color: #a0a0a0;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .info-toggle.open span:last-child {
+            transform: rotate(180deg);
+        }
+
+        .info {
+            margin-bottom: 20px;
+        }
+
+        .query-section {
+            background: #252d47;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #3d4571;
+        }
+
+        /* Prompts Section */
+        .prompts-section {
+            background: #252d47;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 1px solid #3d4571;
+        }
+
+        .prompts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .prompt-chip {
+            background: #1f2640;
+            color: #4a90e2;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border: 1px solid #3d4571;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .prompt-chip:hover {
+            background: #2d3561;
+            border-color: #4a90e2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(74, 144, 226, 0.2);
+        }
+
+        .prompt-chip.suggested::before {
+            content: "💡 ";
+        }
+
+        .prompt-chip.history {
+            color: #81c784;
+            border-color: #81c784;
+        }
+
+        .prompt-chip.history:hover {
+            border-color: #81c784;
+        }
+
+        .prompt-chip.history::before {
+            content: "🕐 ";
+        }
+
+        .history-section {
+            border-top: 1px solid #3d4571;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 6px;
+            border: 1px solid #3d4571;
+            background-color: #1f2640;
+            color: #e0e0e0;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.95rem;
+            resize: vertical;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+        }
+
+        button {
+            padding: 12px 24px;
+            margin-top: 15px;
+            background: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: #3a7bc8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .export-btn {
+            background: #1db854;
+            color: #1a1f3a;
+            margin-right: 10px;
+            font-weight: 600;
+        }
+
+        .export-btn:hover {
+            background: #17a345;
+            box-shadow: 0 4px 12px rgba(29, 184, 84, 0.3);
+        }
+
+        .conversation {
+            border: 1px solid #3d4571;
+            padding: 15px;
+            height: 350px;
+            overflow-y: auto;
+            margin-bottom: 30px;
+            background: #1f2640;
+            border-radius: 8px;
+        }
+
+        .conversation > div {
+            margin-bottom: 12px;
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .user {
+            color: #64b5f6;
+            font-weight: 600;
+            background: rgba(100, 181, 246, 0.1);
+            padding: 8px 12px;
+            border-left: 3px solid #64b5f6;
+        }
+
+        .agent {
+            color: #81c784;
+            background: rgba(129, 199, 132, 0.1);
+            padding: 8px 12px;
+            border-left: 3px solid #81c784;
+        }
+
+        .sql {
+            color: #ffb74d;
+            font-style: italic;
+            background: rgba(255, 183, 77, 0.1);
+            padding: 8px 12px;
+            border-left: 3px solid #ffb74d;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        .error {
+            color: #ef5350;
+            font-weight: 600;
+            background: rgba(239, 83, 80, 0.1);
+            padding: 8px 12px;
+            border-left: 3px solid #ef5350;
+        }
+
+        .conversation::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .conversation::-webkit-scrollbar-track {
+            background: #1f2640;
+            border-radius: 4px;
+        }
+
+        .conversation::-webkit-scrollbar-thumb {
+            background: #3d4571;
+            border-radius: 4px;
+        }
+
+        .conversation::-webkit-scrollbar-thumb:hover {
+            background: #4a5587;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+            border: 1px solid #3d4571;
+            border-radius: 8px;
+            background: #1f2640;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
+        }
+
+        th, td {
+            border: 1px solid #3d4571;
+            padding: 12px;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        th {
+            background: linear-gradient(135deg, #2d3561 0%, #3d4571 100%);
+            color: #4a90e2;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        td {
+            color: #d0d0d0;
+            background: #252d47;
+        }
+
+        tr:hover td {
+            background: #2d3561;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: #252d47;
+            border-radius: 8px;
+            border: 1px solid #3d4571;
+        }
+
+        .results-header h2 {
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .results-info {
+            color: #a0a0a0;
+            margin-top: 8px;
+            font-size: 0.95rem;
+        }
+
+        .no-results {
+            background: #252d47;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #3d4571;
+            text-align: center;
+            color: #a0a0a0;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: #a0a0a0;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AI Data Agent</h1>
+            <div class="upload-section">
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <input type="file" id="csvFile" name="csvFile" accept=".csv" onchange="handleFileSelect(event)">
+                    <button type="button" class="upload-btn" onclick="document.getElementById('csvFile').click()">
+                        📤 Upload CSV
+                    </button>
+                    <span class="file-label" id="fileName"></span>
+                </form>
+                <button type="button" class="manage-btn" onclick="openManageFilesModal()">
+                    🗑️ Manage Files
+                </button>
+            </div>
+        </div>
+        
+       <div class="info-toggle" onclick="toggleDatabaseInfo()">
+    <span>📊 Database Information</span>
+    <span id="toggleIcon">▼</span>
+</div>
+<div class="info" id="databaseInfo" style="display: none;">
+    <p><strong>Tables:</strong> <%= tableName %></p>
+    <p><strong>Columns:</strong> <%= columnNames %></p>
+</div>
+
+        <div class="query-section">
+            <h2>Your Query</h2>
+            <form action="/query" method="POST" id="queryForm">
+                <textarea name="query" id="queryInput" rows="3" placeholder="e.g., give me all entries where the owner is rkalsed and the creation date is last month"></textarea>
+                <button type="submit">Run Query</button>
+            </form>
+        </div>
+
+        <!-- Suggested Prompts & History -->
+        <div class="prompts-section">
+            <h3>💡 Suggested Prompts</h3>
+            <div class="prompts-grid">
+                <div class="prompt-chip suggested" onclick="runPrompt('show me all entries with the InContext category')">
+                    Show me all entries with the InContext category
+                </div>
+                <div class="prompt-chip suggested" onclick="runPrompt('give me entries created in the last month')">
+                    Give me entries created in the last month
+                </div>
+                <div class="prompt-chip suggested" onclick="runPrompt('find all entries where the owner is rkalsed')">
+                    Find all entries where the owner is rkalsed
+                </div>
+                <div class="prompt-chip suggested" onclick="runPrompt('show me entries created more than 2 years ago')">
+                    Show me entries created more than 2 years ago
+                </div>
+                <div class="prompt-chip suggested" onclick="runPrompt('count entries by category')">
+                    Count entries by category
+                </div>
+                <div class="prompt-chip suggested" onclick="runPrompt('show me the most recent 20 entries')">
+                    Show me the most recent 20 entries
+                </div>
+            </div>
+
+            <div class="history-section" id="historySection" style="display: none;">
+                <h3>🕐 Recent Queries</h3>
+                <div class="prompts-grid" id="historyList">
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h2>Agent Conversation Log</h2>
+            <div class="conversation">
+                <% if (conversation.length > 0) { %>
+                    <% conversation.forEach(line => { %>
+                        <% 
+                            let className = '';
+                            if (line.startsWith('USER:')) {
+                                className = 'user';
+                            } else if (line.includes('SQL:')) {
+                                className = 'sql';
+                            } else if (line.includes('ERROR:')) {
+                                className = 'error';
+                            } else if (line.startsWith('AGENT:')) {
+                                className = 'agent';
+                            }
+                        %>
+                        <div class="<%= className %>"><%= line %></div>
+                    <% }); %>
+                <% } else { %>
+                    <div style="color: #707070;">Agent is ready. Enter a query above to start the conversation.</div>
+                <% } %>
+            </div>
+        </div>
+
+        <% if (locals.results && results.length > 0) { %>
+            <div class="results-header">
+                <div>
+                    <h2>Query Results</h2>
+                    <div class="results-info"><%= results.length %> Total Rows (displaying first 10)</div>
+                </div>
+                <form action="/export" method="POST" style="display: inline;">
+                    <input type="hidden" name="sql" value="<%= locals.generatedSql || '' %>">
+                    <button type="submit" class="export-btn">📊 Export All to Excel</button>
+                </form>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <% Object.keys(results[0]).forEach(key => { %>
+                                <th><%= key %></th>
+                            <% }); %>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% results.slice(0, 10).forEach(row => { %>
+                            <tr>
+                                <% Object.values(row).forEach(value => { %>
+                                    <td><%= value %></td>
+                                <% }); %>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+            
+        <% } else if (locals.results && results.length === 0) { %>
+            <div class="no-results">
+                <h2>No Results</h2>
+                <p>Your query didn't return any results. Try a different query.</p>
+            </div>
+        <% } %>
+    </div>
+
+    <!-- Manage Files Modal -->
+    <div id="manageFilesModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Manage CSV Files</h2>
+                <span class="close" onclick="closeManageFilesModal()">&times;</span>
+            </div>
+            <div class="file-list" id="fileList">
+                <div class="empty-state">Loading files...</div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="cancel-btn" onclick="closeManageFilesModal()">Cancel</button>
+                <button type="button" class="delete-btn" id="deleteBtn" onclick="deleteSelectedFiles()" disabled>Delete Selected</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Query history management
+        function getQueryHistory() {
+            const history = localStorage.getItem('queryHistory');
+            return history ? JSON.parse(history) : [];
+        }
+
+        function addToHistory(query) {
+            let history = getQueryHistory();
+            history = history.filter(q => q !== query);
+            history.unshift(query);
+            history = history.slice(0, 5);
+            localStorage.setItem('queryHistory', JSON.stringify(history));
+            displayHistory();
+        }
+
+        function displayHistory() {
+            const history = getQueryHistory();
+            const historySection = document.getElementById('historySection');
+            const historyList = document.getElementById('historyList');
+            
+            if (history.length === 0) {
+                historySection.style.display = 'none';
+                return;
+            }
+            
+            historySection.style.display = 'block';
+            historyList.innerHTML = history.map(query => 
+                `<div class="prompt-chip history" onclick="loadPrompt('${query.replace(/'/g, "\\'")}')">${query}</div>`
+            ).join('');
+        }
+
+        function runPrompt(prompt) {
+            document.getElementById('queryInput').value = prompt;
+            addToHistory(prompt);
+            document.getElementById('queryForm').submit();
+        }
+
+        function loadPrompt(prompt) {
+            document.getElementById('queryInput').value = prompt;
+            document.getElementById('queryInput').focus();
+            document.querySelector('.query-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.getElementById('queryForm').addEventListener('submit', function(e) {
+            const query = document.getElementById('queryInput').value.trim();
+            if (query) {
+                addToHistory(query);
+            }
+        });
+
+        displayHistory();
+
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                document.getElementById('fileName').textContent = `Uploading: ${file.name}`;
+                
+                const formData = new FormData(document.getElementById('uploadForm'));
+                fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('File uploaded successfully! Reloading...');
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1000);
+                    } else {
+                        alert('Upload failed');
+                        document.getElementById('fileName').textContent = '';
+                    }
+                })
+                .catch(error => {
+                    console.error('Upload error:', error);
+                    alert('Upload error: ' + error);
+                    document.getElementById('fileName').textContent = '';
+                });
+            }
+        }
+
+        async function openManageFilesModal() {
+            document.getElementById('manageFilesModal').style.display = 'block';
+            await loadFiles();
+        }
+
+        function closeManageFilesModal() {
+            document.getElementById('manageFilesModal').style.display = 'none';
+        }
+
+        async function loadFiles() {
+            try {
+                const response = await fetch('/files');
+                const data = await response.json();
+                
+                const fileList = document.getElementById('fileList');
+                
+                if (data.files.length === 0) {
+                    fileList.innerHTML = '<div class="empty-state">No CSV files found</div>';
+                    return;
+                }
+                
+                fileList.innerHTML = data.files.map(file => `
+                    <div class="file-item">
+                        <input type="checkbox" id="file-${file}" value="${file}" onchange="updateDeleteButton()">
+                        <label for="file-${file}">${file}</label>
+                    </div>
+                `).join('');
+                
+                updateDeleteButton();
+            } catch (error) {
+                console.error('Error loading files:', error);
+                document.getElementById('fileList').innerHTML = '<div class="empty-state">Error loading files</div>';
+            }
+        }
+
+        function updateDeleteButton() {
+            const checkboxes = document.querySelectorAll('#fileList input[type="checkbox"]');
+            const anyChecked = Array.from(checkboxes).some(cb => cb.checked);
+            document.getElementById('deleteBtn').disabled = !anyChecked;
+        }
+
+        async function deleteSelectedFiles() {
+            const checkboxes = document.querySelectorAll('#fileList input[type="checkbox"]:checked');
+            const filesToDelete = Array.from(checkboxes).map(cb => cb.value);
+            
+            if (filesToDelete.length === 0) return;
+            
+            if (!confirm(`Are you sure you want to delete ${filesToDelete.length} file(s)?`)) {
+                return;
+            }
+            
+            try {
+                const response = await fetch('/delete-files', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ files: filesToDelete })
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    alert(result.message);
+                    closeManageFilesModal();
+                    location.reload();
+                } else {
+                    alert('Error: ' + result.error);
+                }
+            } catch (error) {
+                console.error('Delete error:', error);
+                alert('Error deleting files: ' + error);
+            }
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('manageFilesModal');
+            if (event.target === modal) {
+                closeManageFilesModal();
+            }
+        }
+
+                function toggleDatabaseInfo() {
+            const infoDiv = document.getElementById('databaseInfo');
+            const toggle = document.querySelector('.info-toggle');
+            
+            if (infoDiv.style.display === 'none') {
+                infoDiv.style.display = 'block';
+                toggle.classList.add('open');
+            } else {
+                infoDiv.style.display = 'none';
+                toggle.classList.remove('open');
+            }
+        }
+    </script>
+</body>
+</html>
