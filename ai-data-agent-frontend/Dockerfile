@@ -17,6 +17,10 @@ COPY . .
 
 # Set environment variables for build
 ENV NEXT_TELEMETRY_DISABLED 1
+# Dummy values for build time (will be overridden at runtime)
+ENV NEXTAUTH_SECRET=build-time-secret-will-be-replaced
+ENV NEXTAUTH_URL=http://localhost:3000
+ENV NEXT_PUBLIC_API_URL=http://localhost:3001
 
 # Build Next.js application
 RUN npm run build
