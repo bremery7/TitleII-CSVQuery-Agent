@@ -25,7 +25,6 @@ services:
       - OPENAI_API_KEY=${OPENAI_API_KEY}
     volumes:
       - backend-data:/app/data
-      - backend-db:/app
     networks:
       - app-network
     restart: unless-stopped
