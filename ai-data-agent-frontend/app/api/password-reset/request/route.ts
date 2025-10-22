@@ -4,7 +4,7 @@ import { findUserByEmail } from '@/lib/user-storage';
 import { createResetToken } from '@/lib/password-reset';
 import { checkRateLimit } from '@/lib/rate-limit';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 export async function POST(request: NextRequest) {
   try {
@@ -53,7 +53,8 @@ export async function POST(request: NextRequest) {
 
     // Send email
     try {
-      await resend.emails.send({
+      if (resend) {
+        await resend.emails.send({
         from: process.env.EMAIL_FROM || 'onboarding@resend.dev',
         to: email,
         subject: 'Password Reset Request',
@@ -69,9 +70,12 @@ export async function POST(request: NextRequest) {
           <hr>
           <p style="color: #666; font-size: 12px;">AI Data Agent - Title II Reports</p>
         `,
-      });
-
-      console.log('Password reset email sent to:', email);
+        });
+        console.log('Password reset email sent to:', email);
+      } else {
+        console.log('Email not configured. Reset token:', token);
+        console.log('Reset URL:', resetUrl);
+      }
     } catch (emailError) {
       console.error('Failed to send email:', emailError);
       // Still return success to user for security
