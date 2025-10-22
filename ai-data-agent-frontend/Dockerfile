@@ -43,6 +43,9 @@ COPY --from=builder /app/.next/static ./.next/static
 # Create data directory for user database
 RUN mkdir -p /app/data && chown nextjs:nodejs /app/data
 
+# Create a writable directory for .env.local
+RUN touch /app/.env.local && chown nextjs:nodejs /app/.env.local
+
 USER nextjs
 
 EXPOSE 3000
@@ -50,4 +53,11 @@ EXPOSE 3000
 ENV PORT 3000
 ENV HOSTNAME "0.0.0.0"
 
-CMD ["node", "server.js"]
+# Create a startup script to write environment variables to .env.local
+CMD sh -c 'echo "NEXTAUTH_SECRET=$NEXTAUTH_SECRET" > /app/.env.local && \
+    echo "AUTH_SECRET=$AUTH_SECRET" >> /app/.env.local && \
+    echo "SESSION_SECRET=$SESSION_SECRET" >> /app/.env.local && \
+    echo "JWT_SECRET=$JWT_SECRET" >> /app/.env.local && \
+    echo "NEXTAUTH_URL=$NEXTAUTH_URL" >> /app/.env.local && \
+    echo "NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL" >> /app/.env.local && \
+    node server.js'

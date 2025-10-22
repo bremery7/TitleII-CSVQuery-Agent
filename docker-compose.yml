@@ -44,7 +44,7 @@ services:
       - AUTH_SECRET=${AUTH_SECRET}
       - SESSION_SECRET=${SESSION_SECRET}
       - JWT_SECRET=${JWT_SECRET}
-      - NEXTAUTH_URL=https://localhost
+      - NEXTAUTH_URL=http://localhost:3000
       - NEXT_PUBLIC_API_URL=http://backend:3001
     volumes:
       - frontend-data:/app/data
