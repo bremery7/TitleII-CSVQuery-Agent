@@ -1,9 +1,9 @@
-import type { NextAuthConfig } from 'next-auth';
+import type { NextAuthOptions } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import bcrypt from 'bcryptjs';
 import { getUserByUsername } from './lib/users';
 
-export default {
+const authConfig: NextAuthOptions = {
   trustHost: true,
   providers: [
     Credentials({
@@ -67,4 +67,10 @@ export default {
   pages: {
     signIn: '/login',
   },
-} satisfies NextAuthConfig;
+  session: {
+    strategy: 'jwt' as const,
+  },
+  secret: process.env.NEXTAUTH_SECRET,
+};
+
+export default authConfig;
