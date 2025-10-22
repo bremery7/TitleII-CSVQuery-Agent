@@ -4,7 +4,6 @@ import bcrypt from 'bcryptjs';
 import { getUserByUsername } from './lib/users';
 
 const authConfig: NextAuthOptions = {
-  trustHost: true,
   providers: [
     Credentials({
       credentials: {
