@@ -4,7 +4,7 @@ A secure, full-stack AI-powered data analysis application with natural language 
 
 ## ✨ Features
 
-- 🔐 **Secure Authentication** - JWT-based auth with bcrypt password hashing
+- 🔐 **User Authentication**
 - 🛡️ **Enterprise Security** - SSL/HTTPS, SQL injection protection, security headers
 - 📊 **CSV Data Analysis** - Upload and query CSV files using natural language
 - 🤖 **AI-Powered Queries** - OpenAI integration for intelligent SQL generation
