@@ -47,8 +47,12 @@ export default function DataVisualization({ data, onChartRefReady, onExportPDF, 
         return;
       }
       
-      // Check if numeric
-      const numericValues = sampleValues.filter(v => typeof v === 'number' || !isNaN(Number(v)));
+      // Check if numeric (including percentage strings like "95%")
+      const numericValues = sampleValues.filter(v => {
+        if (typeof v === 'number') return true;
+        const strVal = String(v).replace('%', '').trim();
+        return !isNaN(Number(strVal));
+      });
       if (numericValues.length / sampleValues.length > 0.8) {
         types[col] = 'number';
       } else {
@@ -68,10 +72,12 @@ export default function DataVisualization({ data, onChartRefReady, onExportPDF, 
 
   const chartData = useMemo(() => {
     if (isNumericColumn) {
-      // Numeric binning
+      // Numeric binning (handle percentage strings)
       const values = data.map(row => {
         const val = row[groupBy];
-        return typeof val === 'number' ? val : parseFloat(val);
+        if (typeof val === 'number') return val;
+        const strVal = String(val).replace('%', '').trim();
+        return parseFloat(strVal);
       }).filter(v => !isNaN(v));
       
       if (values.length === 0) return [];
@@ -105,7 +111,7 @@ export default function DataVisualization({ data, onChartRefReady, onExportPDF, 
           value,
           sortKey: parseFloat(name.split('-')[0])
         }))
-        .sort((a, b) => a.sortKey - b.sortKey)
+        .sort((a, b) => b.sortKey - a.sortKey) // Sort descending (highest first)
         .slice(0, 50); // Show up to 50 bins
     } else {
       // String grouping with case-insensitive consolidation and comma-separated handling
@@ -150,9 +156,23 @@ export default function DataVisualization({ data, onChartRefReady, onExportPDF, 
       return Object.entries(counts)
         .map(([lowerName, value]) => ({ 
           name: caseMap[lowerName], // Use original case for display
-          value 
+          value,
+          sortKey: (() => {
+            // Try to extract numeric value for sorting (e.g., "95%" -> 95)
+            const numMatch = caseMap[lowerName].match(/([0-9.]+)/);
+            return numMatch ? parseFloat(numMatch[1]) : 0;
+          })()
         }))
-        .sort((a, b) => b.value - a.value)
+        .sort((a, b) => {
+          // If values look numeric, sort by numeric value (descending)
+          // Otherwise sort by count (descending)
+          const aHasNum = !isNaN(a.sortKey) && a.sortKey > 0;
+          const bHasNum = !isNaN(b.sortKey) && b.sortKey > 0;
+          if (aHasNum && bHasNum) {
+            return b.sortKey - a.sortKey; // Sort by numeric value descending
+          }
+          return b.value - a.value; // Sort by count descending
+        })
         .slice(0, 10);
     }
   }, [data, groupBy, isNumericColumn, binSize]);
@@ -341,8 +361,11 @@ export default function DataVisualization({ data, onChartRefReady, onExportPDF, 
                     contentStyle={{ 
                       backgroundColor: '#252d47', 
                       border: '1px solid #3d4571',
-                      borderRadius: '8px'
+                      borderRadius: '8px',
+                      color: '#e0e0e0'
                     }}
+                    itemStyle={{ color: '#e0e0e0' }}
+                    labelStyle={{ color: '#e0e0e0' }}
                   />
                 </PieChart>
               </ResponsiveContainer>

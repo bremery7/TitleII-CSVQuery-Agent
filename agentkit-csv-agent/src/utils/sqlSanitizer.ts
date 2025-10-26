@@ -60,13 +60,28 @@ const DANGEROUS_KEYWORDS = [
 export function validateSqlQuery(sql: string): { valid: boolean; error?: string } {
   const upperSql = sql.toUpperCase();
 
-  // Check for dangerous keywords
+  // Check for dangerous keywords with word boundaries to avoid false positives
+  // (e.g., "created_at" should not trigger "CREATE")
   for (const keyword of DANGEROUS_KEYWORDS) {
-    if (upperSql.includes(keyword.toUpperCase())) {
-      return {
-        valid: false,
-        error: `Dangerous SQL operation detected: ${keyword}`
-      };
+    const upperKeyword = keyword.toUpperCase();
+    
+    // For keywords with special characters, use simple includes
+    if (keyword.includes('_') || keyword.includes('-') || keyword.includes('/') || keyword.includes('*')) {
+      if (upperSql.includes(upperKeyword)) {
+        return {
+          valid: false,
+          error: `Dangerous SQL operation detected: ${keyword}`
+        };
+      }
+    } else {
+      // For word keywords, use word boundary regex to avoid false positives
+      const wordBoundaryRegex = new RegExp(`\\b${upperKeyword}\\b`, 'i');
+      if (wordBoundaryRegex.test(upperSql)) {
+        return {
+          valid: false,
+          error: `Dangerous SQL operation detected: ${keyword}`
+        };
+      }
     }
   }
 

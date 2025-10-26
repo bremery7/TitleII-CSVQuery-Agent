@@ -459,29 +459,36 @@ app.post('/api/query', async (req, res) => {
             
             const unionQueries: string[] = [];
             
+            // Extract ORDER BY clause once (it will be applied after UNION)
+            const orderMatch = templateSql.match(/ORDER\s+BY\s+(.+)$/i);
+            const orderByClause = orderMatch ? orderMatch[1] : null;
+            
             for (const tableName of allTableNames) {
+                // Extract WHERE clause without ORDER BY
                 const whereMatch = templateSql.match(/WHERE\s+(.+?)(?:\s+ORDER\s+BY\s+.+)?$/is);
                 const selectMatch = templateSql.match(/SELECT\s+(.+?)\s+FROM/is);
-                const orderMatch = templateSql.match(/ORDER\s+BY\s+(.+)$/i);
                 
                 if (whereMatch && selectMatch) {
                     const selectClause = selectMatch[1];
-                    const whereClause = whereMatch[1];
-                    let query = `SELECT ${selectClause} FROM "${tableName}" WHERE ${whereClause}`;
-                    if (orderMatch) {
-                        query += ` ORDER BY ${orderMatch[1]}`;
-                    }
+                    const whereClause = whereMatch[1].replace(/\s+ORDER\s+BY\s+.+$/i, '').trim();
+                    const query = `SELECT ${selectClause} FROM "${tableName}" WHERE ${whereClause}`;
                     unionQueries.push(query);
                     console.log(`[DEBUG] Query for ${tableName}: ${query}`);
                 } else {
-                    // Fallback: replace table name in FROM clause (handle quoted and unquoted table names)
-                    const query = templateSql.replace(/FROM\s+["']?\w+["']?/i, `FROM "${tableName}"`);
+                    // Fallback: replace table name in FROM clause and remove ORDER BY
+                    let query = templateSql.replace(/FROM\s+["']?\w+["']?/i, `FROM "${tableName}"`);
+                    query = query.replace(/\s+ORDER\s+BY\s+.+$/i, '').trim();
                     unionQueries.push(query);
                     console.log(`[DEBUG] Query for ${tableName} (fallback): ${query}`);
                 }
             }
             
+            // Build UNION query and add ORDER BY at the end
             finalSql = unionQueries.join(' UNION ALL ');
+            if (orderByClause) {
+                // Wrap in subquery to handle complex ORDER BY expressions
+                finalSql = `SELECT * FROM (${finalSql}) AS union_result ORDER BY ${orderByClause}`;
+            }
             console.log(`[POST /api/query] Final UNION query: ${finalSql}`);
             
             const shortSql = finalSql.length > 200 
