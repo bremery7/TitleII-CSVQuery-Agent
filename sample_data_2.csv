@@ -1,0 +1,1001 @@
+ENTRY_ID,ENTITY_NAME,CREATED_AT,LAST_PLAYED_AT,PLAYS,OWNER,TAGS,CATEGORIES,HAS_AUDIO_DESCRIPTION,CAPTIONS_LANGUAGE,CAPTIONS_LANGUAGE_CODE,CAPTIONS_USAGE_TYPE,CAPTIONS_CREATION_MODE,CAPTIONS_EDITED,CAPTIONS_ACCURACY,CAPTIONS_DISPLAY_ON_PLAYER
+1001,Community Center,2022-05-03,2024-07-22,983,housing@authority.gov,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1002,Economic Development,2022-02-22,2024-04-07,1626,info@municipal.gov,curriculum;math;science,InContext,false,Spanish,es,EAD,Human,false,91%,true
+1003,Water District,2023-04-14,2024-02-05,2763,health@county.gov,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1004,University Video Portal,2022-01-08,2024-07-11,852,environment@agency.gov,safety;routes;schedules,InContext,false,French,fr,EAD,Human,false,91%,false
+1005,Fleet Management,2022-09-17,2024-05-07,678,center@community.org,training;teachers;professional,InContext,false,-,-,-,-,-,-,-
+1006,Public Library Media,2023-05-05,2024-03-09,2881,health@county.gov,courses;programming;certificates,InContext,false,Spanish,es,EAD,Human,true,90%,false
+1007,Public Utilities,2023-07-27,2024-03-02,1602,library@public.org,orientation;students;campus,InContext,false,French,fr,EAD,Upload,true,94%,false
+1008,Transportation Dept,2022-07-21,2024-03-30,1597,district@schools.edu,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1009,Community Outreach,2022-04-18,2024-01-02,759,webmaster@city.gov,events;classes;seniors,InContext,false,Mandarin,zh,EAD,Human,true,99%,true
+1010,Water District,2022-01-31,2024-08-31,2998,webmaster@city.gov,wellness;vaccination;covid,InContext,false,Arabic,ar,Standard,Human,false,96%,false
+1011,City Government Channel,2022-01-09,2024-02-26,2950,youth@services.org,benefits;healthcare;support,InContext,true,Arabic,ar,Standard,Upload,false,98%,false
+1012,Community Center,2022-08-31,2024-07-01,1587,water@district.gov,programs;sports;community,InContext,true,Spanish,es,EAD,Machine,true,97%,true
+1013,Volunteer Services,2023-03-20,2024-02-01,2330,health@county.gov,events;classes;seniors,InContext,true,Mandarin,zh,Standard,Upload,false,90%,true
+1014,Animal Services,2023-05-07,2024-01-10,2710,archives@state.gov,safety;routes;schedules,InContext,false,English,en,EAD,Human,false,98%,true
+1015,Water District,2022-07-10,2024-07-11,506,webmaster@city.gov,tutorial;reading;kids,InContext,false,-,-,-,-,-,-,-
+1016,Adult Education Center,2023-03-27,2024-01-06,1257,education@state.gov,wellness;vaccination;covid,InContext,false,Spanish,es,EAD,Machine,false,91%,false
+1017,City Government Channel,2022-12-10,2024-02-29,951,library@public.org,council;meeting;public,InContext,false,-,-,-,-,-,-,-
+1018,Community Outreach,2022-12-28,2024-09-12,1497,education@state.gov,benefits;healthcare;support,InContext,false,English,en,EAD,Upload,false,92%,false
+1019,Grant Administration,2022-09-08,2024-08-31,635,education@state.gov,safety;training;emergency,InContext,false,English,en,Standard,Human,false,100%,true
+1020,Public Utilities,2023-01-02,2024-06-19,946,water@district.gov,infrastructure;roads;maintenance,InContext,false,-,-,-,-,-,-,-
+1021,Job Training Center,2023-03-23,2024-05-09,645,library@public.org,benefits;healthcare;support,InContext,true,German,de,Standard,Human,true,100%,true
+1022,Senior Center,2022-01-13,2024-05-19,2312,water@district.gov,programs;mentoring;education,InContext,false,Mandarin,zh,EAD,Upload,false,94%,true
+1023,Community Center,2023-08-10,2024-02-19,340,water@district.gov,orientation;students;campus,InContext,false,English,en,Standard,Human,true,90%,false
+1024,Traffic Engineering,2022-12-03,2024-03-04,1178,media@college.edu,infrastructure;roads;maintenance,InContext,true,Spanish,es,Standard,Upload,true,97%,false
+1025,Community College,2023-08-04,2024-04-17,1285,library@public.org,history;documents;preservation,InContext,false,-,-,-,-,-,-,-
+1026,Stormwater Management,2022-11-13,2024-02-18,1085,webmaster@city.gov,wellness;vaccination;covid,InContext,false,-,-,-,-,-,-,-
+1027,Business Licensing,2023-05-15,2024-08-05,2322,environment@agency.gov,infrastructure;roads;maintenance,InContext,false,French,fr,EAD,Upload,true,94%,true
+1028,Disability Services,2022-09-09,2024-07-23,1314,education@state.gov,applications;assistance;programs,InContext,false,Arabic,ar,Standard,Human,false,97%,false
+1029,University Video Portal,2023-09-23,2024-10-21,822,fire@city.gov,services;permits;applications,InContext,false,-,-,-,-,-,-,-
+1030,Historic Preservation,2022-08-10,2024-08-13,62,transit@regional.gov,lecture;biology;intro,InContext,true,Arabic,ar,EAD,Human,true,95%,false
+1031,Public Information,2022-01-27,2024-10-17,395,environment@agency.gov,conservation;recycling;climate,InContext,true,Spanish,es,EAD,Machine,false,96%,true
+1032,Regional Transit Auth,2023-04-01,2024-09-29,2505,admin@university.edu,safety;training;emergency,InContext,true,Mandarin,zh,Standard,Upload,true,93%,false
+1033,Job Training Center,2022-10-03,2024-03-10,1534,transit@regional.gov,benefits;healthcare;support,InContext,true,Spanish,es,EAD,Machine,false,99%,true
+1034,Disability Services,2023-02-05,2024-05-17,1471,health@county.gov,conservation;recycling;climate,InContext,false,Arabic,ar,EAD,Human,false,93%,false
+1035,Business Licensing,2022-12-15,2024-01-13,1206,library@public.org,safety;training;emergency,InContext,false,Arabic,ar,Standard,Machine,false,96%,true
+1036,Building Dept,2023-09-06,2024-05-02,865,housing@authority.gov,conservation;recycling;climate,InContext,false,German,de,Standard,Upload,true,90%,true
+1037,Tech College Online,2022-08-18,2024-05-29,1571,online@techcollege.edu,conservation;billing;services,InContext,true,Spanish,es,EAD,Human,true,95%,true
+1038,Youth Services,2023-07-11,2024-08-19,1969,transit@regional.gov,curriculum;math;science,InContext,true,Spanish,es,EAD,Machine,true,97%,true
+1039,Animal Services,2023-02-10,2024-02-01,1345,transit@regional.gov,training;teachers;professional,InContext,false,-,-,-,-,-,-,-
+1040,Animal Services,2022-01-05,2024-01-22,2609,education@state.gov,history;documents;preservation,InContext,true,French,fr,Standard,Machine,true,96%,false
+1041,Transportation Dept,2023-07-14,2024-02-24,70,center@community.org,programs;sports;community,InContext,false,-,-,-,-,-,-,-
+1042,Fleet Management,2022-12-28,2024-06-05,575,water@district.gov,conservation;recycling;climate,InContext,true,Spanish,es,Standard,Machine,false,92%,true
+1043,Building Dept,2022-02-08,2024-01-20,212,housing@authority.gov,services;permits;applications,InContext,true,German,de,Standard,Human,true,98%,true
+1044,Grant Administration,2022-04-16,2024-01-19,2014,district@schools.edu,applications;assistance;programs,InContext,true,Spanish,es,Standard,Upload,true,96%,true
+1045,Community Outreach,2022-10-23,2024-08-22,2959,health@county.gov,infrastructure;roads;maintenance,InContext,false,-,-,-,-,-,-,-
+1046,Community Center,2022-03-22,2024-09-20,883,district@schools.edu,applications;assistance;programs,InContext,false,English,en,EAD,Upload,false,100%,false
+1047,Traffic Engineering,2023-01-26,2024-02-07,317,works@city.gov,applications;assistance;programs,InContext,false,-,-,-,-,-,-,-
+1048,Fire Department,2022-07-31,2024-02-03,1630,youth@services.org,conservation;recycling;climate,InContext,false,-,-,-,-,-,-,-
+1049,Community Outreach,2023-07-12,2024-03-26,1718,environment@agency.gov,orientation;students;campus,InContext,true,English,en,Standard,Upload,true,93%,false
+1050,Volunteer Services,2022-09-19,2024-09-24,2265,youth@services.org,orientation;students;campus,InContext,false,-,-,-,-,-,-,-
+1051,Community Center,2022-03-10,2024-09-09,2923,media@college.edu,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1052,Historic Preservation,2022-05-17,2024-03-20,1553,education@state.gov,benefits;healthcare;support,InContext,false,-,-,-,-,-,-,-
+1053,Public Utilities,2022-06-22,2024-04-23,1130,library@public.org,conservation;billing;services,InContext,true,Spanish,es,EAD,Human,false,99%,false
+1054,Public Works Dept,2022-08-02,2024-04-28,2552,admin@university.edu,council;meeting;public,InContext,false,-,-,-,-,-,-,-
+1055,Community Outreach,2023-09-16,2024-01-29,1839,online@techcollege.edu,curriculum;math;science,InContext,true,Spanish,es,Standard,Machine,false,97%,true
+1056,Community Center,2023-05-02,2024-10-13,1196,fire@city.gov,history;documents;preservation,InContext,false,French,fr,EAD,Upload,false,96%,false
+1057,Tech College Online,2022-11-09,2024-05-06,287,online@techcollege.edu,programs;sports;community,InContext,true,Arabic,ar,EAD,Upload,true,97%,false
+1058,Historic Preservation,2023-10-13,2024-09-23,1274,environment@agency.gov,programs;sports;community,InContext,true,Mandarin,zh,Standard,Human,false,99%,false
+1059,School District Media,2023-02-18,2024-05-21,947,admin@university.edu,curriculum;math;science,InContext,false,-,-,-,-,-,-,-
+1060,Water District,2023-06-08,2024-06-20,2727,archives@state.gov,lecture;biology;intro,InContext,false,-,-,-,-,-,-,-
+1061,Building Dept,2022-02-13,2024-09-18,693,fire@city.gov,safety;routes;schedules,InContext,true,Mandarin,zh,EAD,Machine,true,92%,false
+1062,Housing Authority,2022-03-03,2024-08-28,2103,webmaster@city.gov,training;teachers;professional,InContext,false,-,-,-,-,-,-,-
+1063,Housing Authority,2023-04-10,2024-08-19,625,fire@city.gov,conservation;billing;services,InContext,true,German,de,EAD,Upload,true,97%,true
+1064,State Education Dept,2022-08-20,2024-05-23,2354,info@municipal.gov,safety;training;emergency,InContext,true,English,en,EAD,Human,true,91%,true
+1065,Disability Services,2022-01-20,2024-06-27,1362,district@schools.edu,events;classes;seniors,InContext,false,-,-,-,-,-,-,-
+1066,Energy Efficiency,2022-07-17,2024-04-11,1841,health@county.gov,council;meeting;public,InContext,false,French,fr,Standard,Human,false,93%,false
+1067,Public Works Dept,2022-01-28,2024-03-17,1466,works@city.gov,tutorial;reading;kids,InContext,true,French,fr,Standard,Upload,false,90%,false
+1068,Emergency Management,2023-01-18,2024-09-18,328,va@veterans.gov,training;teachers;professional,InContext,false,-,-,-,-,-,-,-
+1069,Transportation Dept,2023-08-25,2024-03-27,2778,environment@agency.gov,lecture;biology;intro,InContext,false,-,-,-,-,-,-,-
+1070,Social Services,2023-02-08,2024-10-27,2305,transit@regional.gov,lecture;biology;intro,InContext,true,English,en,Standard,Machine,false,95%,true
+1071,Traffic Engineering,2022-03-29,2024-10-06,2212,education@state.gov,conservation;recycling;climate,InContext,false,German,de,Standard,Upload,false,94%,false
+1072,Regional Transit Auth,2023-10-10,2024-09-14,226,center@community.org,lecture;biology;intro,InContext,true,Mandarin,zh,EAD,Human,true,97%,true
+1073,Housing Authority,2022-09-08,2024-06-15,1569,transit@regional.gov,courses;programming;certificates,InContext,false,-,-,-,-,-,-,-
+1074,Planning Commission,2023-08-16,2024-06-20,2485,works@city.gov,tutorial;reading;kids,InContext,false,-,-,-,-,-,-,-
+1075,Recycling Program,2022-02-15,2024-05-26,1325,media@college.edu,conservation;billing;services,InContext,false,-,-,-,-,-,-,-
+1076,Cultural Center,2023-03-02,2024-01-31,1325,housing@authority.gov,programs;mentoring;education,InContext,false,Mandarin,zh,EAD,Upload,true,96%,true
+1077,Public Information,2022-10-22,2024-05-05,911,district@schools.edu,programs;mentoring;education,InContext,true,Spanish,es,Standard,Machine,true,93%,false
+1078,Public Utilities,2022-06-21,2024-07-08,1319,media@college.edu,courses;programming;certificates,InContext,false,Spanish,es,Standard,Machine,false,94%,false
+1079,Senior Center,2022-04-18,2024-05-26,1373,education@state.gov,events;classes;seniors,InContext,false,English,en,Standard,Human,true,97%,false
+1080,Public Library Media,2023-09-20,2024-03-20,1366,environment@agency.gov,safety;training;emergency,InContext,false,-,-,-,-,-,-,-
+1081,Public Utilities,2022-05-27,2024-02-14,1166,center@community.org,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1082,Public Information,2023-06-01,2024-03-12,2964,library@public.org,events;classes;seniors,InContext,false,French,fr,Standard,Human,true,97%,true
+1083,Energy Efficiency,2023-03-16,2024-10-19,1913,va@veterans.gov,tutorial;reading;kids,InContext,false,Mandarin,zh,Standard,Machine,false,99%,true
+1084,Tech College Online,2022-05-28,2024-02-05,2379,webmaster@city.gov,tutorial;reading;kids,InContext,false,Spanish,es,Standard,Upload,false,97%,false
+1085,Public Library Media,2022-01-05,2024-01-20,2603,district@schools.edu,training;teachers;professional,InContext,false,-,-,-,-,-,-,-
+1086,Water District,2022-12-26,2024-02-17,210,library@public.org,tutorial;reading;kids,InContext,false,-,-,-,-,-,-,-
+1087,Business Licensing,2022-09-23,2024-05-02,2968,media@college.edu,orientation;students;campus,InContext,false,-,-,-,-,-,-,-
+1088,IT Services,2022-08-12,2024-07-13,1438,water@district.gov,history;documents;preservation,InContext,false,-,-,-,-,-,-,-
+1089,Municipal Services,2023-03-07,2024-10-09,1450,district@schools.edu,safety;routes;schedules,InContext,true,Spanish,es,EAD,Human,true,95%,true
+1090,Job Training Center,2023-10-02,2024-07-08,2963,parks@county.gov,conservation;billing;services,InContext,true,French,fr,EAD,Upload,false,96%,false
+1091,Public Information,2022-05-16,2024-03-27,820,info@municipal.gov,training;teachers;professional,InContext,true,Mandarin,zh,EAD,Upload,false,94%,false
+1092,Workforce Development,2023-04-09,2024-08-21,497,center@community.org,benefits;healthcare;support,InContext,false,English,en,Standard,Upload,false,96%,false
+1093,Economic Development,2022-04-24,2024-03-28,2369,district@schools.edu,tutorial;reading;kids,InContext,false,German,de,Standard,Human,false,94%,true
+1094,Adult Education Center,2023-07-11,2024-05-19,2527,admin@university.edu,conservation;recycling;climate,InContext,false,-,-,-,-,-,-,-
+1095,School District Media,2023-04-20,2024-05-22,970,water@district.gov,safety;routes;schedules,InContext,false,Arabic,ar,Standard,Upload,false,97%,true
+1096,Volunteer Services,2023-03-06,2024-02-27,2388,parks@county.gov,services;permits;applications,InContext,true,Spanish,es,Standard,Human,false,95%,false
+1097,Housing Authority,2022-02-26,2024-09-22,63,housing@authority.gov,events;classes;seniors,InContext,true,German,de,EAD,Machine,true,99%,true
+1098,Environmental Agency,2022-12-27,2024-02-17,2256,works@city.gov,training;teachers;professional,InContext,true,German,de,EAD,Upload,false,94%,true
+1099,Workforce Development,2022-05-23,2024-03-13,1962,webmaster@city.gov,events;classes;seniors,InContext,true,Spanish,es,EAD,Upload,false,90%,false
+1100,County Health Dept,2022-11-18,2024-10-01,2823,education@state.gov,events;classes;seniors,InContext,false,Arabic,ar,Standard,Upload,false,94%,false
+1101,Parks and Recreation,2023-09-28,2024-06-26,736,education@state.gov,history;documents;preservation,InContext,false,Mandarin,zh,Standard,Human,false,98%,false
+1102,Animal Services,2022-07-21,2024-03-22,642,admin@university.edu,council;meeting;public,InContext,true,Spanish,es,Standard,Human,true,96%,false
+1103,Traffic Engineering,2023-01-22,2024-04-15,2850,media@college.edu,services;permits;applications,InContext,true,Spanish,es,Standard,Machine,true,99%,true
+1104,Economic Development,2022-10-04,2024-10-09,1000,education@state.gov,council;meeting;public,InContext,false,-,-,-,-,-,-,-
+1105,Public Library Media,2023-10-03,2024-08-13,2131,transit@regional.gov,history;documents;preservation,InContext,false,Mandarin,zh,EAD,Machine,true,96%,true
+1106,Grant Administration,2023-09-11,2024-07-09,1801,webmaster@city.gov,tutorial;reading;kids,InContext,true,Mandarin,zh,Standard,Human,false,96%,false
+1107,Municipal Services,2023-09-08,2024-04-23,2436,works@city.gov,lecture;biology;intro,InContext,false,French,fr,Standard,Human,true,93%,false
+1108,Environmental Agency,2022-06-17,2024-05-04,105,parks@county.gov,orientation;students;campus,InContext,false,-,-,-,-,-,-,-
+1109,Code Enforcement,2022-02-06,2024-06-02,375,info@municipal.gov,curriculum;math;science,InContext,false,French,fr,Standard,Human,true,99%,false
+1110,State Archives,2023-03-07,2024-02-27,531,webmaster@city.gov,benefits;healthcare;support,InContext,true,Spanish,es,EAD,Human,true,100%,true
+1111,School District Media,2022-03-12,2024-04-25,831,online@techcollege.edu,conservation;billing;services,InContext,true,French,fr,Standard,Upload,false,91%,false
+1112,Public Information,2023-10-09,2024-04-17,928,environment@agency.gov,lecture;biology;intro,InContext,false,-,-,-,-,-,-,-
+1113,Public Utilities,2022-12-19,2024-05-08,1455,info@municipal.gov,programs;sports;community,InContext,false,-,-,-,-,-,-,-
+1114,Family Services,2022-02-10,2024-07-17,2939,transit@regional.gov,benefits;healthcare;support,InContext,false,-,-,-,-,-,-,-
+1115,University Video Portal,2022-07-31,2024-08-07,875,health@county.gov,orientation;students;campus,InContext,true,German,de,Standard,Machine,true,92%,false
+1116,Energy Efficiency,2022-03-21,2024-05-24,2165,va@veterans.gov,courses;programming;certificates,InContext,false,Arabic,ar,Standard,Machine,true,97%,false
+1117,Social Services,2022-10-18,2024-02-03,2163,district@schools.edu,safety;routes;schedules,InContext,false,-,-,-,-,-,-,-
+1118,Economic Development,2023-06-05,2024-05-11,88,online@techcollege.edu,infrastructure;roads;maintenance,InContext,false,-,-,-,-,-,-,-
+1119,Disability Services,2023-03-02,2024-10-10,2795,parks@county.gov,history;documents;preservation,InContext,false,-,-,-,-,-,-,-
+1120,Senior Center,2022-10-19,2024-06-06,295,water@district.gov,courses;programming;certificates,InContext,true,Mandarin,zh,Standard,Human,true,94%,true
+1121,Energy Efficiency,2022-01-12,2024-05-20,2898,va@veterans.gov,infrastructure;roads;maintenance,InContext,true,French,fr,EAD,Human,true,95%,false
+1122,Family Services,2022-02-05,2024-06-08,727,health@county.gov,conservation;recycling;climate,InContext,false,French,fr,Standard,Upload,false,95%,true
+1123,Housing Authority,2022-10-30,2024-03-18,2819,admin@university.edu,safety;training;emergency,InContext,false,English,en,EAD,Machine,true,94%,true
+1124,Community Outreach,2023-03-20,2024-07-24,1660,transit@regional.gov,programs;sports;community,InContext,true,English,en,Standard,Upload,false,95%,true
+1125,Public Utilities,2022-03-13,2024-03-11,2493,works@city.gov,services;permits;applications,InContext,false,French,fr,Standard,Upload,false,93%,false
+1126,City Government Channel,2022-12-14,2024-07-25,1688,webmaster@city.gov,infrastructure;roads;maintenance,InContext,false,Arabic,ar,Standard,Machine,false,99%,true
+1127,County Health Dept,2022-01-29,2024-07-28,2155,housing@authority.gov,conservation;billing;services,InContext,false,German,de,EAD,Human,true,94%,false
+1128,Workforce Development,2023-10-27,2024-04-04,1720,transit@regional.gov,safety;training;emergency,InContext,false,Spanish,es,EAD,Machine,false,100%,true
+1129,Community Outreach,2022-06-16,2024-08-07,2790,info@municipal.gov,curriculum;math;science,InContext,true,Mandarin,zh,EAD,Upload,true,94%,false
+1130,Social Services,2022-07-21,2024-03-25,1892,admin@university.edu,services;permits;applications,InContext,false,French,fr,EAD,Machine,false,95%,true
+1131,State Education Dept,2023-01-16,2024-03-26,986,youth@services.org,benefits;healthcare;support,InContext,false,German,de,EAD,Human,false,95%,true
+1132,Fire Department,2023-09-09,2024-06-15,2902,transit@regional.gov,conservation;recycling;climate,InContext,true,Spanish,es,EAD,Upload,true,90%,true
+1133,School District Media,2023-05-31,2024-07-10,565,environment@agency.gov,council;meeting;public,InContext,false,French,fr,Standard,Human,true,96%,true
+1134,Economic Development,2022-04-23,2024-03-05,585,online@techcollege.edu,conservation;billing;services,InContext,false,-,-,-,-,-,-,-
+1135,Municipal Services,2022-05-20,2024-01-18,2256,youth@services.org,events;classes;seniors,InContext,true,German,de,Standard,Machine,false,97%,true
+1136,Building Dept,2022-03-04,2024-09-29,2987,health@county.gov,courses;programming;certificates,InContext,false,-,-,-,-,-,-,-
+1137,Stormwater Management,2023-04-02,2024-01-28,366,works@city.gov,programs;sports;community,InContext,false,German,de,Standard,Human,true,98%,true
+1138,Housing Authority,2023-04-16,2024-09-11,1339,library@public.org,benefits;healthcare;support,InContext,false,-,-,-,-,-,-,-
+1139,Historic Preservation,2022-07-13,2024-05-26,2847,archives@state.gov,events;classes;seniors,InContext,false,Mandarin,zh,Standard,Human,false,93%,true
+1140,Parks and Recreation,2022-05-26,2024-04-08,122,center@community.org,courses;programming;certificates,InContext,false,Spanish,es,Standard,Machine,false,96%,false
+1141,State Education Dept,2022-09-29,2024-08-19,816,admin@university.edu,infrastructure;roads;maintenance,InContext,false,-,-,-,-,-,-,-
+1142,Veterans Affairs,2022-05-15,2024-08-16,318,media@college.edu,history;documents;preservation,InContext,false,French,fr,Standard,Upload,true,97%,false
+1143,Public Library Media,2023-07-21,2024-02-29,2951,fire@city.gov,training;teachers;professional,InContext,false,-,-,-,-,-,-,-
+1144,Adult Education Center,2023-08-12,2024-07-10,1655,admin@university.edu,wellness;vaccination;covid,InContext,true,German,de,Standard,Machine,false,99%,true
+1145,Housing Authority,2023-03-12,2024-03-18,204,environment@agency.gov,orientation;students;campus,InContext,true,French,fr,Standard,Upload,true,94%,false
+1146,School District Media,2023-06-04,2024-02-03,1416,housing@authority.gov,training;teachers;professional,InContext,false,-,-,-,-,-,-,-
+1147,Fleet Management,2022-04-24,2024-02-27,1503,media@college.edu,services;permits;applications,InContext,true,Mandarin,zh,Standard,Upload,true,90%,true
+1148,Historic Preservation,2022-12-02,2024-01-08,1081,housing@authority.gov,wellness;vaccination;covid,InContext,false,-,-,-,-,-,-,-
+1149,Community Center,2022-09-26,2024-04-04,1847,webmaster@city.gov,safety;routes;schedules,InContext,false,-,-,-,-,-,-,-
+1150,Tech College Online,2022-02-12,2024-02-03,1500,admin@university.edu,courses;programming;certificates,InContext,false,Spanish,es,Standard,Machine,true,94%,false
+1151,Volunteer Services,2022-09-06,2024-01-02,344,youth@services.org,safety;routes;schedules,InContext,true,English,en,Standard,Upload,false,93%,false
+1152,Family Services,2022-03-21,2024-08-22,558,admin@university.edu,events;classes;seniors,InContext,true,French,fr,EAD,Machine,true,90%,true
+1153,Tech College Online,2023-04-28,2024-10-19,1601,center@community.org,events;classes;seniors,InContext,true,Spanish,es,EAD,Upload,true,95%,false
+1154,Emergency Management,2022-09-10,2024-07-22,2847,info@municipal.gov,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1155,Economic Development,2022-11-23,2024-01-06,1423,parks@county.gov,history;documents;preservation,InContext,true,German,de,Standard,Upload,true,91%,true
+1156,Traffic Engineering,2023-06-06,2024-03-27,1360,admin@university.edu,infrastructure;roads;maintenance,InContext,false,Mandarin,zh,Standard,Machine,false,96%,true
+1157,Stormwater Management,2023-09-01,2024-05-16,1298,housing@authority.gov,history;documents;preservation,InContext,false,Mandarin,zh,EAD,Upload,true,95%,true
+1158,Public Utilities,2023-09-24,2024-04-13,616,parks@county.gov,tutorial;reading;kids,InContext,false,German,de,EAD,Human,true,93%,true
+1159,Traffic Engineering,2023-05-10,2024-07-08,1222,transit@regional.gov,applications;assistance;programs,InContext,false,Spanish,es,EAD,Machine,false,98%,false
+1160,Tech College Online,2023-07-30,2024-06-25,515,water@district.gov,curriculum;math;science,InContext,false,French,fr,EAD,Machine,true,90%,false
+1161,Emergency Management,2022-10-08,2024-09-04,1018,housing@authority.gov,lecture;biology;intro,InContext,true,German,de,Standard,Human,true,100%,true
+1162,Building Dept,2023-10-15,2024-08-06,477,health@county.gov,applications;assistance;programs,InContext,false,-,-,-,-,-,-,-
+1163,Code Enforcement,2022-07-07,2024-03-04,112,library@public.org,conservation;recycling;climate,InContext,false,Spanish,es,Standard,Human,true,97%,true
+1164,IT Services,2022-10-07,2024-07-27,1956,transit@regional.gov,courses;programming;certificates,InContext,false,-,-,-,-,-,-,-
+1165,Youth Services,2022-04-09,2024-09-03,2488,housing@authority.gov,tutorial;reading;kids,InContext,false,Mandarin,zh,Standard,Machine,true,92%,false
+1166,Fire Department,2022-03-12,2024-02-05,1606,education@state.gov,conservation;recycling;climate,InContext,false,-,-,-,-,-,-,-
+1167,Veterans Affairs,2023-10-23,2024-10-01,2178,education@state.gov,benefits;healthcare;support,InContext,true,Arabic,ar,Standard,Machine,true,100%,true
+1168,Tech College Online,2023-09-05,2024-07-14,654,webmaster@city.gov,events;classes;seniors,InContext,true,German,de,EAD,Machine,false,96%,false
+1169,Energy Efficiency,2023-03-29,2024-03-13,2195,water@district.gov,orientation;students;campus,InContext,true,German,de,EAD,Upload,false,98%,true
+1170,Energy Efficiency,2023-04-09,2024-01-15,762,info@municipal.gov,lecture;biology;intro,InContext,false,German,de,EAD,Machine,false,99%,false
+1171,Workforce Development,2022-11-29,2024-09-26,1793,admin@university.edu,tutorial;reading;kids,InContext,false,-,-,-,-,-,-,-
+1172,State Archives,2022-04-03,2024-06-14,1187,health@county.gov,infrastructure;roads;maintenance,InContext,false,Spanish,es,Standard,Human,false,90%,true
+1173,University Video Portal,2022-05-13,2024-03-03,2903,transit@regional.gov,council;meeting;public,InContext,true,Spanish,es,Standard,Upload,true,99%,false
+1174,IT Services,2022-09-18,2024-01-12,382,environment@agency.gov,infrastructure;roads;maintenance,InContext,false,German,de,EAD,Upload,false,94%,false
+1175,Animal Services,2023-06-08,2024-06-30,409,info@municipal.gov,safety;routes;schedules,InContext,false,-,-,-,-,-,-,-
+1176,State Archives,2022-03-02,2024-07-30,784,admin@university.edu,infrastructure;roads;maintenance,InContext,true,English,en,EAD,Upload,false,94%,true
+1177,Job Training Center,2023-07-09,2024-09-25,698,education@state.gov,safety;training;emergency,InContext,false,English,en,EAD,Upload,false,92%,false
+1178,Workforce Development,2022-07-22,2024-02-24,1493,webmaster@city.gov,curriculum;math;science,InContext,true,German,de,EAD,Machine,true,91%,false
+1179,Job Training Center,2022-04-02,2024-03-22,2248,parks@county.gov,wellness;vaccination;covid,InContext,true,Mandarin,zh,Standard,Upload,false,97%,true
+1180,Family Services,2023-05-25,2024-06-01,422,archives@state.gov,lecture;biology;intro,InContext,true,French,fr,EAD,Upload,true,92%,true
+1181,Senior Center,2022-07-13,2024-06-28,1168,education@state.gov,orientation;students;campus,InContext,false,German,de,Standard,Upload,true,93%,true
+1182,Energy Efficiency,2023-01-07,2024-03-01,2901,works@city.gov,conservation;billing;services,InContext,true,English,en,Standard,Machine,true,99%,false
+1183,Energy Efficiency,2023-05-19,2024-08-25,2843,webmaster@city.gov,wellness;vaccination;covid,InContext,true,Mandarin,zh,EAD,Upload,false,94%,false
+1184,Community Outreach,2023-10-20,2024-01-31,787,transit@regional.gov,safety;training;emergency,InContext,false,Spanish,es,Standard,Human,false,98%,false
+1185,Municipal Services,2023-04-14,2024-05-02,1712,transit@regional.gov,benefits;healthcare;support,InContext,true,French,fr,EAD,Human,true,91%,false
+1186,Fire Department,2022-07-22,2024-02-24,796,info@municipal.gov,applications;assistance;programs,InContext,true,Mandarin,zh,Standard,Upload,false,96%,false
+1187,Code Enforcement,2023-09-11,2024-02-24,2433,health@county.gov,benefits;healthcare;support,InContext,false,German,de,Standard,Machine,false,95%,false
+1188,Transportation Dept,2022-01-03,2024-03-02,2928,library@public.org,conservation;recycling;climate,InContext,false,-,-,-,-,-,-,-
+1189,Tech College Online,2022-01-31,2024-04-29,1434,center@community.org,infrastructure;roads;maintenance,InContext,false,-,-,-,-,-,-,-
+1190,Public Utilities,2022-08-22,2024-01-03,1470,works@city.gov,applications;assistance;programs,InContext,false,Spanish,es,EAD,Upload,false,93%,true
+1191,Energy Efficiency,2023-06-13,2024-03-08,1464,library@public.org,benefits;healthcare;support,InContext,false,French,fr,Standard,Upload,false,95%,false
+1192,Community Center,2023-01-12,2024-05-13,103,online@techcollege.edu,conservation;recycling;climate,InContext,true,German,de,EAD,Human,false,93%,false
+1193,Parks and Recreation,2022-09-21,2024-03-21,2782,health@county.gov,programs;mentoring;education,InContext,false,Mandarin,zh,Standard,Machine,true,90%,false
+1194,Historic Preservation,2023-06-07,2024-09-16,977,online@techcollege.edu,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1195,Neighborhood Watch,2022-09-25,2024-09-01,2825,parks@county.gov,curriculum;math;science,InContext,false,-,-,-,-,-,-,-
+1196,State Archives,2022-07-29,2024-03-11,2984,transit@regional.gov,events;classes;seniors,InContext,false,-,-,-,-,-,-,-
+1197,Historic Preservation,2022-01-19,2024-01-18,2021,library@public.org,wellness;vaccination;covid,InContext,false,German,de,EAD,Upload,false,94%,false
+1198,School District Media,2022-12-27,2024-07-01,599,info@municipal.gov,programs;sports;community,InContext,false,-,-,-,-,-,-,-
+1199,Disability Services,2022-10-28,2024-02-08,2468,center@community.org,tutorial;reading;kids,InContext,false,-,-,-,-,-,-,-
+1200,Public Utilities,2022-04-16,2024-07-09,637,fire@city.gov,programs;mentoring;education,InContext,true,Mandarin,zh,Standard,Upload,false,94%,true
+1201,Stormwater Management,2023-09-04,2024-09-22,1921,district@schools.edu,training;teachers;professional,InContext,false,-,-,-,-,-,-,-
+1202,Code Enforcement,2023-05-30,2024-02-15,1671,webmaster@city.gov,conservation;billing;services,InContext,true,German,de,Standard,Machine,true,90%,true
+1203,City Government Channel,2022-06-29,2024-06-17,1476,library@public.org,safety;routes;schedules,InContext,false,-,-,-,-,-,-,-
+1204,County Health Dept,2022-10-10,2024-05-04,610,youth@services.org,programs;mentoring;education,InContext,true,Arabic,ar,Standard,Human,false,90%,false
+1205,Recycling Program,2022-01-23,2024-01-28,2259,va@veterans.gov,benefits;healthcare;support,InContext,true,Arabic,ar,Standard,Human,false,90%,false
+1206,Energy Efficiency,2023-05-18,2024-10-13,1003,admin@university.edu,council;meeting;public,InContext,false,Arabic,ar,EAD,Upload,false,98%,true
+1207,Fire Department,2023-07-26,2024-03-17,368,online@techcollege.edu,benefits;healthcare;support,InContext,true,Mandarin,zh,EAD,Upload,false,96%,false
+1208,University Video Portal,2023-04-17,2024-07-15,862,works@city.gov,conservation;recycling;climate,InContext,false,-,-,-,-,-,-,-
+1209,Human Resources,2022-02-09,2024-06-25,1353,media@college.edu,conservation;recycling;climate,InContext,false,French,fr,Standard,Upload,false,91%,true
+1210,Veterans Affairs,2023-07-06,2024-01-28,1720,works@city.gov,training;teachers;professional,InContext,false,-,-,-,-,-,-,-
+1211,Tech College Online,2022-02-21,2024-04-18,2929,webmaster@city.gov,applications;assistance;programs,InContext,false,Arabic,ar,Standard,Human,false,100%,true
+1212,Housing Authority,2022-10-11,2024-03-13,798,environment@agency.gov,curriculum;math;science,InContext,true,German,de,EAD,Human,true,90%,true
+1213,University Video Portal,2023-02-20,2024-08-23,181,parks@county.gov,orientation;students;campus,InContext,false,-,-,-,-,-,-,-
+1214,Water District,2022-08-04,2024-09-09,2981,transit@regional.gov,history;documents;preservation,InContext,true,Mandarin,zh,EAD,Machine,false,100%,false
+1215,School District Media,2022-12-29,2024-05-26,920,archives@state.gov,infrastructure;roads;maintenance,InContext,false,German,de,Standard,Human,false,94%,true
+1216,Municipal Services,2022-12-29,2024-06-18,1095,archives@state.gov,courses;programming;certificates,InContext,true,English,en,EAD,Upload,false,97%,true
+1217,Economic Development,2022-09-06,2024-07-18,1072,library@public.org,tutorial;reading;kids,InContext,false,-,-,-,-,-,-,-
+1218,Recycling Program,2022-08-06,2024-09-23,1616,water@district.gov,training;teachers;professional,InContext,true,Arabic,ar,Standard,Human,true,99%,true
+1219,Tech College Online,2022-11-22,2024-03-24,1026,health@county.gov,safety;training;emergency,InContext,true,Spanish,es,EAD,Machine,false,95%,false
+1220,Regional Transit Auth,2022-05-14,2024-05-19,1586,parks@county.gov,tutorial;reading;kids,InContext,false,-,-,-,-,-,-,-
+1221,Public Information,2022-03-21,2024-02-12,2339,transit@regional.gov,conservation;billing;services,InContext,false,-,-,-,-,-,-,-
+1222,Historic Preservation,2023-05-08,2024-01-24,1865,housing@authority.gov,applications;assistance;programs,InContext,false,German,de,EAD,Machine,false,93%,false
+1223,Fire Department,2022-10-06,2024-04-24,2696,transit@regional.gov,infrastructure;roads;maintenance,InContext,false,Mandarin,zh,Standard,Machine,false,91%,true
+1224,State Archives,2022-10-16,2024-04-06,857,district@schools.edu,benefits;healthcare;support,InContext,false,-,-,-,-,-,-,-
+1225,Stormwater Management,2023-01-31,2024-09-13,2564,district@schools.edu,conservation;billing;services,InContext,false,French,fr,Standard,Upload,true,95%,true
+1226,Public Works Dept,2022-03-09,2024-02-04,841,va@veterans.gov,wellness;vaccination;covid,InContext,false,-,-,-,-,-,-,-
+1227,Disability Services,2023-09-13,2024-07-06,1506,center@community.org,applications;assistance;programs,InContext,true,Spanish,es,EAD,Human,true,99%,false
+1228,State Archives,2023-10-17,2024-07-08,1779,fire@city.gov,safety;training;emergency,InContext,false,English,en,EAD,Machine,true,100%,true
+1229,Housing Authority,2022-09-03,2024-02-09,1384,library@public.org,training;teachers;professional,InContext,false,English,en,Standard,Machine,true,100%,false
+1230,Adult Education Center,2023-10-06,2024-01-10,189,transit@regional.gov,training;teachers;professional,InContext,false,French,fr,Standard,Human,false,93%,false
+1231,State Archives,2022-01-10,2024-09-21,2650,works@city.gov,tutorial;reading;kids,InContext,true,Arabic,ar,EAD,Machine,false,99%,true
+1232,Community Outreach,2022-01-11,2024-03-23,2823,webmaster@city.gov,wellness;vaccination;covid,InContext,false,-,-,-,-,-,-,-
+1233,Building Dept,2022-04-26,2024-04-12,2195,online@techcollege.edu,council;meeting;public,InContext,true,German,de,EAD,Machine,false,94%,true
+1234,Cultural Center,2022-01-07,2024-04-29,2275,youth@services.org,conservation;recycling;climate,InContext,false,-,-,-,-,-,-,-
+1235,Code Enforcement,2023-02-18,2024-05-09,1737,transit@regional.gov,lecture;biology;intro,InContext,false,-,-,-,-,-,-,-
+1236,Community College,2022-01-11,2024-01-14,708,fire@city.gov,curriculum;math;science,InContext,true,German,de,Standard,Machine,false,90%,true
+1237,Public Utilities,2022-06-29,2024-04-13,1642,youth@services.org,council;meeting;public,InContext,false,-,-,-,-,-,-,-
+1238,State Archives,2023-07-01,2024-04-15,1664,info@municipal.gov,orientation;students;campus,InContext,false,-,-,-,-,-,-,-
+1239,School District Media,2023-08-07,2024-10-20,1514,transit@regional.gov,conservation;recycling;climate,InContext,false,Spanish,es,EAD,Human,false,93%,true
+1240,Parks and Recreation,2023-10-20,2024-06-27,2275,parks@county.gov,council;meeting;public,InContext,false,-,-,-,-,-,-,-
+1241,Cultural Center,2023-05-09,2024-04-14,1326,parks@county.gov,conservation;recycling;climate,InContext,true,Mandarin,zh,EAD,Human,false,90%,false
+1242,School District Media,2023-06-28,2024-08-17,328,youth@services.org,applications;assistance;programs,InContext,true,English,en,EAD,Upload,false,97%,false
+1243,Business Licensing,2023-10-13,2024-03-03,1835,transit@regional.gov,infrastructure;roads;maintenance,InContext,true,English,en,EAD,Machine,true,92%,true
+1244,Public Works Dept,2022-11-01,2024-09-24,2189,info@municipal.gov,safety;training;emergency,InContext,true,English,en,Standard,Human,true,95%,true
+1245,Family Services,2023-01-26,2024-06-17,2658,district@schools.edu,events;classes;seniors,InContext,false,-,-,-,-,-,-,-
+1246,Adult Education Center,2022-08-28,2024-05-05,352,admin@university.edu,courses;programming;certificates,InContext,true,Spanish,es,Standard,Machine,false,91%,false
+1247,Disability Services,2022-04-19,2024-07-12,375,archives@state.gov,training;teachers;professional,InContext,false,German,de,EAD,Human,true,96%,true
+1248,County Health Dept,2023-04-23,2024-04-26,1026,water@district.gov,conservation;billing;services,InContext,true,Spanish,es,Standard,Machine,false,93%,true
+1249,Job Training Center,2022-12-08,2024-05-17,926,webmaster@city.gov,lecture;biology;intro,InContext,true,Arabic,ar,EAD,Human,true,95%,false
+1250,Code Enforcement,2022-07-14,2024-02-11,2638,webmaster@city.gov,safety;routes;schedules,InContext,false,-,-,-,-,-,-,-
+1251,Energy Efficiency,2022-11-02,2024-07-18,2588,district@schools.edu,services;permits;applications,InContext,false,English,en,Standard,Machine,true,92%,false
+1252,Environmental Agency,2022-06-05,2024-06-13,2166,va@veterans.gov,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1253,Human Resources,2022-01-09,2024-09-18,1842,media@college.edu,infrastructure;roads;maintenance,InContext,false,Mandarin,zh,Standard,Human,false,98%,true
+1254,Community Outreach,2023-08-22,2024-08-01,322,environment@agency.gov,lecture;biology;intro,InContext,true,Spanish,es,Standard,Upload,true,99%,false
+1255,Business Licensing,2023-10-26,2024-02-04,2251,parks@county.gov,applications;assistance;programs,InContext,false,English,en,EAD,Human,false,94%,true
+1256,School District Media,2022-09-09,2024-10-16,558,water@district.gov,training;teachers;professional,InContext,false,English,en,Standard,Human,false,96%,false
+1257,Adult Education Center,2023-08-10,2024-10-23,101,center@community.org,wellness;vaccination;covid,InContext,true,German,de,Standard,Machine,true,100%,true
+1258,Social Services,2022-01-04,2024-02-05,2816,transit@regional.gov,wellness;vaccination;covid,InContext,false,French,fr,EAD,Human,false,91%,false
+1259,Family Services,2022-05-06,2024-05-02,264,works@city.gov,curriculum;math;science,InContext,false,Arabic,ar,EAD,Human,false,91%,false
+1260,Adult Education Center,2022-01-16,2024-07-07,593,transit@regional.gov,training;teachers;professional,InContext,true,Mandarin,zh,Standard,Human,false,100%,false
+1261,Social Services,2023-09-24,2024-09-23,1651,parks@county.gov,council;meeting;public,InContext,true,English,en,EAD,Upload,true,97%,true
+1262,Disability Services,2022-06-09,2024-05-15,1073,webmaster@city.gov,services;permits;applications,InContext,false,German,de,Standard,Machine,false,100%,true
+1263,Volunteer Services,2023-03-18,2024-08-27,1525,housing@authority.gov,safety;routes;schedules,InContext,false,-,-,-,-,-,-,-
+1264,County Health Dept,2022-04-19,2024-08-10,1340,housing@authority.gov,services;permits;applications,InContext,false,-,-,-,-,-,-,-
+1265,Family Services,2023-06-14,2024-03-04,1754,works@city.gov,safety;routes;schedules,InContext,false,-,-,-,-,-,-,-
+1266,Planning Commission,2022-01-11,2024-09-19,1700,youth@services.org,safety;routes;schedules,InContext,false,-,-,-,-,-,-,-
+1267,State Archives,2023-08-15,2024-05-31,1797,library@public.org,history;documents;preservation,InContext,false,-,-,-,-,-,-,-
+1268,City Government Channel,2022-05-25,2024-08-14,1683,health@county.gov,events;classes;seniors,InContext,false,English,en,Standard,Upload,false,96%,true
+1269,Recycling Program,2022-08-20,2024-08-27,2732,youth@services.org,history;documents;preservation,InContext,false,French,fr,Standard,Human,true,94%,false
+1270,Stormwater Management,2023-03-22,2024-02-20,1730,water@district.gov,safety;routes;schedules,InContext,false,-,-,-,-,-,-,-
+1271,Community Center,2023-07-31,2024-09-11,906,webmaster@city.gov,curriculum;math;science,InContext,false,English,en,Standard,Human,false,99%,true
+1272,State Archives,2022-07-28,2024-07-17,387,webmaster@city.gov,applications;assistance;programs,InContext,false,English,en,Standard,Upload,false,90%,false
+1273,Business Licensing,2022-11-14,2024-03-05,1148,works@city.gov,courses;programming;certificates,InContext,false,German,de,EAD,Upload,false,98%,true
+1274,Community College,2022-08-24,2024-08-06,604,va@veterans.gov,applications;assistance;programs,InContext,true,German,de,Standard,Upload,true,90%,false
+1275,IT Services,2022-10-22,2024-01-23,1362,youth@services.org,programs;mentoring;education,InContext,false,English,en,Standard,Machine,true,91%,false
+1276,Municipal Services,2022-04-10,2024-05-22,562,parks@county.gov,services;permits;applications,InContext,true,Arabic,ar,Standard,Upload,false,96%,true
+1277,Fleet Management,2022-04-10,2024-09-13,712,webmaster@city.gov,applications;assistance;programs,InContext,false,German,de,EAD,Machine,false,96%,false
+1278,State Education Dept,2022-11-30,2024-02-10,379,environment@agency.gov,conservation;billing;services,InContext,false,-,-,-,-,-,-,-
+1279,Tech College Online,2023-03-13,2024-09-02,2639,youth@services.org,benefits;healthcare;support,InContext,false,-,-,-,-,-,-,-
+1280,Neighborhood Watch,2022-12-15,2024-06-30,1387,district@schools.edu,safety;training;emergency,InContext,false,Arabic,ar,Standard,Upload,false,92%,true
+1281,Public Utilities,2022-08-02,2024-01-29,1079,admin@university.edu,tutorial;reading;kids,InContext,false,Arabic,ar,Standard,Human,false,96%,false
+1282,Job Training Center,2022-06-17,2024-09-24,53,environment@agency.gov,training;teachers;professional,InContext,true,English,en,EAD,Upload,true,94%,true
+1283,Parks and Recreation,2022-07-30,2024-10-15,667,transit@regional.gov,conservation;billing;services,InContext,false,-,-,-,-,-,-,-
+1284,IT Services,2023-04-21,2024-08-21,1886,media@college.edu,safety;routes;schedules,InContext,true,French,fr,Standard,Machine,false,91%,true
+1285,Public Library Media,2023-10-24,2024-09-07,1924,media@college.edu,events;classes;seniors,InContext,false,German,de,Standard,Upload,false,92%,true
+1286,State Archives,2022-01-04,2024-04-26,1926,environment@agency.gov,programs;mentoring;education,InContext,false,Spanish,es,EAD,Machine,false,97%,false
+1287,Water District,2022-02-01,2024-01-26,2572,environment@agency.gov,benefits;healthcare;support,InContext,false,Spanish,es,Standard,Human,true,91%,false
+1288,Community Center,2023-01-03,2024-04-16,1730,info@municipal.gov,wellness;vaccination;covid,InContext,true,Mandarin,zh,EAD,Machine,true,93%,false
+1289,Senior Center,2022-05-01,2024-02-11,2885,works@city.gov,training;teachers;professional,InContext,false,German,de,Standard,Upload,false,94%,false
+1290,Energy Efficiency,2022-10-05,2024-01-02,1404,fire@city.gov,safety;routes;schedules,InContext,true,German,de,EAD,Upload,true,95%,true
+1291,Environmental Agency,2022-06-11,2024-06-06,2403,admin@university.edu,curriculum;math;science,InContext,false,-,-,-,-,-,-,-
+1292,Business Licensing,2023-05-21,2024-01-30,2502,youth@services.org,orientation;students;campus,InContext,false,-,-,-,-,-,-,-
+1293,Disability Services,2022-03-03,2024-04-30,2332,housing@authority.gov,services;permits;applications,InContext,true,Mandarin,zh,Standard,Human,false,90%,true
+1294,Community Center,2022-09-14,2024-07-11,1060,webmaster@city.gov,programs;sports;community,InContext,false,Spanish,es,Standard,Upload,false,98%,false
+1295,Job Training Center,2023-01-15,2024-04-04,1506,center@community.org,conservation;recycling;climate,InContext,false,French,fr,Standard,Upload,false,99%,true
+1296,Cultural Center,2023-09-22,2024-04-16,2261,webmaster@city.gov,applications;assistance;programs,InContext,true,English,en,Standard,Machine,false,100%,false
+1297,Volunteer Services,2023-10-14,2024-10-12,1577,works@city.gov,conservation;billing;services,InContext,true,Arabic,ar,Standard,Machine,true,91%,true
+1298,County Health Dept,2022-06-20,2024-03-11,121,online@techcollege.edu,history;documents;preservation,InContext,true,German,de,Standard,Upload,true,98%,false
+1299,Social Services,2022-08-18,2024-10-24,2805,webmaster@city.gov,safety;routes;schedules,InContext,false,-,-,-,-,-,-,-
+1300,Building Dept,2022-09-29,2024-02-04,2542,parks@county.gov,services;permits;applications,InContext,false,German,de,EAD,Machine,false,95%,true
+1301,School District Media,2022-06-15,2024-07-27,2744,health@county.gov,history;documents;preservation,InContext,false,-,-,-,-,-,-,-
+1302,Municipal Services,2022-12-30,2024-03-01,367,center@community.org,infrastructure;roads;maintenance,InContext,false,Spanish,es,Standard,Upload,false,94%,false
+1303,Planning Commission,2022-07-20,2024-09-17,329,media@college.edu,events;classes;seniors,InContext,true,Mandarin,zh,Standard,Machine,true,99%,false
+1304,City Government Channel,2022-11-17,2024-05-30,1929,va@veterans.gov,programs;mentoring;education,InContext,false,Arabic,ar,EAD,Machine,true,98%,true
+1305,Adult Education Center,2022-10-22,2024-10-01,1800,info@municipal.gov,lecture;biology;intro,InContext,false,-,-,-,-,-,-,-
+1306,Community College,2023-03-12,2024-04-13,355,admin@university.edu,infrastructure;roads;maintenance,InContext,false,-,-,-,-,-,-,-
+1307,Veterans Affairs,2022-02-22,2024-05-19,2506,info@municipal.gov,programs;sports;community,InContext,false,Arabic,ar,Standard,Human,true,99%,false
+1308,Job Training Center,2023-01-12,2024-10-13,1741,va@veterans.gov,wellness;vaccination;covid,InContext,true,Mandarin,zh,Standard,Machine,false,91%,false
+1309,Economic Development,2023-01-07,2024-09-12,2656,library@public.org,conservation;recycling;climate,InContext,false,French,fr,EAD,Upload,false,94%,false
+1310,City Government Channel,2022-08-27,2024-08-22,1447,district@schools.edu,programs;mentoring;education,InContext,false,Arabic,ar,EAD,Human,false,100%,false
+1311,Municipal Services,2023-09-15,2024-06-18,2154,transit@regional.gov,tutorial;reading;kids,InContext,false,-,-,-,-,-,-,-
+1312,School District Media,2023-07-17,2024-06-20,1030,fire@city.gov,safety;training;emergency,InContext,true,Arabic,ar,EAD,Upload,true,90%,true
+1313,Stormwater Management,2022-06-08,2024-02-28,1768,transit@regional.gov,benefits;healthcare;support,InContext,false,-,-,-,-,-,-,-
+1314,Environmental Agency,2022-06-03,2024-09-27,400,environment@agency.gov,conservation;billing;services,InContext,false,English,en,Standard,Upload,false,98%,false
+1315,County Health Dept,2022-04-07,2024-09-16,1695,transit@regional.gov,lecture;biology;intro,InContext,true,Spanish,es,EAD,Machine,false,91%,false
+1316,Public Library Media,2023-09-10,2024-10-25,697,works@city.gov,conservation;billing;services,InContext,false,-,-,-,-,-,-,-
+1317,Workforce Development,2023-06-10,2024-10-24,2229,water@district.gov,conservation;recycling;climate,InContext,false,German,de,EAD,Machine,false,98%,true
+1318,Family Services,2022-11-29,2024-08-26,1867,works@city.gov,services;permits;applications,InContext,true,Mandarin,zh,EAD,Human,false,93%,false
+1319,School District Media,2022-04-05,2024-08-19,903,district@schools.edu,courses;programming;certificates,InContext,false,-,-,-,-,-,-,-
+1320,IT Services,2023-08-03,2024-05-22,2574,environment@agency.gov,curriculum;math;science,InContext,false,-,-,-,-,-,-,-
+1321,Public Library Media,2023-03-08,2024-06-10,2903,online@techcollege.edu,orientation;students;campus,InContext,false,-,-,-,-,-,-,-
+1322,Community Center,2023-05-03,2024-09-24,2499,center@community.org,courses;programming;certificates,InContext,false,German,de,EAD,Machine,false,94%,true
+1323,Public Library Media,2022-02-09,2024-10-03,1695,environment@agency.gov,conservation;recycling;climate,InContext,false,-,-,-,-,-,-,-
+1324,Job Training Center,2022-05-04,2024-01-17,1039,center@community.org,conservation;billing;services,InContext,true,English,en,Standard,Machine,false,91%,false
+1325,Stormwater Management,2023-05-01,2024-01-27,2353,admin@university.edu,wellness;vaccination;covid,InContext,true,Mandarin,zh,Standard,Human,false,93%,true
+1326,Economic Development,2022-01-19,2024-09-16,2987,media@college.edu,safety;training;emergency,InContext,false,-,-,-,-,-,-,-
+1327,Senior Center,2023-04-11,2024-02-27,2569,admin@university.edu,services;permits;applications,InContext,false,-,-,-,-,-,-,-
+1328,County Health Dept,2022-03-04,2024-03-23,2719,library@public.org,training;teachers;professional,InContext,true,Spanish,es,EAD,Upload,false,98%,true
+1329,Community Outreach,2022-01-31,2024-01-11,1040,online@techcollege.edu,conservation;billing;services,InContext,false,Arabic,ar,EAD,Upload,false,100%,false
+1330,State Education Dept,2023-01-22,2024-01-11,356,va@veterans.gov,conservation;billing;services,InContext,false,-,-,-,-,-,-,-
+1331,City Government Channel,2023-01-11,2024-07-24,871,parks@county.gov,benefits;healthcare;support,InContext,false,French,fr,EAD,Upload,false,93%,false
+1332,City Government Channel,2023-08-31,2024-09-26,1969,health@county.gov,conservation;recycling;climate,InContext,false,-,-,-,-,-,-,-
+1333,Public Information,2023-03-01,2024-03-16,2136,district@schools.edu,curriculum;math;science,InContext,true,French,fr,Standard,Human,false,95%,false
+1334,State Education Dept,2022-09-17,2024-08-23,1191,transit@regional.gov,tutorial;reading;kids,InContext,false,-,-,-,-,-,-,-
+1335,Veterans Affairs,2022-08-09,2024-09-08,1015,housing@authority.gov,curriculum;math;science,InContext,false,Mandarin,zh,Standard,Machine,true,94%,true
+1336,Social Services,2022-01-24,2024-10-09,2660,media@college.edu,courses;programming;certificates,InContext,true,English,en,EAD,Human,true,99%,false
+1337,IT Services,2023-08-12,2024-03-05,2822,parks@county.gov,applications;assistance;programs,InContext,false,-,-,-,-,-,-,-
+1338,Community Center,2023-03-15,2024-10-08,2805,housing@authority.gov,courses;programming;certificates,InContext,true,Spanish,es,Standard,Machine,true,93%,false
+1339,Energy Efficiency,2023-05-30,2024-06-20,500,admin@university.edu,curriculum;math;science,InContext,true,French,fr,EAD,Human,false,98%,false
+1340,Human Resources,2023-07-16,2024-10-27,2794,media@college.edu,wellness;vaccination;covid,InContext,true,French,fr,Standard,Human,true,99%,true
+1341,Housing Authority,2023-03-14,2024-02-27,447,media@college.edu,conservation;billing;services,InContext,false,Spanish,es,EAD,Human,false,94%,true
+1342,Grant Administration,2023-07-04,2024-09-27,1388,housing@authority.gov,benefits;healthcare;support,InContext,true,Mandarin,zh,EAD,Human,false,99%,true
+1343,State Archives,2023-08-08,2024-09-20,1528,admin@university.edu,benefits;healthcare;support,InContext,false,-,-,-,-,-,-,-
+1344,Job Training Center,2022-08-03,2024-07-11,2872,va@veterans.gov,programs;sports;community,InContext,false,-,-,-,-,-,-,-
+1345,Planning Commission,2023-08-08,2024-02-09,2639,environment@agency.gov,services;permits;applications,InContext,false,-,-,-,-,-,-,-
+1346,Water District,2023-09-16,2024-04-04,1290,environment@agency.gov,council;meeting;public,InContext,false,English,en,Standard,Upload,false,96%,true
+1347,Planning Commission,2023-07-18,2024-02-24,2352,housing@authority.gov,lecture;biology;intro,InContext,true,Spanish,es,EAD,Machine,true,92%,true
+1348,Fleet Management,2022-01-08,2024-03-22,2330,library@public.org,conservation;billing;services,InContext,true,German,de,EAD,Machine,false,99%,false
+1349,State Archives,2023-08-15,2024-04-21,906,education@state.gov,applications;assistance;programs,InContext,true,German,de,Standard,Upload,true,95%,true
+1350,Senior Center,2022-04-29,2024-03-12,2180,library@public.org,events;classes;seniors,InContext,false,-,-,-,-,-,-,-
+1351,County Health Dept,2022-01-15,2024-02-26,288,housing@authority.gov,wellness;vaccination;covid,InContext,true,Spanish,es,EAD,Human,true,99%,false
+1352,Social Services,2022-10-09,2024-04-02,2759,environment@agency.gov,benefits;healthcare;support,InContext,true,French,fr,Standard,Upload,true,93%,true
+1353,Housing Authority,2023-05-31,2024-07-06,2375,archives@state.gov,programs;mentoring;education,InContext,false,Spanish,es,EAD,Upload,true,91%,true
+1354,State Archives,2022-08-08,2024-07-10,1940,water@district.gov,safety;routes;schedules,InContext,false,Mandarin,zh,EAD,Machine,true,92%,false
+1355,Animal Services,2022-07-01,2024-07-09,451,admin@university.edu,courses;programming;certificates,InContext,false,Mandarin,zh,Standard,Human,true,93%,false
+1356,Public Information,2023-08-09,2024-03-09,2921,fire@city.gov,programs;sports;community,InContext,true,Arabic,ar,Standard,Machine,false,92%,false
+1357,Community Outreach,2022-06-12,2024-01-12,243,education@state.gov,services;permits;applications,InContext,false,-,-,-,-,-,-,-
+1358,Fleet Management,2022-01-26,2024-08-26,154,health@county.gov,benefits;healthcare;support,InContext,false,Spanish,es,Standard,Human,false,91%,false
+1359,Municipal Services,2023-05-04,2024-09-10,1781,parks@county.gov,safety;routes;schedules,InContext,false,-,-,-,-,-,-,-
+1360,Parks and Recreation,2023-08-06,2024-06-21,1403,center@community.org,events;classes;seniors,InContext,true,Arabic,ar,Standard,Machine,false,93%,true
+1361,Animal Services,2022-08-11,2024-03-03,141,water@district.gov,tutorial;reading;kids,InContext,false,German,de,Standard,Human,true,92%,true
+1362,Workforce Development,2022-08-07,2024-01-23,1876,library@public.org,safety;training;emergency,InContext,true,Arabic,ar,EAD,Human,true,98%,false
+1363,Neighborhood Watch,2022-05-25,2024-04-13,677,health@county.gov,lecture;biology;intro,InContext,false,-,-,-,-,-,-,-
+1364,Community Outreach,2023-02-18,2024-01-14,2479,housing@authority.gov,events;classes;seniors,InContext,false,Mandarin,zh,Standard,Machine,true,97%,false
+1365,Energy Efficiency,2023-08-13,2024-03-07,172,environment@agency.gov,safety;routes;schedules,InContext,true,Mandarin,zh,Standard,Upload,true,99%,false
+1366,Energy Efficiency,2023-10-06,2024-07-09,1385,center@community.org,applications;assistance;programs,InContext,false,-,-,-,-,-,-,-
+1367,County Health Dept,2023-04-27,2024-03-21,845,housing@authority.gov,lecture;biology;intro,InContext,true,English,en,EAD,Human,false,90%,false
+1368,Youth Services,2022-08-31,2024-04-13,1983,district@schools.edu,applications;assistance;programs,InContext,true,Arabic,ar,Standard,Upload,true,95%,true
+1369,Neighborhood Watch,2022-05-22,2024-06-26,1607,admin@university.edu,applications;assistance;programs,InContext,false,Arabic,ar,Standard,Human,false,98%,false
+1370,Public Library Media,2022-01-13,2024-09-14,2145,environment@agency.gov,applications;assistance;programs,InContext,false,French,fr,Standard,Upload,true,100%,false
+1371,Business Licensing,2023-06-08,2024-08-24,1153,education@state.gov,orientation;students;campus,InContext,true,German,de,EAD,Human,true,97%,true
+1372,Family Services,2023-03-01,2024-07-15,1423,media@college.edu,tutorial;reading;kids,InContext,false,-,-,-,-,-,-,-
+1373,State Education Dept,2022-10-05,2024-04-19,1972,housing@authority.gov,courses;programming;certificates,InContext,true,Spanish,es,EAD,Machine,true,91%,false
+1374,Transportation Dept,2023-08-13,2024-10-21,2892,youth@services.org,history;documents;preservation,InContext,false,-,-,-,-,-,-,-
+1375,Transportation Dept,2023-10-01,2024-05-25,1334,transit@regional.gov,applications;assistance;programs,InContext,false,-,-,-,-,-,-,-
+1376,Animal Services,2023-08-25,2024-08-28,706,va@veterans.gov,programs;sports;community,InContext,true,German,de,Standard,Machine,false,99%,false
+1377,Public Library Media,2022-08-21,2024-08-10,2228,district@schools.edu,infrastructure;roads;maintenance,InContext,false,English,en,Standard,Human,true,97%,false
+1378,Emergency Management,2023-03-15,2024-02-08,1515,housing@authority.gov,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1379,Public Information,2022-10-25,2024-04-19,238,library@public.org,lecture;biology;intro,InContext,false,-,-,-,-,-,-,-
+1380,Parks and Recreation,2023-04-14,2024-05-03,1914,fire@city.gov,tutorial;reading;kids,InContext,false,Spanish,es,EAD,Human,true,93%,false
+1381,Water District,2022-09-04,2024-07-03,857,online@techcollege.edu,lecture;biology;intro,InContext,false,Arabic,ar,EAD,Upload,false,96%,false
+1382,Building Dept,2022-07-29,2024-02-21,1130,environment@agency.gov,conservation;billing;services,InContext,true,German,de,Standard,Machine,true,98%,true
+1383,State Archives,2023-08-05,2024-03-08,1242,library@public.org,safety;training;emergency,InContext,false,Arabic,ar,EAD,Human,true,92%,false
+1384,Family Services,2023-08-13,2024-07-08,2116,health@county.gov,courses;programming;certificates,InContext,false,Spanish,es,EAD,Machine,false,94%,true
+1385,Public Works Dept,2022-06-13,2024-09-10,767,archives@state.gov,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1386,Building Dept,2022-05-20,2024-01-31,352,transit@regional.gov,courses;programming;certificates,InContext,true,French,fr,EAD,Upload,false,98%,true
+1387,Human Resources,2023-08-12,2024-05-12,918,youth@services.org,benefits;healthcare;support,InContext,true,Spanish,es,EAD,Human,true,93%,true
+1388,Cultural Center,2022-03-13,2024-06-12,125,youth@services.org,history;documents;preservation,InContext,false,-,-,-,-,-,-,-
+1389,Adult Education Center,2023-06-28,2024-06-02,929,va@veterans.gov,courses;programming;certificates,InContext,false,English,en,Standard,Human,true,97%,true
+1390,Volunteer Services,2022-03-28,2024-06-20,57,works@city.gov,wellness;vaccination;covid,InContext,false,-,-,-,-,-,-,-
+1391,University Video Portal,2022-10-02,2024-09-28,2121,transit@regional.gov,safety;training;emergency,InContext,false,-,-,-,-,-,-,-
+1392,Municipal Services,2022-09-13,2024-07-20,2812,archives@state.gov,services;permits;applications,InContext,false,-,-,-,-,-,-,-
+1393,Community College,2023-10-04,2024-06-23,1743,admin@university.edu,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1394,Public Information,2022-09-13,2024-05-26,890,admin@university.edu,lecture;biology;intro,InContext,false,Arabic,ar,EAD,Upload,false,95%,true
+1395,County Health Dept,2022-12-26,2024-05-17,1078,education@state.gov,council;meeting;public,InContext,false,Arabic,ar,EAD,Machine,false,94%,false
+1396,Fleet Management,2022-06-11,2024-05-03,2633,transit@regional.gov,orientation;students;campus,InContext,false,Mandarin,zh,Standard,Machine,true,98%,false
+1397,Animal Services,2022-08-08,2024-04-14,2914,online@techcollege.edu,lecture;biology;intro,InContext,false,Spanish,es,Standard,Machine,true,90%,false
+1398,Regional Transit Auth,2023-09-22,2024-03-06,1324,center@community.org,training;teachers;professional,InContext,false,-,-,-,-,-,-,-
+1399,Tech College Online,2023-05-17,2024-06-15,2905,water@district.gov,courses;programming;certificates,InContext,true,English,en,Standard,Human,true,96%,true
+1400,Business Licensing,2023-07-18,2024-08-28,1734,district@schools.edu,infrastructure;roads;maintenance,InContext,false,Mandarin,zh,EAD,Human,false,100%,true
+1401,Senior Center,2022-03-21,2024-02-25,400,library@public.org,training;teachers;professional,InContext,false,Spanish,es,EAD,Upload,false,93%,false
+1402,Neighborhood Watch,2023-09-03,2024-10-01,1070,fire@city.gov,wellness;vaccination;covid,InContext,false,Mandarin,zh,Standard,Upload,true,96%,false
+1403,Community Center,2023-07-13,2024-08-24,1956,transit@regional.gov,safety;training;emergency,InContext,true,Mandarin,zh,EAD,Upload,true,93%,false
+1404,Youth Services,2022-10-26,2024-08-28,2519,admin@university.edu,council;meeting;public,InContext,false,-,-,-,-,-,-,-
+1405,Regional Transit Auth,2023-07-05,2024-10-19,2986,water@district.gov,courses;programming;certificates,InContext,false,-,-,-,-,-,-,-
+1406,Code Enforcement,2023-04-01,2024-04-22,1850,library@public.org,council;meeting;public,InContext,true,Arabic,ar,Standard,Machine,false,92%,true
+1407,Volunteer Services,2022-11-15,2024-05-19,2365,admin@university.edu,events;classes;seniors,InContext,false,Mandarin,zh,Standard,Human,true,91%,true
+1408,Parks and Recreation,2023-05-04,2024-04-21,813,education@state.gov,lecture;biology;intro,InContext,false,Mandarin,zh,EAD,Upload,false,95%,false
+1409,Emergency Management,2023-07-17,2024-04-08,1324,admin@university.edu,wellness;vaccination;covid,InContext,false,-,-,-,-,-,-,-
+1410,Water District,2023-05-22,2024-09-17,2592,fire@city.gov,history;documents;preservation,InContext,true,German,de,Standard,Upload,true,99%,false
+1411,Environmental Agency,2022-11-17,2024-08-05,2361,media@college.edu,programs;mentoring;education,InContext,true,Arabic,ar,Standard,Upload,true,97%,false
+1412,Planning Commission,2022-11-10,2024-03-15,1351,environment@agency.gov,events;classes;seniors,InContext,true,Mandarin,zh,EAD,Machine,false,99%,false
+1413,Neighborhood Watch,2022-10-15,2024-08-08,1607,online@techcollege.edu,wellness;vaccination;covid,InContext,false,-,-,-,-,-,-,-
+1414,Housing Authority,2023-02-21,2024-10-18,934,health@county.gov,tutorial;reading;kids,InContext,false,-,-,-,-,-,-,-
+1415,Business Licensing,2023-09-26,2024-01-10,1105,health@county.gov,safety;routes;schedules,InContext,false,-,-,-,-,-,-,-
+1416,State Archives,2022-04-30,2024-09-22,449,center@community.org,services;permits;applications,InContext,false,German,de,Standard,Machine,false,90%,true
+1417,Fleet Management,2023-01-18,2024-03-27,1416,va@veterans.gov,applications;assistance;programs,InContext,false,German,de,Standard,Upload,true,100%,true
+1418,School District Media,2023-07-31,2024-02-14,343,webmaster@city.gov,curriculum;math;science,InContext,true,Mandarin,zh,Standard,Human,false,93%,true
+1419,IT Services,2023-05-23,2024-01-14,2339,environment@agency.gov,benefits;healthcare;support,InContext,false,French,fr,Standard,Machine,false,92%,false
+1420,Parks and Recreation,2023-03-29,2024-08-05,571,youth@services.org,council;meeting;public,InContext,false,-,-,-,-,-,-,-
+1421,Community College,2022-06-20,2024-01-22,2214,works@city.gov,training;teachers;professional,InContext,true,Arabic,ar,Standard,Human,false,93%,false
+1422,IT Services,2023-02-13,2024-08-27,1261,works@city.gov,safety;routes;schedules,InContext,false,-,-,-,-,-,-,-
+1423,Stormwater Management,2023-10-25,2024-01-22,1857,district@schools.edu,safety;training;emergency,InContext,true,Arabic,ar,EAD,Machine,true,100%,true
+1424,Business Licensing,2022-09-22,2024-08-24,2167,archives@state.gov,conservation;billing;services,InContext,true,Arabic,ar,EAD,Machine,false,90%,true
+1425,Community College,2022-12-20,2024-01-02,2468,library@public.org,lecture;biology;intro,InContext,true,German,de,Standard,Machine,true,90%,true
+1426,County Health Dept,2022-01-14,2024-02-21,983,housing@authority.gov,tutorial;reading;kids,InContext,true,French,fr,EAD,Upload,false,95%,true
+1427,Environmental Agency,2022-07-29,2024-01-14,846,education@state.gov,wellness;vaccination;covid,InContext,false,-,-,-,-,-,-,-
+1428,Community Outreach,2023-03-01,2024-06-22,1954,district@schools.edu,programs;sports;community,InContext,false,Arabic,ar,EAD,Machine,true,100%,false
+1429,County Health Dept,2022-05-22,2024-02-02,2516,fire@city.gov,conservation;recycling;climate,InContext,true,Spanish,es,Standard,Human,false,93%,false
+1430,Human Resources,2022-06-12,2024-08-29,1422,library@public.org,tutorial;reading;kids,InContext,true,Mandarin,zh,EAD,Human,false,93%,false
+1431,Youth Services,2022-12-01,2024-07-20,2121,media@college.edu,programs;sports;community,InContext,false,-,-,-,-,-,-,-
+1432,IT Services,2023-03-12,2024-03-07,2064,info@municipal.gov,tutorial;reading;kids,InContext,false,Spanish,es,EAD,Machine,true,91%,true
+1433,Parks and Recreation,2023-08-18,2024-09-17,1427,admin@university.edu,safety;training;emergency,InContext,false,French,fr,EAD,Human,true,92%,false
+1434,Community Center,2023-08-14,2024-07-29,2439,parks@county.gov,curriculum;math;science,InContext,false,English,en,EAD,Machine,true,97%,false
+1435,Business Licensing,2022-08-24,2024-04-28,2677,archives@state.gov,safety;routes;schedules,InContext,true,German,de,EAD,Machine,true,90%,true
+1436,Parks and Recreation,2023-09-28,2024-08-25,168,district@schools.edu,benefits;healthcare;support,InContext,false,Arabic,ar,Standard,Upload,true,98%,true
+1437,Housing Authority,2022-11-09,2024-02-08,1895,info@municipal.gov,programs;sports;community,InContext,false,Arabic,ar,Standard,Upload,true,94%,false
+1438,Adult Education Center,2023-01-06,2024-03-31,1987,youth@services.org,applications;assistance;programs,InContext,false,Spanish,es,Standard,Upload,false,99%,true
+1439,Cultural Center,2022-06-18,2024-04-29,357,parks@county.gov,orientation;students;campus,InContext,false,Spanish,es,Standard,Human,false,99%,true
+1440,Neighborhood Watch,2022-04-25,2024-05-26,1285,online@techcollege.edu,safety;training;emergency,InContext,false,Spanish,es,EAD,Upload,true,96%,true
+1441,Code Enforcement,2022-07-14,2024-01-12,2089,works@city.gov,lecture;biology;intro,InContext,false,-,-,-,-,-,-,-
+1442,Building Dept,2022-03-08,2024-08-09,790,center@community.org,orientation;students;campus,InContext,true,Mandarin,zh,EAD,Machine,false,95%,false
+1443,State Education Dept,2023-03-03,2024-08-21,1880,archives@state.gov,training;teachers;professional,InContext,false,English,en,EAD,Upload,true,91%,false
+1444,Youth Services,2022-09-17,2024-01-18,1780,parks@county.gov,lecture;biology;intro,InContext,false,French,fr,Standard,Human,false,95%,true
+1445,Business Licensing,2023-07-26,2024-03-02,1681,youth@services.org,council;meeting;public,InContext,false,-,-,-,-,-,-,-
+1446,Business Licensing,2022-03-03,2024-03-23,522,housing@authority.gov,services;permits;applications,InContext,false,-,-,-,-,-,-,-
+1447,Transportation Dept,2023-07-25,2024-03-14,382,library@public.org,wellness;vaccination;covid,InContext,true,Arabic,ar,Standard,Human,false,90%,false
+1448,Adult Education Center,2023-02-06,2024-09-29,465,center@community.org,benefits;healthcare;support,InContext,false,-,-,-,-,-,-,-
+1449,Fire Department,2023-02-06,2024-06-11,2895,info@municipal.gov,curriculum;math;science,InContext,false,German,de,EAD,Upload,true,93%,true
+1450,Stormwater Management,2023-03-19,2024-09-03,966,education@state.gov,curriculum;math;science,InContext,false,Spanish,es,EAD,Upload,false,93%,false
+1451,Economic Development,2023-06-14,2024-05-10,1355,archives@state.gov,programs;sports;community,InContext,false,-,-,-,-,-,-,-
+1452,Job Training Center,2023-09-03,2024-03-17,2874,works@city.gov,training;teachers;professional,InContext,false,Mandarin,zh,Standard,Upload,true,94%,false
+1453,Community Center,2023-05-16,2024-02-26,1258,water@district.gov,orientation;students;campus,InContext,false,Mandarin,zh,EAD,Upload,true,92%,true
+1454,Housing Authority,2022-03-21,2024-08-13,1001,admin@university.edu,council;meeting;public,InContext,false,-,-,-,-,-,-,-
+1455,Youth Services,2022-03-04,2024-06-13,287,archives@state.gov,infrastructure;roads;maintenance,InContext,true,Arabic,ar,EAD,Upload,false,100%,true
+1456,Historic Preservation,2023-04-29,2024-06-05,1210,environment@agency.gov,history;documents;preservation,InContext,false,-,-,-,-,-,-,-
+1457,Code Enforcement,2023-10-12,2024-07-17,535,works@city.gov,training;teachers;professional,InContext,true,Arabic,ar,EAD,Upload,true,98%,false
+1458,Public Utilities,2023-02-26,2024-05-02,2675,archives@state.gov,council;meeting;public,InContext,false,Spanish,es,Standard,Human,false,90%,true
+1459,Public Utilities,2022-01-13,2024-10-06,2366,media@college.edu,conservation;billing;services,InContext,true,Arabic,ar,EAD,Machine,true,95%,false
+1460,IT Services,2023-03-20,2024-09-09,1504,housing@authority.gov,services;permits;applications,InContext,false,-,-,-,-,-,-,-
+1461,Emergency Management,2023-09-09,2024-04-27,2802,works@city.gov,conservation;recycling;climate,InContext,false,English,en,Standard,Upload,false,93%,true
+1462,Animal Services,2023-05-30,2024-09-28,1836,webmaster@city.gov,council;meeting;public,InContext,false,Arabic,ar,Standard,Upload,false,96%,false
+1463,Animal Services,2022-01-08,2024-02-22,2114,webmaster@city.gov,training;teachers;professional,InContext,false,German,de,Standard,Machine,false,96%,false
+1464,School District Media,2023-06-07,2024-10-20,2716,education@state.gov,safety;training;emergency,InContext,true,German,de,EAD,Human,true,99%,true
+1465,Economic Development,2023-03-18,2024-03-25,2561,environment@agency.gov,council;meeting;public,InContext,false,-,-,-,-,-,-,-
+1466,Traffic Engineering,2023-03-03,2024-04-28,678,library@public.org,training;teachers;professional,InContext,false,English,en,Standard,Machine,false,90%,true
+1467,Fleet Management,2022-06-16,2024-09-10,1204,district@schools.edu,applications;assistance;programs,InContext,true,Mandarin,zh,EAD,Human,false,99%,true
+1468,Code Enforcement,2023-01-27,2024-05-09,312,archives@state.gov,safety;routes;schedules,InContext,false,-,-,-,-,-,-,-
+1469,Municipal Services,2022-08-21,2024-02-16,78,transit@regional.gov,conservation;billing;services,InContext,true,English,en,Standard,Human,false,96%,false
+1470,Community Center,2022-06-30,2024-01-22,460,education@state.gov,applications;assistance;programs,InContext,true,German,de,Standard,Human,false,93%,true
+1471,State Education Dept,2022-01-23,2024-01-13,655,webmaster@city.gov,wellness;vaccination;covid,InContext,false,German,de,Standard,Upload,true,98%,true
+1472,Youth Services,2022-08-02,2024-02-15,427,transit@regional.gov,programs;sports;community,InContext,true,French,fr,Standard,Human,false,97%,true
+1473,Adult Education Center,2022-12-22,2024-06-23,1832,district@schools.edu,services;permits;applications,InContext,true,English,en,EAD,Human,false,98%,true
+1474,Grant Administration,2022-12-13,2024-09-16,1085,webmaster@city.gov,applications;assistance;programs,InContext,false,English,en,EAD,Human,true,94%,false
+1475,Public Library Media,2022-03-10,2024-01-12,2069,water@district.gov,orientation;students;campus,InContext,false,-,-,-,-,-,-,-
+1476,Energy Efficiency,2023-01-22,2024-01-27,599,parks@county.gov,programs;sports;community,InContext,false,German,de,EAD,Machine,false,98%,true
+1477,Senior Center,2023-06-03,2024-06-12,2042,archives@state.gov,infrastructure;roads;maintenance,InContext,true,French,fr,EAD,Machine,true,99%,true
+1478,Youth Services,2022-07-06,2024-05-26,2650,info@municipal.gov,tutorial;reading;kids,InContext,true,German,de,EAD,Human,false,98%,true
+1479,Public Utilities,2023-07-16,2024-06-25,1324,center@community.org,tutorial;reading;kids,InContext,false,French,fr,EAD,Human,true,98%,true
+1480,Social Services,2022-12-01,2024-01-12,1201,info@municipal.gov,safety;routes;schedules,InContext,true,French,fr,EAD,Machine,true,94%,true
+1481,Municipal Services,2023-04-05,2024-02-08,900,center@community.org,council;meeting;public,InContext,true,French,fr,EAD,Human,true,91%,true
+1482,Municipal Services,2022-10-30,2024-04-10,430,parks@county.gov,council;meeting;public,InContext,true,Arabic,ar,EAD,Human,true,93%,false
+1483,Neighborhood Watch,2022-07-24,2024-05-14,2308,info@municipal.gov,applications;assistance;programs,InContext,false,German,de,Standard,Upload,true,97%,true
+1484,Social Services,2023-07-06,2024-07-18,969,fire@city.gov,safety;training;emergency,InContext,true,French,fr,Standard,Upload,false,100%,false
+1485,Emergency Management,2023-04-18,2024-07-13,698,webmaster@city.gov,services;permits;applications,InContext,false,-,-,-,-,-,-,-
+1486,Fire Department,2022-06-13,2024-08-18,1804,housing@authority.gov,infrastructure;roads;maintenance,InContext,true,German,de,EAD,Upload,false,95%,false
+1487,Disability Services,2022-01-11,2024-10-03,331,media@college.edu,safety;training;emergency,InContext,true,Arabic,ar,EAD,Human,false,92%,true
+1488,Youth Services,2022-06-21,2024-08-28,1155,center@community.org,courses;programming;certificates,InContext,true,German,de,Standard,Human,true,100%,true
+1489,Business Licensing,2023-08-21,2024-05-18,2416,fire@city.gov,tutorial;reading;kids,InContext,true,English,en,EAD,Upload,true,99%,false
+1490,Water District,2023-07-28,2024-10-24,478,library@public.org,events;classes;seniors,InContext,false,French,fr,Standard,Upload,false,91%,true
+1491,Senior Center,2022-02-07,2024-01-19,110,archives@state.gov,council;meeting;public,InContext,true,German,de,EAD,Human,true,100%,false
+1492,Senior Center,2022-01-23,2024-08-19,188,environment@agency.gov,council;meeting;public,InContext,false,French,fr,Standard,Upload,false,96%,false
+1493,Family Services,2022-11-19,2024-05-17,256,works@city.gov,conservation;recycling;climate,InContext,false,Mandarin,zh,Standard,Human,false,95%,false
+1494,Economic Development,2022-12-13,2024-02-04,2285,works@city.gov,wellness;vaccination;covid,InContext,true,Arabic,ar,EAD,Machine,true,91%,false
+1495,Tech College Online,2023-05-29,2024-09-08,497,water@district.gov,applications;assistance;programs,InContext,true,German,de,Standard,Upload,false,92%,true
+1496,Water District,2022-08-02,2024-04-29,1825,district@schools.edu,programs;mentoring;education,InContext,true,Mandarin,zh,Standard,Machine,false,95%,true
+1497,City Government Channel,2023-07-26,2024-06-19,2073,housing@authority.gov,applications;assistance;programs,InContext,false,-,-,-,-,-,-,-
+1498,Fire Department,2022-08-08,2024-06-08,814,archives@state.gov,applications;assistance;programs,InContext,true,English,en,EAD,Upload,true,97%,false
+1499,Veterans Affairs,2023-08-05,2024-05-08,2264,media@college.edu,wellness;vaccination;covid,InContext,true,Spanish,es,EAD,Human,true,90%,true
+1500,Human Resources,2023-07-23,2024-07-30,932,media@college.edu,safety;training;emergency,InContext,false,Spanish,es,EAD,Human,false,97%,true
+1501,Animal Services,2022-05-28,2024-06-08,1979,admin@university.edu,safety;routes;schedules,InContext,true,Mandarin,zh,EAD,Machine,false,99%,true
+1502,Neighborhood Watch,2022-09-15,2024-05-03,2784,transit@regional.gov,lecture;biology;intro,InContext,false,-,-,-,-,-,-,-
+1503,Transportation Dept,2022-02-26,2024-08-04,135,va@veterans.gov,services;permits;applications,InContext,true,English,en,Standard,Machine,false,98%,false
+1504,Neighborhood Watch,2023-09-10,2024-01-22,429,parks@county.gov,conservation;recycling;climate,InContext,false,French,fr,Standard,Upload,true,91%,true
+1505,County Health Dept,2023-02-07,2024-09-12,846,transit@regional.gov,orientation;students;campus,InContext,false,French,fr,Standard,Human,false,91%,true
+1506,Planning Commission,2022-05-24,2024-07-02,2490,library@public.org,programs;sports;community,InContext,false,German,de,Standard,Machine,false,99%,false
+1507,Energy Efficiency,2023-04-05,2024-10-03,375,online@techcollege.edu,history;documents;preservation,InContext,false,-,-,-,-,-,-,-
+1508,Community Center,2023-08-02,2024-09-14,650,health@county.gov,lecture;biology;intro,InContext,false,-,-,-,-,-,-,-
+1509,Adult Education Center,2023-03-18,2024-04-22,752,center@community.org,safety;training;emergency,InContext,false,-,-,-,-,-,-,-
+1510,State Education Dept,2023-10-17,2024-01-20,2824,media@college.edu,training;teachers;professional,InContext,false,Spanish,es,Standard,Human,false,92%,true
+1511,Community College,2023-09-25,2024-01-16,850,housing@authority.gov,training;teachers;professional,InContext,true,Spanish,es,Standard,Human,true,90%,false
+1512,Municipal Services,2022-02-11,2024-07-17,221,webmaster@city.gov,events;classes;seniors,InContext,false,-,-,-,-,-,-,-
+1513,IT Services,2022-01-29,2024-10-20,269,online@techcollege.edu,infrastructure;roads;maintenance,InContext,true,Mandarin,zh,Standard,Human,false,94%,true
+1514,Community Center,2022-07-19,2024-04-29,688,admin@university.edu,benefits;healthcare;support,InContext,false,-,-,-,-,-,-,-
+1515,Volunteer Services,2023-07-16,2024-02-09,1041,works@city.gov,orientation;students;campus,InContext,false,-,-,-,-,-,-,-
+1516,Human Resources,2022-04-19,2024-07-04,901,library@public.org,courses;programming;certificates,InContext,false,-,-,-,-,-,-,-
+1517,Municipal Services,2022-01-14,2024-04-10,441,water@district.gov,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1518,Energy Efficiency,2022-08-24,2024-01-15,1634,health@county.gov,courses;programming;certificates,InContext,false,Mandarin,zh,EAD,Upload,false,95%,false
+1519,City Government Channel,2023-03-15,2024-10-13,537,district@schools.edu,courses;programming;certificates,InContext,false,German,de,EAD,Human,false,94%,false
+1520,Historic Preservation,2022-09-04,2024-07-14,578,water@district.gov,programs;mentoring;education,InContext,true,English,en,EAD,Human,false,95%,true
+1521,Family Services,2023-10-04,2024-03-22,418,info@municipal.gov,lecture;biology;intro,InContext,false,-,-,-,-,-,-,-
+1522,City Government Channel,2023-09-08,2024-09-19,1000,district@schools.edu,wellness;vaccination;covid,InContext,false,Mandarin,zh,EAD,Human,true,91%,true
+1523,University Video Portal,2023-08-15,2024-06-19,2747,youth@services.org,benefits;healthcare;support,InContext,false,-,-,-,-,-,-,-
+1524,Animal Services,2022-03-30,2024-10-14,542,webmaster@city.gov,safety;training;emergency,InContext,false,French,fr,Standard,Machine,false,94%,true
+1525,Community College,2023-07-30,2024-05-04,129,admin@university.edu,safety;training;emergency,InContext,true,English,en,EAD,Human,true,95%,false
+1526,Transportation Dept,2023-08-14,2024-03-18,2737,health@county.gov,programs;mentoring;education,InContext,false,Spanish,es,EAD,Machine,true,100%,false
+1527,Social Services,2022-10-01,2024-04-11,124,library@public.org,events;classes;seniors,InContext,false,English,en,EAD,Human,false,90%,false
+1528,Adult Education Center,2022-08-23,2024-01-09,2569,transit@regional.gov,curriculum;math;science,InContext,false,-,-,-,-,-,-,-
+1529,IT Services,2023-03-31,2024-10-18,1772,library@public.org,infrastructure;roads;maintenance,InContext,false,-,-,-,-,-,-,-
+1530,City Government Channel,2023-06-13,2024-01-16,1769,education@state.gov,safety;training;emergency,InContext,false,German,de,Standard,Human,false,91%,true
+1531,Emergency Management,2023-05-19,2024-08-17,749,online@techcollege.edu,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1532,IT Services,2022-01-11,2024-04-17,2479,district@schools.edu,safety;routes;schedules,InContext,false,-,-,-,-,-,-,-
+1533,Family Services,2022-11-16,2024-03-06,61,library@public.org,courses;programming;certificates,InContext,false,-,-,-,-,-,-,-
+1534,Historic Preservation,2022-09-19,2024-03-27,2738,library@public.org,conservation;recycling;climate,InContext,false,Arabic,ar,Standard,Machine,false,100%,false
+1535,Workforce Development,2022-07-11,2024-08-11,2040,info@municipal.gov,training;teachers;professional,InContext,true,Arabic,ar,Standard,Upload,true,97%,false
+1536,Water District,2022-11-04,2024-06-16,1228,admin@university.edu,programs;sports;community,InContext,false,French,fr,EAD,Human,false,98%,false
+1537,Emergency Management,2022-04-14,2024-08-19,1887,online@techcollege.edu,orientation;students;campus,InContext,false,French,fr,EAD,Human,true,92%,false
+1538,Recycling Program,2022-12-28,2024-10-14,2553,webmaster@city.gov,training;teachers;professional,InContext,true,French,fr,Standard,Upload,false,93%,true
+1539,Housing Authority,2022-08-01,2024-02-21,2948,water@district.gov,courses;programming;certificates,InContext,true,French,fr,Standard,Human,false,90%,true
+1540,Regional Transit Auth,2023-09-10,2024-01-15,2200,parks@county.gov,conservation;recycling;climate,InContext,false,-,-,-,-,-,-,-
+1541,Disability Services,2023-10-07,2024-07-02,2564,transit@regional.gov,programs;sports;community,InContext,false,-,-,-,-,-,-,-
+1542,Social Services,2022-03-06,2024-10-22,2372,center@community.org,courses;programming;certificates,InContext,true,Spanish,es,Standard,Human,true,95%,true
+1543,Animal Services,2023-06-24,2024-08-25,483,webmaster@city.gov,events;classes;seniors,InContext,true,German,de,EAD,Machine,false,92%,true
+1544,Municipal Services,2022-03-01,2024-02-29,732,housing@authority.gov,training;teachers;professional,InContext,false,Spanish,es,Standard,Human,true,98%,false
+1545,City Government Channel,2023-10-20,2024-08-22,265,youth@services.org,programs;mentoring;education,InContext,true,German,de,Standard,Human,true,96%,true
+1546,Disability Services,2023-03-18,2024-08-30,753,media@college.edu,curriculum;math;science,InContext,true,Arabic,ar,Standard,Upload,false,97%,false
+1547,Volunteer Services,2023-03-23,2024-04-16,2840,district@schools.edu,conservation;billing;services,InContext,false,Arabic,ar,Standard,Upload,true,93%,false
+1548,City Government Channel,2023-09-18,2024-01-05,1158,transit@regional.gov,conservation;billing;services,InContext,true,English,en,Standard,Human,true,99%,false
+1549,Volunteer Services,2022-03-20,2024-10-02,61,environment@agency.gov,orientation;students;campus,InContext,true,German,de,Standard,Machine,true,96%,true
+1550,Emergency Management,2022-08-09,2024-02-07,299,parks@county.gov,lecture;biology;intro,InContext,false,-,-,-,-,-,-,-
+1551,Adult Education Center,2023-04-21,2024-02-16,409,housing@authority.gov,tutorial;reading;kids,InContext,false,-,-,-,-,-,-,-
+1552,University Video Portal,2022-03-12,2024-05-13,1400,works@city.gov,orientation;students;campus,InContext,false,-,-,-,-,-,-,-
+1553,City Government Channel,2022-12-07,2024-04-01,2458,online@techcollege.edu,events;classes;seniors,InContext,false,English,en,EAD,Upload,false,91%,false
+1554,Community Outreach,2022-09-09,2024-05-03,718,center@community.org,orientation;students;campus,InContext,false,English,en,Standard,Human,false,91%,true
+1555,Public Works Dept,2022-06-27,2024-06-13,2136,library@public.org,programs;mentoring;education,InContext,true,English,en,EAD,Machine,true,90%,false
+1556,Water District,2022-01-25,2024-09-17,915,parks@county.gov,benefits;healthcare;support,InContext,true,Mandarin,zh,EAD,Machine,true,96%,true
+1557,Public Utilities,2022-03-01,2024-05-08,1250,works@city.gov,conservation;recycling;climate,InContext,false,-,-,-,-,-,-,-
+1558,Family Services,2023-03-31,2024-10-22,112,online@techcollege.edu,courses;programming;certificates,InContext,true,Arabic,ar,EAD,Upload,false,95%,true
+1559,Planning Commission,2022-03-27,2024-05-30,1948,youth@services.org,safety;training;emergency,InContext,false,-,-,-,-,-,-,-
+1560,Public Works Dept,2023-03-16,2024-01-23,2024,admin@university.edu,safety;training;emergency,InContext,false,French,fr,EAD,Human,true,97%,true
+1561,Senior Center,2022-01-18,2024-09-06,118,archives@state.gov,services;permits;applications,InContext,false,Arabic,ar,Standard,Machine,true,90%,false
+1562,Workforce Development,2023-10-08,2024-02-09,2240,education@state.gov,conservation;recycling;climate,InContext,true,Mandarin,zh,Standard,Upload,true,97%,false
+1563,Youth Services,2023-05-02,2024-05-24,65,media@college.edu,applications;assistance;programs,InContext,false,German,de,EAD,Upload,true,97%,true
+1564,Public Information,2023-01-09,2024-08-20,2201,district@schools.edu,courses;programming;certificates,InContext,false,-,-,-,-,-,-,-
+1565,Job Training Center,2022-08-05,2024-09-11,1509,water@district.gov,services;permits;applications,InContext,true,German,de,EAD,Human,false,92%,true
+1566,Fleet Management,2023-08-18,2024-03-12,2040,environment@agency.gov,safety;training;emergency,InContext,true,Mandarin,zh,EAD,Human,false,98%,false
+1567,Energy Efficiency,2022-02-03,2024-06-23,2453,housing@authority.gov,wellness;vaccination;covid,InContext,false,-,-,-,-,-,-,-
+1568,Workforce Development,2022-08-16,2024-02-07,1554,housing@authority.gov,curriculum;math;science,InContext,false,French,fr,Standard,Upload,false,93%,false
+1569,Community Center,2023-05-28,2024-09-29,801,info@municipal.gov,curriculum;math;science,InContext,true,French,fr,Standard,Human,true,99%,true
+1570,Fire Department,2023-07-18,2024-06-19,2489,water@district.gov,orientation;students;campus,InContext,false,Spanish,es,EAD,Upload,false,91%,false
+1571,Public Utilities,2022-02-06,2024-05-22,1764,health@county.gov,courses;programming;certificates,InContext,true,Spanish,es,Standard,Upload,false,99%,false
+1572,Neighborhood Watch,2022-11-10,2024-02-29,2435,parks@county.gov,council;meeting;public,InContext,false,Mandarin,zh,Standard,Machine,true,90%,false
+1573,Emergency Management,2023-02-19,2024-08-07,1639,webmaster@city.gov,programs;mentoring;education,InContext,true,Mandarin,zh,Standard,Upload,true,97%,false
+1574,Stormwater Management,2022-03-14,2024-07-08,2192,district@schools.edu,wellness;vaccination;covid,InContext,true,Mandarin,zh,Standard,Human,true,95%,true
+1575,Parks and Recreation,2022-10-08,2024-06-25,986,info@municipal.gov,conservation;recycling;climate,InContext,true,Arabic,ar,EAD,Human,false,94%,false
+1576,Volunteer Services,2022-10-02,2024-08-29,333,fire@city.gov,tutorial;reading;kids,InContext,true,French,fr,EAD,Machine,false,99%,false
+1577,Public Utilities,2022-12-01,2024-04-08,1551,library@public.org,conservation;billing;services,InContext,false,-,-,-,-,-,-,-
+1578,Family Services,2023-02-02,2024-06-30,1224,parks@county.gov,conservation;billing;services,InContext,false,Arabic,ar,EAD,Machine,false,100%,true
+1579,Youth Services,2023-07-07,2024-07-20,1317,environment@agency.gov,applications;assistance;programs,InContext,false,French,fr,Standard,Upload,false,98%,false
+1580,Recycling Program,2023-06-08,2024-03-17,1043,webmaster@city.gov,wellness;vaccination;covid,InContext,false,German,de,Standard,Machine,false,92%,true
+1581,Workforce Development,2022-12-28,2024-08-20,2842,transit@regional.gov,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1582,Family Services,2023-05-11,2024-07-18,2529,housing@authority.gov,programs;sports;community,InContext,true,German,de,EAD,Human,false,92%,false
+1583,Neighborhood Watch,2023-02-05,2024-09-03,739,transit@regional.gov,infrastructure;roads;maintenance,InContext,false,German,de,Standard,Upload,false,94%,true
+1584,Environmental Agency,2022-02-13,2024-03-30,1611,environment@agency.gov,orientation;students;campus,InContext,false,-,-,-,-,-,-,-
+1585,Water District,2023-03-10,2024-04-28,2074,webmaster@city.gov,benefits;healthcare;support,InContext,false,Spanish,es,Standard,Human,true,97%,false
+1586,Neighborhood Watch,2022-12-17,2024-09-08,1668,health@county.gov,lecture;biology;intro,InContext,true,English,en,EAD,Machine,true,94%,false
+1587,State Education Dept,2022-09-04,2024-06-17,695,online@techcollege.edu,benefits;healthcare;support,InContext,false,Arabic,ar,Standard,Human,true,92%,true
+1588,Public Information,2022-11-13,2024-09-15,2208,info@municipal.gov,services;permits;applications,InContext,false,-,-,-,-,-,-,-
+1589,County Health Dept,2023-04-21,2024-07-10,54,library@public.org,conservation;billing;services,InContext,true,German,de,Standard,Human,true,98%,false
+1590,Energy Efficiency,2023-10-24,2024-08-12,1220,health@county.gov,training;teachers;professional,InContext,false,-,-,-,-,-,-,-
+1591,Senior Center,2022-06-19,2024-09-06,810,works@city.gov,events;classes;seniors,InContext,false,-,-,-,-,-,-,-
+1592,Environmental Agency,2022-10-07,2024-04-10,2377,housing@authority.gov,benefits;healthcare;support,InContext,true,German,de,Standard,Upload,true,92%,true
+1593,Code Enforcement,2022-10-30,2024-02-02,1079,online@techcollege.edu,history;documents;preservation,InContext,false,Mandarin,zh,EAD,Upload,true,98%,false
+1594,City Government Channel,2022-09-12,2024-02-11,2299,info@municipal.gov,history;documents;preservation,InContext,false,Mandarin,zh,EAD,Human,true,93%,false
+1595,Water District,2023-08-29,2024-03-04,1239,center@community.org,benefits;healthcare;support,InContext,false,English,en,EAD,Upload,true,95%,true
+1596,Community College,2022-03-29,2024-06-01,2548,district@schools.edu,wellness;vaccination;covid,InContext,false,Arabic,ar,EAD,Upload,true,99%,true
+1597,Municipal Services,2023-05-08,2024-06-07,661,online@techcollege.edu,orientation;students;campus,InContext,true,French,fr,EAD,Upload,false,97%,false
+1598,Transportation Dept,2023-01-04,2024-05-03,1550,water@district.gov,applications;assistance;programs,InContext,false,German,de,EAD,Machine,false,94%,true
+1599,Adult Education Center,2022-03-02,2024-01-13,1976,admin@university.edu,wellness;vaccination;covid,InContext,false,English,en,EAD,Upload,false,91%,false
+1600,Business Licensing,2022-12-03,2024-09-05,2357,district@schools.edu,history;documents;preservation,InContext,false,-,-,-,-,-,-,-
+1601,Family Services,2022-08-27,2024-03-27,2945,district@schools.edu,tutorial;reading;kids,InContext,false,-,-,-,-,-,-,-
+1602,IT Services,2023-06-05,2024-05-01,1122,education@state.gov,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1603,Social Services,2022-01-18,2024-02-20,1240,youth@services.org,tutorial;reading;kids,InContext,false,-,-,-,-,-,-,-
+1604,Senior Center,2022-09-07,2024-09-04,2635,library@public.org,lecture;biology;intro,InContext,false,German,de,Standard,Human,true,98%,false
+1605,Animal Services,2023-05-04,2024-09-21,932,media@college.edu,programs;sports;community,InContext,false,Mandarin,zh,EAD,Upload,true,97%,true
+1606,Transportation Dept,2023-06-11,2024-01-15,1527,health@county.gov,safety;training;emergency,InContext,false,English,en,Standard,Human,false,92%,false
+1607,Veterans Affairs,2022-09-21,2024-02-09,2414,district@schools.edu,programs;sports;community,InContext,false,-,-,-,-,-,-,-
+1608,Regional Transit Auth,2022-10-20,2024-03-18,1406,youth@services.org,infrastructure;roads;maintenance,InContext,false,Spanish,es,Standard,Human,false,93%,false
+1609,State Education Dept,2023-05-21,2024-07-21,1053,center@community.org,benefits;healthcare;support,InContext,false,-,-,-,-,-,-,-
+1610,Water District,2023-05-01,2024-08-31,301,online@techcollege.edu,wellness;vaccination;covid,InContext,false,-,-,-,-,-,-,-
+1611,Workforce Development,2023-06-01,2024-08-10,940,media@college.edu,programs;mentoring;education,InContext,false,English,en,Standard,Upload,true,92%,true
+1612,University Video Portal,2022-01-11,2024-09-15,1023,youth@services.org,wellness;vaccination;covid,InContext,false,-,-,-,-,-,-,-
+1613,Traffic Engineering,2023-05-07,2024-08-05,621,library@public.org,services;permits;applications,InContext,true,Mandarin,zh,EAD,Machine,true,91%,true
+1614,Disability Services,2023-08-28,2024-03-19,1865,environment@agency.gov,orientation;students;campus,InContext,true,English,en,Standard,Machine,true,90%,false
+1615,Workforce Development,2023-07-29,2024-06-01,1075,library@public.org,programs;sports;community,InContext,false,French,fr,Standard,Upload,true,95%,true
+1616,Senior Center,2022-05-12,2024-02-12,2585,library@public.org,benefits;healthcare;support,InContext,true,Spanish,es,Standard,Human,false,96%,true
+1617,Housing Authority,2022-03-18,2024-02-19,2233,water@district.gov,council;meeting;public,InContext,true,Mandarin,zh,Standard,Machine,true,97%,true
+1618,State Education Dept,2022-12-16,2024-04-08,451,info@municipal.gov,council;meeting;public,InContext,true,English,en,EAD,Machine,false,94%,true
+1619,City Government Channel,2022-03-14,2024-06-03,1086,va@veterans.gov,programs;sports;community,InContext,false,Mandarin,zh,EAD,Upload,false,98%,false
+1620,State Education Dept,2022-07-21,2024-03-23,157,info@municipal.gov,conservation;recycling;climate,InContext,true,English,en,EAD,Machine,false,98%,false
+1621,Municipal Services,2022-04-03,2024-07-09,206,transit@regional.gov,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1622,Energy Efficiency,2023-08-17,2024-05-25,1257,transit@regional.gov,applications;assistance;programs,InContext,false,Mandarin,zh,EAD,Human,true,90%,true
+1623,Transportation Dept,2022-04-18,2024-02-21,218,education@state.gov,applications;assistance;programs,InContext,true,Arabic,ar,EAD,Human,false,98%,false
+1624,Building Dept,2022-08-31,2024-09-02,2185,info@municipal.gov,lecture;biology;intro,InContext,false,-,-,-,-,-,-,-
+1625,Public Utilities,2022-08-06,2024-10-21,1662,transit@regional.gov,courses;programming;certificates,InContext,false,-,-,-,-,-,-,-
+1626,Community College,2022-11-13,2024-06-02,2507,youth@services.org,history;documents;preservation,InContext,true,German,de,Standard,Machine,true,99%,true
+1627,Building Dept,2023-04-08,2024-05-03,533,water@district.gov,history;documents;preservation,InContext,false,German,de,Standard,Upload,false,97%,true
+1628,Code Enforcement,2022-06-17,2024-03-21,2995,archives@state.gov,safety;routes;schedules,InContext,true,Mandarin,zh,Standard,Human,true,96%,false
+1629,Cultural Center,2022-04-19,2024-08-29,2708,health@county.gov,history;documents;preservation,InContext,false,English,en,EAD,Upload,true,97%,false
+1630,Recycling Program,2022-01-24,2024-03-14,723,parks@county.gov,safety;training;emergency,InContext,false,-,-,-,-,-,-,-
+1631,Community College,2023-07-03,2024-06-04,2443,archives@state.gov,curriculum;math;science,InContext,true,Spanish,es,Standard,Machine,false,97%,false
+1632,Economic Development,2023-02-17,2024-04-16,226,online@techcollege.edu,courses;programming;certificates,InContext,false,-,-,-,-,-,-,-
+1633,Community Outreach,2022-08-22,2024-07-02,1077,online@techcollege.edu,safety;training;emergency,InContext,false,English,en,Standard,Machine,true,92%,false
+1634,Tech College Online,2022-11-23,2024-10-25,813,district@schools.edu,training;teachers;professional,InContext,false,Spanish,es,EAD,Upload,true,94%,true
+1635,Energy Efficiency,2022-03-25,2024-10-18,711,works@city.gov,orientation;students;campus,InContext,false,Mandarin,zh,EAD,Upload,true,90%,false
+1636,Workforce Development,2023-05-25,2024-08-31,1121,parks@county.gov,lecture;biology;intro,InContext,false,-,-,-,-,-,-,-
+1637,Cultural Center,2022-11-01,2024-09-11,593,admin@university.edu,conservation;recycling;climate,InContext,true,English,en,Standard,Human,false,91%,true
+1638,Business Licensing,2022-03-24,2024-07-30,2126,va@veterans.gov,infrastructure;roads;maintenance,InContext,true,French,fr,EAD,Upload,true,100%,true
+1639,Veterans Affairs,2023-04-06,2024-10-08,2399,health@county.gov,curriculum;math;science,InContext,true,Spanish,es,EAD,Human,false,97%,false
+1640,Energy Efficiency,2023-01-09,2024-08-10,2907,info@municipal.gov,curriculum;math;science,InContext,false,English,en,Standard,Human,false,96%,false
+1641,Veterans Affairs,2022-11-20,2024-01-16,113,district@schools.edu,applications;assistance;programs,InContext,true,French,fr,Standard,Machine,false,94%,true
+1642,IT Services,2022-03-16,2024-08-07,1569,environment@agency.gov,tutorial;reading;kids,InContext,false,French,fr,Standard,Human,true,91%,false
+1643,State Archives,2022-01-19,2024-01-28,680,webmaster@city.gov,curriculum;math;science,InContext,false,-,-,-,-,-,-,-
+1644,Municipal Services,2022-01-14,2024-08-25,648,environment@agency.gov,safety;routes;schedules,InContext,false,-,-,-,-,-,-,-
+1645,Historic Preservation,2023-04-11,2024-08-09,979,va@veterans.gov,courses;programming;certificates,InContext,false,-,-,-,-,-,-,-
+1646,Social Services,2022-03-29,2024-03-23,2360,center@community.org,safety;routes;schedules,InContext,false,German,de,Standard,Upload,false,96%,false
+1647,Water District,2022-06-09,2024-03-17,2065,district@schools.edu,courses;programming;certificates,InContext,false,French,fr,Standard,Machine,true,96%,false
+1648,Traffic Engineering,2022-03-30,2024-07-01,1010,archives@state.gov,benefits;healthcare;support,InContext,true,French,fr,Standard,Human,true,91%,true
+1649,Youth Services,2022-09-14,2024-04-23,145,webmaster@city.gov,programs;mentoring;education,InContext,false,English,en,EAD,Machine,false,95%,false
+1650,Public Utilities,2023-07-17,2024-04-25,367,online@techcollege.edu,conservation;billing;services,InContext,false,French,fr,Standard,Upload,true,96%,true
+1651,Disability Services,2022-12-07,2024-05-29,1224,center@community.org,conservation;recycling;climate,InContext,false,English,en,EAD,Human,false,92%,true
+1652,Veterans Affairs,2023-07-15,2024-06-29,1384,webmaster@city.gov,conservation;billing;services,InContext,false,-,-,-,-,-,-,-
+1653,State Education Dept,2022-01-23,2024-06-09,1126,va@veterans.gov,events;classes;seniors,InContext,true,English,en,EAD,Machine,true,100%,true
+1654,Public Utilities,2023-10-13,2024-04-28,1397,transit@regional.gov,safety;training;emergency,InContext,false,-,-,-,-,-,-,-
+1655,Energy Efficiency,2023-02-17,2024-07-28,839,parks@county.gov,applications;assistance;programs,InContext,false,French,fr,Standard,Upload,true,90%,false
+1656,Public Information,2022-08-17,2024-04-05,889,media@college.edu,lecture;biology;intro,InContext,true,English,en,EAD,Upload,true,100%,true
+1657,Human Resources,2022-03-01,2024-05-15,2157,water@district.gov,wellness;vaccination;covid,InContext,false,German,de,EAD,Human,false,99%,false
+1658,School District Media,2023-04-23,2024-01-09,1169,online@techcollege.edu,conservation;billing;services,InContext,false,Mandarin,zh,EAD,Machine,true,92%,true
+1659,County Health Dept,2023-06-28,2024-02-13,2148,online@techcollege.edu,curriculum;math;science,InContext,true,English,en,Standard,Machine,true,92%,false
+1660,Disability Services,2023-02-05,2024-04-18,1328,webmaster@city.gov,curriculum;math;science,InContext,false,Arabic,ar,Standard,Machine,false,94%,false
+1661,Code Enforcement,2023-06-19,2024-05-05,748,admin@university.edu,safety;training;emergency,InContext,false,-,-,-,-,-,-,-
+1662,Public Utilities,2022-11-12,2024-01-16,1593,education@state.gov,conservation;billing;services,InContext,false,English,en,EAD,Upload,false,90%,true
+1663,Family Services,2022-03-08,2024-02-08,1719,transit@regional.gov,safety;training;emergency,InContext,true,German,de,EAD,Upload,true,97%,false
+1664,Code Enforcement,2022-12-07,2024-10-18,2692,media@college.edu,training;teachers;professional,InContext,true,English,en,EAD,Machine,false,100%,true
+1665,Recycling Program,2022-06-23,2024-07-11,1559,fire@city.gov,safety;training;emergency,InContext,false,-,-,-,-,-,-,-
+1666,Building Dept,2023-10-07,2024-05-24,2456,archives@state.gov,curriculum;math;science,InContext,false,-,-,-,-,-,-,-
+1667,Public Works Dept,2022-06-08,2024-01-13,1755,environment@agency.gov,courses;programming;certificates,InContext,true,English,en,Standard,Machine,false,98%,false
+1668,Community College,2023-10-10,2024-07-03,2135,works@city.gov,wellness;vaccination;covid,InContext,false,German,de,EAD,Upload,true,91%,true
+1669,Historic Preservation,2022-08-13,2024-07-30,259,media@college.edu,events;classes;seniors,InContext,true,German,de,Standard,Machine,true,100%,true
+1670,Traffic Engineering,2022-12-15,2024-07-08,1436,library@public.org,benefits;healthcare;support,InContext,false,Mandarin,zh,EAD,Human,false,93%,false
+1671,Job Training Center,2022-06-10,2024-05-24,1246,va@veterans.gov,programs;sports;community,InContext,false,German,de,Standard,Human,true,97%,true
+1672,Youth Services,2022-04-20,2024-07-27,1986,water@district.gov,wellness;vaccination;covid,InContext,false,-,-,-,-,-,-,-
+1673,Community College,2022-10-01,2024-04-17,199,archives@state.gov,curriculum;math;science,InContext,false,Spanish,es,Standard,Human,false,96%,false
+1674,Human Resources,2023-01-19,2024-05-02,2080,media@college.edu,curriculum;math;science,InContext,true,Arabic,ar,Standard,Human,false,94%,true
+1675,Historic Preservation,2022-03-05,2024-03-13,1582,fire@city.gov,conservation;recycling;climate,InContext,true,French,fr,Standard,Machine,true,99%,false
+1676,Community College,2022-10-09,2024-10-10,608,media@college.edu,events;classes;seniors,InContext,true,Mandarin,zh,EAD,Machine,false,95%,false
+1677,County Health Dept,2022-10-17,2024-09-28,575,youth@services.org,training;teachers;professional,InContext,false,English,en,EAD,Machine,true,91%,true
+1678,Energy Efficiency,2022-09-14,2024-06-29,2295,online@techcollege.edu,curriculum;math;science,InContext,true,French,fr,Standard,Machine,true,95%,false
+1679,Historic Preservation,2023-08-10,2024-05-07,1778,environment@agency.gov,wellness;vaccination;covid,InContext,false,-,-,-,-,-,-,-
+1680,Housing Authority,2022-05-31,2024-01-16,164,fire@city.gov,programs;mentoring;education,InContext,true,Spanish,es,EAD,Machine,true,91%,false
+1681,Business Licensing,2023-09-02,2024-03-14,724,youth@services.org,infrastructure;roads;maintenance,InContext,true,Spanish,es,EAD,Upload,true,95%,true
+1682,Economic Development,2022-01-09,2024-09-29,1280,fire@city.gov,services;permits;applications,InContext,false,-,-,-,-,-,-,-
+1683,Parks and Recreation,2022-06-09,2024-02-21,371,district@schools.edu,infrastructure;roads;maintenance,InContext,false,-,-,-,-,-,-,-
+1684,Fleet Management,2022-07-09,2024-04-16,2423,admin@university.edu,curriculum;math;science,InContext,false,-,-,-,-,-,-,-
+1685,Traffic Engineering,2023-07-08,2024-05-04,1073,parks@county.gov,lecture;biology;intro,InContext,true,English,en,Standard,Human,true,99%,true
+1686,Neighborhood Watch,2023-09-15,2024-02-08,2527,water@district.gov,benefits;healthcare;support,InContext,false,-,-,-,-,-,-,-
+1687,Community Center,2023-05-29,2024-09-12,2689,archives@state.gov,safety;routes;schedules,InContext,false,Spanish,es,EAD,Upload,true,90%,false
+1688,Community College,2022-12-20,2024-08-16,1822,transit@regional.gov,programs;sports;community,InContext,false,French,fr,EAD,Machine,true,98%,true
+1689,Family Services,2023-10-20,2024-08-21,1984,environment@agency.gov,events;classes;seniors,InContext,false,-,-,-,-,-,-,-
+1690,Job Training Center,2022-06-24,2024-10-19,1912,parks@county.gov,conservation;billing;services,InContext,false,Spanish,es,EAD,Human,false,93%,true
+1691,Municipal Services,2022-11-26,2024-09-11,230,works@city.gov,safety;routes;schedules,InContext,true,Arabic,ar,Standard,Machine,true,95%,true
+1692,Youth Services,2022-03-30,2024-05-11,902,archives@state.gov,safety;training;emergency,InContext,true,Arabic,ar,EAD,Upload,false,99%,true
+1693,Public Information,2022-03-13,2024-10-22,617,admin@university.edu,safety;training;emergency,InContext,true,Arabic,ar,EAD,Human,true,93%,false
+1694,University Video Portal,2022-10-04,2024-09-23,1513,center@community.org,lecture;biology;intro,InContext,false,French,fr,Standard,Machine,true,90%,false
+1695,Transportation Dept,2023-10-05,2024-03-08,2116,district@schools.edu,safety;routes;schedules,InContext,false,Arabic,ar,EAD,Machine,true,90%,false
+1696,Building Dept,2023-09-29,2024-04-16,275,archives@state.gov,wellness;vaccination;covid,InContext,false,Arabic,ar,Standard,Human,false,91%,true
+1697,Environmental Agency,2023-07-22,2024-03-14,2866,housing@authority.gov,orientation;students;campus,InContext,false,Spanish,es,Standard,Upload,true,99%,false
+1698,Animal Services,2023-06-16,2024-02-14,1573,online@techcollege.edu,events;classes;seniors,InContext,false,-,-,-,-,-,-,-
+1699,City Government Channel,2022-07-30,2024-10-06,957,fire@city.gov,infrastructure;roads;maintenance,InContext,true,Arabic,ar,Standard,Upload,false,94%,true
+1700,Transportation Dept,2022-12-19,2024-05-13,2384,parks@county.gov,applications;assistance;programs,InContext,false,French,fr,EAD,Upload,true,92%,true
+1701,Fire Department,2022-06-21,2024-10-13,2030,fire@city.gov,services;permits;applications,InContext,false,-,-,-,-,-,-,-
+1702,Senior Center,2023-02-13,2024-07-26,2773,online@techcollege.edu,services;permits;applications,InContext,false,-,-,-,-,-,-,-
+1703,Community College,2023-03-13,2024-10-04,444,library@public.org,courses;programming;certificates,InContext,false,-,-,-,-,-,-,-
+1704,Public Library Media,2022-04-01,2024-04-24,1483,library@public.org,tutorial;reading;kids,InContext,true,Arabic,ar,Standard,Upload,false,95%,true
+1705,State Education Dept,2023-03-30,2024-01-26,1083,education@state.gov,wellness;vaccination;covid,InContext,true,Arabic,ar,EAD,Machine,false,93%,true
+1706,Environmental Agency,2022-04-22,2024-10-02,350,admin@university.edu,lecture;biology;intro,InContext,true,Spanish,es,EAD,Human,false,100%,true
+1707,Neighborhood Watch,2023-04-09,2024-05-19,1546,online@techcollege.edu,orientation;students;campus,InContext,false,-,-,-,-,-,-,-
+1708,IT Services,2022-09-07,2024-07-08,2507,health@county.gov,safety;training;emergency,InContext,false,-,-,-,-,-,-,-
+1709,Business Licensing,2023-08-30,2024-04-13,623,youth@services.org,conservation;billing;services,InContext,true,Mandarin,zh,EAD,Machine,true,100%,false
+1710,Planning Commission,2023-04-23,2024-04-07,1654,works@city.gov,training;teachers;professional,InContext,false,Spanish,es,EAD,Machine,true,93%,true
+1711,IT Services,2022-08-04,2024-09-13,2340,webmaster@city.gov,programs;sports;community,InContext,false,German,de,Standard,Human,true,91%,true
+1712,State Archives,2022-03-26,2024-03-26,231,parks@county.gov,services;permits;applications,InContext,false,Arabic,ar,EAD,Upload,false,90%,false
+1713,Economic Development,2023-06-11,2024-06-02,2533,parks@county.gov,services;permits;applications,InContext,false,French,fr,Standard,Human,false,93%,true
+1714,Community Center,2023-07-15,2024-04-10,1161,va@veterans.gov,safety;routes;schedules,InContext,false,-,-,-,-,-,-,-
+1715,Transportation Dept,2022-03-27,2024-09-22,543,va@veterans.gov,events;classes;seniors,InContext,true,Arabic,ar,EAD,Upload,false,94%,false
+1716,Adult Education Center,2023-05-25,2024-04-17,445,water@district.gov,council;meeting;public,InContext,false,Spanish,es,Standard,Machine,true,97%,false
+1717,Code Enforcement,2022-07-22,2024-01-28,1377,youth@services.org,conservation;recycling;climate,InContext,true,Mandarin,zh,EAD,Upload,false,93%,true
+1718,Public Information,2023-06-30,2024-05-18,208,education@state.gov,safety;routes;schedules,InContext,false,Mandarin,zh,EAD,Upload,false,93%,false
+1719,Stormwater Management,2022-11-13,2024-08-01,2779,info@municipal.gov,training;teachers;professional,InContext,false,-,-,-,-,-,-,-
+1720,Economic Development,2022-09-07,2024-01-21,1851,archives@state.gov,conservation;billing;services,InContext,true,Arabic,ar,EAD,Upload,true,100%,false
+1721,Public Library Media,2022-06-13,2024-05-29,2627,va@veterans.gov,safety;training;emergency,InContext,false,French,fr,Standard,Human,true,98%,true
+1722,Housing Authority,2023-10-26,2024-05-05,2056,district@schools.edu,programs;sports;community,InContext,false,Spanish,es,Standard,Human,true,98%,true
+1723,Animal Services,2022-10-29,2024-06-25,98,youth@services.org,history;documents;preservation,InContext,true,English,en,Standard,Human,false,91%,true
+1724,Community Center,2023-08-11,2024-09-02,164,works@city.gov,history;documents;preservation,InContext,false,Spanish,es,EAD,Upload,true,94%,true
+1725,City Government Channel,2023-06-14,2024-01-11,938,fire@city.gov,council;meeting;public,InContext,true,German,de,Standard,Human,false,100%,false
+1726,Public Utilities,2022-01-07,2024-01-15,2426,archives@state.gov,services;permits;applications,InContext,false,Mandarin,zh,EAD,Machine,false,95%,false
+1727,Animal Services,2022-11-29,2024-05-21,316,webmaster@city.gov,infrastructure;roads;maintenance,InContext,false,-,-,-,-,-,-,-
+1728,Workforce Development,2023-08-14,2024-01-30,1461,va@veterans.gov,conservation;billing;services,InContext,false,Spanish,es,Standard,Upload,true,98%,false
+1729,Public Library Media,2023-10-01,2024-02-16,486,info@municipal.gov,programs;mentoring;education,InContext,true,French,fr,Standard,Human,false,93%,false
+1730,Workforce Development,2023-08-27,2024-04-03,726,va@veterans.gov,events;classes;seniors,InContext,true,French,fr,Standard,Upload,true,90%,false
+1731,Stormwater Management,2022-07-02,2024-04-24,2321,va@veterans.gov,programs;sports;community,InContext,true,Arabic,ar,EAD,Upload,false,97%,true
+1732,Regional Transit Auth,2022-07-24,2024-09-08,2566,parks@county.gov,curriculum;math;science,InContext,true,Mandarin,zh,EAD,Machine,true,98%,false
+1733,Social Services,2022-12-01,2024-03-17,2703,va@veterans.gov,lecture;biology;intro,InContext,true,Spanish,es,Standard,Machine,false,91%,false
+1734,Code Enforcement,2023-07-24,2024-02-03,502,archives@state.gov,orientation;students;campus,InContext,true,German,de,Standard,Machine,false,100%,false
+1735,IT Services,2022-08-23,2024-07-01,967,center@community.org,benefits;healthcare;support,InContext,true,German,de,EAD,Machine,true,94%,true
+1736,Disability Services,2023-06-05,2024-08-08,2054,info@municipal.gov,applications;assistance;programs,InContext,false,French,fr,EAD,Upload,true,91%,true
+1737,Regional Transit Auth,2023-06-13,2024-07-23,530,webmaster@city.gov,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1738,Fire Department,2023-08-07,2024-02-08,1846,admin@university.edu,safety;training;emergency,InContext,true,Arabic,ar,EAD,Upload,true,93%,true
+1739,Recycling Program,2022-04-21,2024-08-07,224,va@veterans.gov,orientation;students;campus,InContext,false,-,-,-,-,-,-,-
+1740,Volunteer Services,2023-06-21,2024-08-28,2537,webmaster@city.gov,services;permits;applications,InContext,false,-,-,-,-,-,-,-
+1741,Adult Education Center,2022-05-13,2024-09-12,766,info@municipal.gov,conservation;billing;services,InContext,true,English,en,EAD,Upload,true,90%,true
+1742,Youth Services,2023-01-27,2024-03-28,2374,library@public.org,events;classes;seniors,InContext,false,-,-,-,-,-,-,-
+1743,School District Media,2023-07-16,2024-09-30,567,parks@county.gov,programs;sports;community,InContext,false,Arabic,ar,Standard,Upload,false,91%,false
+1744,Planning Commission,2022-06-27,2024-06-02,1264,center@community.org,benefits;healthcare;support,InContext,true,Mandarin,zh,Standard,Machine,false,99%,true
+1745,Animal Services,2023-05-09,2024-10-23,2720,education@state.gov,safety;training;emergency,InContext,true,Arabic,ar,Standard,Human,false,94%,true
+1746,Historic Preservation,2022-11-29,2024-10-17,1360,district@schools.edu,conservation;recycling;climate,InContext,false,Spanish,es,EAD,Human,false,91%,false
+1747,University Video Portal,2022-01-27,2024-08-19,729,va@veterans.gov,curriculum;math;science,InContext,true,French,fr,Standard,Machine,false,90%,true
+1748,State Education Dept,2023-06-25,2024-09-08,1750,info@municipal.gov,courses;programming;certificates,InContext,false,-,-,-,-,-,-,-
+1749,Water District,2023-08-29,2024-01-04,831,education@state.gov,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1750,Senior Center,2022-10-10,2024-03-24,1136,admin@university.edu,infrastructure;roads;maintenance,InContext,false,English,en,Standard,Upload,false,95%,true
+1751,Disability Services,2023-04-03,2024-06-16,2369,environment@agency.gov,courses;programming;certificates,InContext,false,French,fr,EAD,Machine,true,96%,true
+1752,Public Works Dept,2022-09-05,2024-02-06,2419,environment@agency.gov,services;permits;applications,InContext,false,French,fr,EAD,Upload,true,96%,false
+1753,Disability Services,2023-02-14,2024-09-01,2869,health@county.gov,conservation;billing;services,InContext,false,Arabic,ar,Standard,Human,true,95%,false
+1754,Fire Department,2023-05-25,2024-05-10,396,environment@agency.gov,history;documents;preservation,InContext,false,-,-,-,-,-,-,-
+1755,Public Utilities,2023-02-08,2024-06-08,1575,info@municipal.gov,wellness;vaccination;covid,InContext,false,Mandarin,zh,EAD,Human,false,100%,true
+1756,Public Library Media,2023-10-18,2024-01-11,974,admin@university.edu,conservation;billing;services,InContext,false,-,-,-,-,-,-,-
+1757,Neighborhood Watch,2022-02-09,2024-06-04,391,archives@state.gov,infrastructure;roads;maintenance,InContext,false,Mandarin,zh,EAD,Upload,true,92%,true
+1758,Grant Administration,2022-01-02,2024-06-06,2960,education@state.gov,curriculum;math;science,InContext,true,Arabic,ar,EAD,Human,false,95%,false
+1759,Stormwater Management,2022-03-07,2024-06-04,2633,youth@services.org,orientation;students;campus,InContext,true,Mandarin,zh,Standard,Human,false,100%,false
+1760,Community Center,2023-02-05,2024-05-12,2583,housing@authority.gov,conservation;billing;services,InContext,false,-,-,-,-,-,-,-
+1761,Social Services,2023-07-12,2024-07-29,958,info@municipal.gov,programs;sports;community,InContext,false,-,-,-,-,-,-,-
+1762,Public Library Media,2023-09-10,2024-04-11,1012,webmaster@city.gov,programs;mentoring;education,InContext,true,German,de,Standard,Machine,true,92%,true
+1763,Regional Transit Auth,2023-09-26,2024-04-24,1896,online@techcollege.edu,applications;assistance;programs,InContext,false,-,-,-,-,-,-,-
+1764,Human Resources,2023-10-19,2024-05-07,2167,youth@services.org,services;permits;applications,InContext,false,French,fr,Standard,Human,true,96%,true
+1765,Regional Transit Auth,2022-10-23,2024-04-11,152,webmaster@city.gov,training;teachers;professional,InContext,false,-,-,-,-,-,-,-
+1766,Housing Authority,2022-08-18,2024-10-21,1169,webmaster@city.gov,events;classes;seniors,InContext,false,Arabic,ar,EAD,Upload,true,92%,true
+1767,City Government Channel,2022-05-24,2024-10-11,260,works@city.gov,applications;assistance;programs,InContext,false,French,fr,EAD,Upload,false,96%,true
+1768,Volunteer Services,2022-04-10,2024-01-08,1436,admin@university.edu,safety;routes;schedules,InContext,true,Arabic,ar,EAD,Human,false,91%,false
+1769,Fleet Management,2022-11-30,2024-05-13,1459,archives@state.gov,safety;training;emergency,InContext,false,English,en,Standard,Upload,false,93%,false
+1770,Public Library Media,2022-03-14,2024-05-12,1213,info@municipal.gov,services;permits;applications,InContext,false,Arabic,ar,EAD,Upload,false,97%,false
+1771,Fire Department,2022-02-12,2024-06-05,2353,youth@services.org,safety;training;emergency,InContext,true,Spanish,es,Standard,Machine,false,90%,true
+1772,Recycling Program,2023-03-19,2024-03-02,874,center@community.org,conservation;recycling;climate,InContext,true,English,en,EAD,Machine,true,90%,false
+1773,Animal Services,2023-01-28,2024-04-16,2668,transit@regional.gov,courses;programming;certificates,InContext,false,-,-,-,-,-,-,-
+1774,Veterans Affairs,2023-04-12,2024-07-03,273,parks@county.gov,safety;routes;schedules,InContext,true,Spanish,es,Standard,Human,true,90%,true
+1775,City Government Channel,2022-10-21,2024-05-28,2213,fire@city.gov,council;meeting;public,InContext,false,-,-,-,-,-,-,-
+1776,County Health Dept,2023-09-18,2024-02-07,229,transit@regional.gov,programs;mentoring;education,InContext,true,French,fr,Standard,Upload,false,98%,false
+1777,Parks and Recreation,2023-08-18,2024-05-10,2340,center@community.org,programs;mentoring;education,InContext,false,French,fr,EAD,Upload,false,91%,true
+1778,Parks and Recreation,2023-02-07,2024-06-25,2646,works@city.gov,events;classes;seniors,InContext,true,Spanish,es,EAD,Human,true,95%,false
+1779,Family Services,2022-09-06,2024-08-03,876,district@schools.edu,tutorial;reading;kids,InContext,false,English,en,Standard,Human,false,95%,true
+1780,State Archives,2023-06-17,2024-07-28,2230,webmaster@city.gov,benefits;healthcare;support,InContext,false,Arabic,ar,Standard,Upload,false,95%,false
+1781,University Video Portal,2023-05-14,2024-10-14,2119,works@city.gov,council;meeting;public,InContext,false,English,en,EAD,Human,true,97%,true
+1782,Disability Services,2022-10-01,2024-07-07,2630,youth@services.org,courses;programming;certificates,InContext,false,English,en,Standard,Human,true,98%,false
+1783,Water District,2023-05-20,2024-05-17,1615,water@district.gov,events;classes;seniors,InContext,true,French,fr,Standard,Machine,true,97%,true
+1784,Job Training Center,2023-05-25,2024-01-04,121,housing@authority.gov,orientation;students;campus,InContext,false,-,-,-,-,-,-,-
+1785,Family Services,2023-01-29,2024-06-22,1941,parks@county.gov,programs;mentoring;education,InContext,true,French,fr,Standard,Upload,true,99%,true
+1786,Energy Efficiency,2022-08-26,2024-02-23,552,district@schools.edu,training;teachers;professional,InContext,false,Mandarin,zh,Standard,Machine,false,92%,false
+1787,Building Dept,2022-02-23,2024-01-14,2582,housing@authority.gov,events;classes;seniors,InContext,false,French,fr,EAD,Upload,false,90%,false
+1788,Business Licensing,2023-06-13,2024-03-06,1635,webmaster@city.gov,safety;routes;schedules,InContext,true,German,de,EAD,Human,true,97%,true
+1789,Family Services,2023-01-01,2024-06-16,2481,parks@county.gov,safety;routes;schedules,InContext,false,-,-,-,-,-,-,-
+1790,Municipal Services,2022-03-13,2024-07-18,1331,library@public.org,services;permits;applications,InContext,true,German,de,EAD,Upload,false,90%,true
+1791,Energy Efficiency,2023-03-15,2024-07-18,1133,fire@city.gov,council;meeting;public,InContext,false,Mandarin,zh,Standard,Human,false,93%,true
+1792,Environmental Agency,2022-12-13,2024-06-09,2101,health@county.gov,wellness;vaccination;covid,InContext,false,Arabic,ar,Standard,Human,false,94%,false
+1793,Human Resources,2022-09-24,2024-10-03,469,center@community.org,applications;assistance;programs,InContext,false,French,fr,EAD,Machine,true,99%,true
+1794,Human Resources,2023-03-14,2024-10-26,352,youth@services.org,services;permits;applications,InContext,true,English,en,EAD,Machine,false,90%,true
+1795,Neighborhood Watch,2022-07-22,2024-06-14,1859,parks@county.gov,infrastructure;roads;maintenance,InContext,false,French,fr,EAD,Upload,true,90%,true
+1796,Water District,2022-11-06,2024-02-12,258,online@techcollege.edu,tutorial;reading;kids,InContext,false,Arabic,ar,Standard,Upload,false,95%,true
+1797,Historic Preservation,2023-04-13,2024-10-18,1471,online@techcollege.edu,courses;programming;certificates,InContext,false,English,en,EAD,Machine,false,100%,false
+1798,Social Services,2023-09-20,2024-09-20,1201,info@municipal.gov,benefits;healthcare;support,InContext,false,German,de,Standard,Human,true,93%,false
+1799,State Archives,2022-12-25,2024-02-04,878,parks@county.gov,safety;training;emergency,InContext,true,Mandarin,zh,EAD,Upload,true,96%,true
+1800,Parks and Recreation,2023-09-12,2024-10-05,1951,webmaster@city.gov,conservation;billing;services,InContext,true,English,en,Standard,Upload,false,92%,false
+1801,Housing Authority,2022-06-25,2024-08-04,1235,admin@university.edu,safety;routes;schedules,InContext,false,German,de,Standard,Human,false,93%,false
+1802,Cultural Center,2022-01-13,2024-05-01,1997,district@schools.edu,tutorial;reading;kids,InContext,true,German,de,EAD,Upload,false,95%,true
+1803,Grant Administration,2023-10-02,2024-05-05,1773,health@county.gov,safety;training;emergency,InContext,true,Mandarin,zh,EAD,Upload,false,95%,false
+1804,Parks and Recreation,2022-01-10,2024-02-24,2862,center@community.org,safety;routes;schedules,InContext,false,Arabic,ar,Standard,Human,true,94%,true
+1805,Parks and Recreation,2022-09-04,2024-04-08,1743,housing@authority.gov,orientation;students;campus,InContext,false,Mandarin,zh,EAD,Upload,false,91%,false
+1806,Water District,2022-12-05,2024-07-11,1053,education@state.gov,wellness;vaccination;covid,InContext,true,German,de,EAD,Human,false,97%,false
+1807,Public Works Dept,2023-01-14,2024-03-22,1634,fire@city.gov,conservation;billing;services,InContext,true,German,de,EAD,Human,true,100%,true
+1808,Code Enforcement,2023-01-20,2024-10-23,2070,admin@university.edu,safety;training;emergency,InContext,true,English,en,Standard,Human,false,94%,true
+1809,State Archives,2022-11-25,2024-03-17,231,youth@services.org,wellness;vaccination;covid,InContext,false,-,-,-,-,-,-,-
+1810,University Video Portal,2023-06-20,2024-10-13,2387,health@county.gov,conservation;recycling;climate,InContext,false,-,-,-,-,-,-,-
+1811,Fleet Management,2023-02-12,2024-05-14,1891,center@community.org,benefits;healthcare;support,InContext,false,-,-,-,-,-,-,-
+1812,Traffic Engineering,2022-08-05,2024-04-14,2213,va@veterans.gov,safety;training;emergency,InContext,true,German,de,EAD,Machine,false,90%,false
+1813,Public Works Dept,2022-12-19,2024-07-14,1198,district@schools.edu,orientation;students;campus,InContext,true,French,fr,Standard,Upload,true,94%,false
+1814,Grant Administration,2022-10-24,2024-04-03,1411,parks@county.gov,programs;sports;community,InContext,false,-,-,-,-,-,-,-
+1815,Stormwater Management,2022-04-30,2024-05-12,2701,housing@authority.gov,safety;training;emergency,InContext,true,Mandarin,zh,Standard,Upload,false,97%,false
+1816,Building Dept,2022-01-20,2024-06-15,1928,center@community.org,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1817,Stormwater Management,2023-10-07,2024-06-14,1787,admin@university.edu,lecture;biology;intro,InContext,false,-,-,-,-,-,-,-
+1818,University Video Portal,2023-03-23,2024-01-03,1214,youth@services.org,safety;routes;schedules,InContext,false,German,de,EAD,Machine,true,93%,false
+1819,Neighborhood Watch,2022-09-30,2024-07-25,2351,media@college.edu,programs;mentoring;education,InContext,false,Arabic,ar,EAD,Human,false,95%,true
+1820,Environmental Agency,2022-10-10,2024-08-19,1003,youth@services.org,tutorial;reading;kids,InContext,true,English,en,EAD,Human,false,92%,true
+1821,Water District,2023-05-04,2024-02-25,2737,works@city.gov,training;teachers;professional,InContext,false,-,-,-,-,-,-,-
+1822,Traffic Engineering,2022-10-13,2024-08-29,66,parks@county.gov,safety;training;emergency,InContext,true,Arabic,ar,Standard,Machine,true,98%,false
+1823,Municipal Services,2023-05-26,2024-03-03,1492,va@veterans.gov,programs;mentoring;education,InContext,false,Mandarin,zh,Standard,Upload,true,90%,false
+1824,IT Services,2023-01-04,2024-09-13,1772,archives@state.gov,conservation;recycling;climate,InContext,true,Mandarin,zh,Standard,Human,false,94%,false
+1825,Energy Efficiency,2022-12-06,2024-03-27,2124,center@community.org,applications;assistance;programs,InContext,false,-,-,-,-,-,-,-
+1826,Adult Education Center,2022-01-29,2024-05-01,2854,health@county.gov,services;permits;applications,InContext,false,-,-,-,-,-,-,-
+1827,Grant Administration,2023-04-14,2024-02-03,906,education@state.gov,infrastructure;roads;maintenance,InContext,false,German,de,Standard,Upload,false,95%,true
+1828,Public Works Dept,2022-12-23,2024-07-31,927,education@state.gov,programs;sports;community,InContext,true,Mandarin,zh,EAD,Machine,true,91%,true
+1829,Transportation Dept,2022-12-11,2024-07-07,1433,youth@services.org,programs;mentoring;education,InContext,true,Spanish,es,EAD,Machine,true,94%,true
+1830,Neighborhood Watch,2023-08-26,2024-02-09,1139,info@municipal.gov,applications;assistance;programs,InContext,false,Arabic,ar,Standard,Machine,true,93%,false
+1831,Water District,2022-09-19,2024-02-18,452,archives@state.gov,lecture;biology;intro,InContext,false,Mandarin,zh,EAD,Upload,false,96%,false
+1832,Cultural Center,2022-05-25,2024-10-12,2838,media@college.edu,safety;training;emergency,InContext,false,-,-,-,-,-,-,-
+1833,Code Enforcement,2023-04-28,2024-10-09,1000,education@state.gov,safety;training;emergency,InContext,true,Spanish,es,Standard,Human,true,91%,false
+1834,School District Media,2023-07-17,2024-04-27,2638,webmaster@city.gov,council;meeting;public,InContext,true,English,en,EAD,Machine,true,94%,true
+1835,Planning Commission,2022-08-13,2024-08-10,330,center@community.org,orientation;students;campus,InContext,false,-,-,-,-,-,-,-
+1836,Fire Department,2023-02-07,2024-01-27,211,environment@agency.gov,council;meeting;public,InContext,false,-,-,-,-,-,-,-
+1837,Volunteer Services,2022-08-05,2024-03-16,1362,parks@county.gov,orientation;students;campus,InContext,false,Arabic,ar,Standard,Machine,true,98%,true
+1838,Public Works Dept,2023-01-28,2024-10-12,1047,works@city.gov,benefits;healthcare;support,InContext,true,Spanish,es,Standard,Human,true,93%,true
+1839,Human Resources,2023-05-18,2024-06-11,103,works@city.gov,council;meeting;public,InContext,false,-,-,-,-,-,-,-
+1840,Water District,2023-01-11,2024-07-07,2250,va@veterans.gov,applications;assistance;programs,InContext,true,English,en,Standard,Machine,false,91%,false
+1841,Adult Education Center,2022-02-27,2024-03-10,1282,youth@services.org,tutorial;reading;kids,InContext,false,French,fr,EAD,Human,false,95%,true
+1842,Veterans Affairs,2022-05-06,2024-04-20,1948,center@community.org,courses;programming;certificates,InContext,true,Arabic,ar,Standard,Upload,true,96%,true
+1843,State Archives,2023-05-19,2024-08-05,839,youth@services.org,conservation;recycling;climate,InContext,false,German,de,EAD,Upload,false,93%,true
+1844,Environmental Agency,2022-08-23,2024-04-08,1270,admin@university.edu,council;meeting;public,InContext,true,Spanish,es,Standard,Machine,false,100%,false
+1845,Human Resources,2023-04-05,2024-03-14,2055,district@schools.edu,tutorial;reading;kids,InContext,false,-,-,-,-,-,-,-
+1846,Community Center,2022-11-20,2024-04-11,1988,va@veterans.gov,council;meeting;public,InContext,false,German,de,EAD,Human,true,96%,true
+1847,Volunteer Services,2023-05-11,2024-08-25,2577,library@public.org,programs;mentoring;education,InContext,false,Arabic,ar,EAD,Machine,false,97%,true
+1848,School District Media,2022-01-10,2024-08-28,2961,media@college.edu,courses;programming;certificates,InContext,true,German,de,Standard,Upload,true,95%,true
+1849,Fire Department,2022-05-22,2024-10-27,1344,education@state.gov,history;documents;preservation,InContext,true,Mandarin,zh,Standard,Human,false,95%,true
+1850,Energy Efficiency,2023-01-13,2024-04-26,727,youth@services.org,safety;training;emergency,InContext,false,-,-,-,-,-,-,-
+1851,Public Utilities,2023-03-20,2024-06-29,2932,online@techcollege.edu,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1852,Parks and Recreation,2023-07-15,2024-01-07,1980,fire@city.gov,conservation;billing;services,InContext,true,Mandarin,zh,Standard,Upload,true,90%,true
+1853,School District Media,2023-02-24,2024-02-15,2568,info@municipal.gov,courses;programming;certificates,InContext,false,Arabic,ar,Standard,Machine,false,100%,false
+1854,Code Enforcement,2023-10-17,2024-01-02,2699,media@college.edu,benefits;healthcare;support,InContext,true,German,de,EAD,Upload,true,97%,false
+1855,Adult Education Center,2022-02-24,2024-10-03,2317,library@public.org,safety;training;emergency,InContext,false,-,-,-,-,-,-,-
+1856,Senior Center,2022-12-11,2024-01-10,2920,webmaster@city.gov,safety;routes;schedules,InContext,false,-,-,-,-,-,-,-
+1857,Business Licensing,2023-05-22,2024-05-07,2004,water@district.gov,tutorial;reading;kids,InContext,false,English,en,Standard,Upload,true,96%,false
+1858,Housing Authority,2023-03-13,2024-08-22,2953,online@techcollege.edu,applications;assistance;programs,InContext,false,Mandarin,zh,Standard,Human,true,91%,true
+1859,Tech College Online,2023-07-06,2024-03-05,647,library@public.org,council;meeting;public,InContext,false,Arabic,ar,Standard,Upload,true,95%,false
+1860,Regional Transit Auth,2023-01-05,2024-08-05,485,water@district.gov,courses;programming;certificates,InContext,false,Arabic,ar,EAD,Upload,true,99%,false
+1861,Veterans Affairs,2023-01-17,2024-08-04,2784,archives@state.gov,courses;programming;certificates,InContext,true,German,de,EAD,Upload,false,91%,true
+1862,Municipal Services,2023-09-18,2024-01-18,2103,webmaster@city.gov,courses;programming;certificates,InContext,true,French,fr,EAD,Upload,false,92%,false
+1863,Adult Education Center,2022-01-16,2024-10-13,2574,district@schools.edu,wellness;vaccination;covid,InContext,true,English,en,EAD,Upload,false,95%,true
+1864,Code Enforcement,2023-09-16,2024-05-02,2820,online@techcollege.edu,orientation;students;campus,InContext,false,German,de,EAD,Human,true,90%,false
+1865,Building Dept,2022-12-29,2024-01-11,849,parks@county.gov,lecture;biology;intro,InContext,false,-,-,-,-,-,-,-
+1866,Social Services,2022-06-03,2024-10-21,2636,online@techcollege.edu,programs;mentoring;education,InContext,false,Arabic,ar,EAD,Human,true,99%,true
+1867,Emergency Management,2023-07-07,2024-09-12,1460,environment@agency.gov,council;meeting;public,InContext,false,-,-,-,-,-,-,-
+1868,Job Training Center,2022-02-17,2024-08-15,1955,archives@state.gov,programs;sports;community,InContext,false,Spanish,es,EAD,Upload,true,100%,true
+1869,Animal Services,2022-06-29,2024-10-01,2448,youth@services.org,events;classes;seniors,InContext,true,French,fr,EAD,Upload,false,93%,true
+1870,University Video Portal,2023-08-06,2024-05-02,2668,education@state.gov,infrastructure;roads;maintenance,InContext,false,-,-,-,-,-,-,-
+1871,Historic Preservation,2022-05-26,2024-03-09,2568,archives@state.gov,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1872,Housing Authority,2022-04-02,2024-05-17,2099,housing@authority.gov,conservation;billing;services,InContext,false,-,-,-,-,-,-,-
+1873,County Health Dept,2022-01-19,2024-02-10,2665,youth@services.org,applications;assistance;programs,InContext,false,German,de,Standard,Machine,true,94%,true
+1874,Community Center,2022-09-19,2024-09-22,1141,health@county.gov,orientation;students;campus,InContext,false,Arabic,ar,Standard,Machine,false,91%,false
+1875,Community Outreach,2023-10-20,2024-07-31,2703,parks@county.gov,benefits;healthcare;support,InContext,false,-,-,-,-,-,-,-
+1876,Disability Services,2022-05-27,2024-09-04,845,youth@services.org,conservation;billing;services,InContext,false,-,-,-,-,-,-,-
+1877,Water District,2023-09-28,2024-08-07,64,housing@authority.gov,tutorial;reading;kids,InContext,false,-,-,-,-,-,-,-
+1878,Municipal Services,2022-08-24,2024-03-12,870,fire@city.gov,lecture;biology;intro,InContext,false,-,-,-,-,-,-,-
+1879,Recycling Program,2022-02-08,2024-07-08,351,transit@regional.gov,tutorial;reading;kids,InContext,true,German,de,Standard,Machine,true,95%,true
+1880,Traffic Engineering,2023-10-15,2024-06-26,2542,education@state.gov,orientation;students;campus,InContext,false,French,fr,EAD,Human,true,91%,true
+1881,State Education Dept,2022-12-27,2024-04-07,1334,housing@authority.gov,benefits;healthcare;support,InContext,false,French,fr,EAD,Human,true,98%,true
+1882,Social Services,2023-01-16,2024-09-20,1620,online@techcollege.edu,orientation;students;campus,InContext,false,French,fr,EAD,Upload,true,92%,true
+1883,Stormwater Management,2023-05-10,2024-05-03,1993,environment@agency.gov,services;permits;applications,InContext,false,-,-,-,-,-,-,-
+1884,Public Utilities,2023-10-26,2024-04-24,1851,transit@regional.gov,curriculum;math;science,InContext,false,-,-,-,-,-,-,-
+1885,Volunteer Services,2022-03-30,2024-09-28,1859,parks@county.gov,lecture;biology;intro,InContext,true,Spanish,es,Standard,Human,true,96%,false
+1886,Business Licensing,2022-10-13,2024-05-30,2207,library@public.org,infrastructure;roads;maintenance,InContext,false,German,de,Standard,Upload,true,97%,true
+1887,Building Dept,2022-01-05,2024-01-30,2873,education@state.gov,services;permits;applications,InContext,false,French,fr,Standard,Upload,false,94%,true
+1888,Building Dept,2023-04-16,2024-07-24,2686,archives@state.gov,safety;training;emergency,InContext,true,Mandarin,zh,EAD,Human,true,93%,true
+1889,Environmental Agency,2022-06-12,2024-01-18,2970,health@county.gov,events;classes;seniors,InContext,false,French,fr,Standard,Machine,true,98%,true
+1890,Parks and Recreation,2023-02-14,2024-07-12,2916,library@public.org,conservation;recycling;climate,InContext,false,Mandarin,zh,EAD,Human,true,91%,true
+1891,Social Services,2022-12-01,2024-02-06,2377,fire@city.gov,infrastructure;roads;maintenance,InContext,false,-,-,-,-,-,-,-
+1892,State Education Dept,2023-04-09,2024-07-24,883,library@public.org,safety;routes;schedules,InContext,true,French,fr,EAD,Upload,false,91%,false
+1893,Code Enforcement,2023-09-24,2024-07-28,128,library@public.org,courses;programming;certificates,InContext,false,German,de,EAD,Machine,true,99%,false
+1894,Fire Department,2023-06-16,2024-01-06,643,education@state.gov,wellness;vaccination;covid,InContext,true,German,de,Standard,Machine,true,92%,false
+1895,Public Information,2023-04-08,2024-07-28,2207,youth@services.org,safety;routes;schedules,InContext,true,Spanish,es,EAD,Machine,false,95%,false
+1896,Stormwater Management,2023-04-17,2024-01-22,2281,works@city.gov,programs;mentoring;education,InContext,true,German,de,EAD,Machine,false,91%,true
+1897,Tech College Online,2023-05-25,2024-04-20,2583,housing@authority.gov,orientation;students;campus,InContext,true,Mandarin,zh,EAD,Machine,false,94%,true
+1898,Economic Development,2022-08-14,2024-08-29,934,water@district.gov,training;teachers;professional,InContext,false,Spanish,es,Standard,Human,true,94%,false
+1899,Planning Commission,2023-06-08,2024-01-26,388,works@city.gov,wellness;vaccination;covid,InContext,false,-,-,-,-,-,-,-
+1900,Adult Education Center,2022-01-22,2024-02-06,1171,district@schools.edu,applications;assistance;programs,InContext,true,Spanish,es,Standard,Human,true,100%,false
+1901,Fleet Management,2022-11-19,2024-03-17,1474,housing@authority.gov,conservation;billing;services,InContext,true,Mandarin,zh,Standard,Upload,false,90%,true
+1902,Job Training Center,2023-01-15,2024-09-08,1451,district@schools.edu,courses;programming;certificates,InContext,false,Mandarin,zh,Standard,Machine,false,90%,true
+1903,City Government Channel,2023-09-24,2024-05-08,2123,library@public.org,council;meeting;public,InContext,true,French,fr,EAD,Human,true,95%,true
+1904,Tech College Online,2022-10-02,2024-02-26,223,admin@university.edu,curriculum;math;science,InContext,true,French,fr,EAD,Human,true,95%,true
+1905,Cultural Center,2023-05-14,2024-06-17,1043,transit@regional.gov,conservation;billing;services,InContext,false,-,-,-,-,-,-,-
+1906,Parks and Recreation,2022-04-28,2024-07-04,679,library@public.org,courses;programming;certificates,InContext,false,Mandarin,zh,EAD,Human,false,100%,false
+1907,City Government Channel,2022-08-11,2024-09-03,2929,info@municipal.gov,conservation;recycling;climate,InContext,true,Arabic,ar,Standard,Machine,true,91%,true
+1908,Business Licensing,2023-05-24,2024-06-07,1822,water@district.gov,courses;programming;certificates,InContext,false,-,-,-,-,-,-,-
+1909,Environmental Agency,2022-07-17,2024-09-27,257,online@techcollege.edu,lecture;biology;intro,InContext,false,German,de,Standard,Machine,true,91%,true
+1910,Fleet Management,2023-02-19,2024-05-06,2287,va@veterans.gov,council;meeting;public,InContext,true,Arabic,ar,EAD,Machine,false,92%,false
+1911,Senior Center,2022-05-26,2024-01-30,362,fire@city.gov,services;permits;applications,InContext,false,Arabic,ar,Standard,Machine,false,98%,false
+1912,Job Training Center,2023-07-15,2024-02-13,1507,education@state.gov,conservation;billing;services,InContext,false,Spanish,es,EAD,Upload,false,91%,false
+1913,Business Licensing,2022-01-05,2024-08-27,2980,district@schools.edu,applications;assistance;programs,InContext,true,Arabic,ar,Standard,Upload,false,100%,true
+1914,Business Licensing,2022-10-17,2024-08-22,1018,health@county.gov,lecture;biology;intro,InContext,false,-,-,-,-,-,-,-
+1915,Animal Services,2022-08-29,2024-10-15,2442,library@public.org,safety;training;emergency,InContext,false,-,-,-,-,-,-,-
+1916,Regional Transit Auth,2022-03-24,2024-06-30,176,water@district.gov,applications;assistance;programs,InContext,true,Mandarin,zh,EAD,Machine,false,91%,false
+1917,Economic Development,2022-05-29,2024-04-27,134,admin@university.edu,training;teachers;professional,InContext,true,French,fr,EAD,Human,false,94%,true
+1918,Transportation Dept,2022-12-02,2024-07-07,1191,housing@authority.gov,courses;programming;certificates,InContext,false,Arabic,ar,EAD,Machine,true,94%,true
+1919,Family Services,2022-01-17,2024-04-06,662,online@techcollege.edu,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1920,Fire Department,2023-07-28,2024-02-20,1647,education@state.gov,conservation;billing;services,InContext,false,-,-,-,-,-,-,-
+1921,Regional Transit Auth,2022-11-28,2024-03-28,1148,fire@city.gov,history;documents;preservation,InContext,false,Spanish,es,Standard,Machine,false,94%,true
+1922,University Video Portal,2023-09-27,2024-05-13,2274,environment@agency.gov,history;documents;preservation,InContext,false,-,-,-,-,-,-,-
+1923,State Archives,2022-11-10,2024-02-10,2749,district@schools.edu,benefits;healthcare;support,InContext,false,French,fr,EAD,Upload,true,94%,false
+1924,Cultural Center,2023-07-24,2024-08-03,1646,housing@authority.gov,safety;routes;schedules,InContext,false,-,-,-,-,-,-,-
+1925,Business Licensing,2023-10-14,2024-04-20,2182,library@public.org,council;meeting;public,InContext,true,German,de,EAD,Upload,true,90%,true
+1926,Human Resources,2022-11-01,2024-08-27,2643,fire@city.gov,programs;sports;community,InContext,false,Arabic,ar,EAD,Human,false,91%,true
+1927,Traffic Engineering,2023-01-14,2024-06-03,2500,admin@university.edu,programs;sports;community,InContext,true,French,fr,EAD,Upload,false,98%,false
+1928,IT Services,2023-03-15,2024-03-17,1254,works@city.gov,infrastructure;roads;maintenance,InContext,true,English,en,EAD,Human,false,98%,false
+1929,Recycling Program,2023-05-20,2024-09-01,1095,works@city.gov,orientation;students;campus,InContext,true,Spanish,es,EAD,Machine,true,97%,false
+1930,Stormwater Management,2023-03-26,2024-08-25,2702,water@district.gov,benefits;healthcare;support,InContext,true,Mandarin,zh,EAD,Human,false,98%,false
+1931,Tech College Online,2023-07-29,2024-05-07,862,water@district.gov,tutorial;reading;kids,InContext,false,French,fr,Standard,Human,false,98%,true
+1932,Transportation Dept,2023-06-15,2024-03-19,2250,district@schools.edu,safety;routes;schedules,InContext,true,French,fr,Standard,Machine,false,92%,false
+1933,Fire Department,2023-04-07,2024-03-05,2714,online@techcollege.edu,orientation;students;campus,InContext,false,English,en,EAD,Upload,true,92%,false
+1934,Building Dept,2022-04-22,2024-08-02,357,archives@state.gov,curriculum;math;science,InContext,false,-,-,-,-,-,-,-
+1935,Public Information,2022-08-08,2024-09-25,1264,housing@authority.gov,events;classes;seniors,InContext,false,German,de,EAD,Human,true,91%,false
+1936,Human Resources,2022-11-05,2024-07-17,1191,library@public.org,safety;training;emergency,InContext,false,-,-,-,-,-,-,-
+1937,Grant Administration,2022-06-20,2024-03-04,1755,district@schools.edu,programs;mentoring;education,InContext,false,Mandarin,zh,Standard,Upload,true,99%,false
+1938,Code Enforcement,2022-03-14,2024-04-09,2293,transit@regional.gov,conservation;recycling;climate,InContext,false,-,-,-,-,-,-,-
+1939,Youth Services,2022-06-25,2024-04-14,2653,environment@agency.gov,wellness;vaccination;covid,InContext,false,Mandarin,zh,Standard,Human,true,100%,false
+1940,Job Training Center,2022-11-11,2024-03-22,559,education@state.gov,conservation;recycling;climate,InContext,true,Arabic,ar,Standard,Machine,false,99%,false
+1941,Social Services,2022-01-21,2024-07-25,315,works@city.gov,programs;sports;community,InContext,false,-,-,-,-,-,-,-
+1942,Municipal Services,2022-04-19,2024-02-12,1854,library@public.org,tutorial;reading;kids,InContext,false,-,-,-,-,-,-,-
+1943,Community College,2023-01-21,2024-01-11,916,parks@county.gov,programs;mentoring;education,InContext,true,Mandarin,zh,Standard,Human,false,97%,false
+1944,Emergency Management,2022-01-02,2024-06-14,694,media@college.edu,programs;sports;community,InContext,false,English,en,Standard,Upload,false,96%,false
+1945,Youth Services,2022-10-19,2024-01-23,297,va@veterans.gov,programs;mentoring;education,InContext,false,German,de,EAD,Machine,true,99%,true
+1946,State Education Dept,2022-10-11,2024-08-12,2488,online@techcollege.edu,safety;routes;schedules,InContext,false,Mandarin,zh,Standard,Upload,false,99%,false
+1947,Disability Services,2023-06-04,2024-09-25,1476,housing@authority.gov,lecture;biology;intro,InContext,false,-,-,-,-,-,-,-
+1948,Adult Education Center,2022-02-25,2024-07-16,887,online@techcollege.edu,safety;training;emergency,InContext,false,-,-,-,-,-,-,-
+1949,Youth Services,2023-07-17,2024-05-18,363,admin@university.edu,infrastructure;roads;maintenance,InContext,false,-,-,-,-,-,-,-
+1950,Public Utilities,2023-05-20,2024-07-07,686,transit@regional.gov,wellness;vaccination;covid,InContext,false,German,de,Standard,Human,false,91%,false
+1951,Environmental Agency,2022-02-08,2024-05-08,2819,center@community.org,training;teachers;professional,InContext,false,German,de,Standard,Human,true,96%,true
+1952,Community Outreach,2022-02-21,2024-02-01,336,transit@regional.gov,programs;mentoring;education,InContext,false,Mandarin,zh,EAD,Human,false,95%,true
+1953,Stormwater Management,2023-03-19,2024-05-20,698,media@college.edu,infrastructure;roads;maintenance,InContext,true,Arabic,ar,Standard,Human,false,91%,false
+1954,State Archives,2022-04-16,2024-10-09,2843,media@college.edu,council;meeting;public,InContext,true,French,fr,EAD,Human,false,93%,true
+1955,Tech College Online,2022-05-10,2024-07-24,1322,transit@regional.gov,courses;programming;certificates,InContext,true,French,fr,Standard,Machine,false,96%,false
+1956,Human Resources,2023-01-29,2024-06-20,1596,archives@state.gov,council;meeting;public,InContext,true,Arabic,ar,EAD,Upload,false,90%,true
+1957,State Archives,2022-08-03,2024-04-04,779,fire@city.gov,programs;mentoring;education,InContext,false,-,-,-,-,-,-,-
+1958,Housing Authority,2022-01-18,2024-02-13,1191,transit@regional.gov,services;permits;applications,InContext,true,English,en,Standard,Upload,true,99%,false
+1959,Neighborhood Watch,2022-08-25,2024-08-05,1228,admin@university.edu,courses;programming;certificates,InContext,false,-,-,-,-,-,-,-
+1960,Emergency Management,2022-11-23,2024-07-10,1850,admin@university.edu,tutorial;reading;kids,InContext,true,German,de,EAD,Machine,true,92%,false
+1961,Historic Preservation,2023-01-02,2024-08-27,2981,archives@state.gov,conservation;recycling;climate,InContext,false,English,en,Standard,Human,true,99%,true
+1962,Senior Center,2022-04-24,2024-10-09,1844,parks@county.gov,council;meeting;public,InContext,false,-,-,-,-,-,-,-
+1963,Building Dept,2022-03-06,2024-02-19,830,works@city.gov,programs;sports;community,InContext,true,English,en,EAD,Human,false,91%,false
+1964,City Government Channel,2023-06-01,2024-07-09,2068,archives@state.gov,programs;sports;community,InContext,false,-,-,-,-,-,-,-
+1965,Fleet Management,2023-09-13,2024-03-13,2025,works@city.gov,wellness;vaccination;covid,InContext,true,Spanish,es,Standard,Human,true,93%,true
+1966,Transportation Dept,2023-02-19,2024-02-09,679,fire@city.gov,programs;mentoring;education,InContext,true,Mandarin,zh,Standard,Machine,false,93%,false
+1967,Building Dept,2022-12-09,2024-01-01,1932,water@district.gov,courses;programming;certificates,InContext,false,Arabic,ar,Standard,Machine,true,92%,true
+1968,University Video Portal,2022-06-03,2024-05-06,1810,fire@city.gov,benefits;healthcare;support,InContext,false,French,fr,EAD,Human,false,92%,true
+1969,Building Dept,2022-08-27,2024-05-28,2021,youth@services.org,lecture;biology;intro,InContext,false,-,-,-,-,-,-,-
+1970,Business Licensing,2022-05-08,2024-01-31,909,center@community.org,wellness;vaccination;covid,InContext,true,English,en,EAD,Upload,false,100%,true
+1971,Energy Efficiency,2022-01-20,2024-03-19,1276,fire@city.gov,wellness;vaccination;covid,InContext,false,-,-,-,-,-,-,-
+1972,Human Resources,2022-11-26,2024-02-19,2565,center@community.org,events;classes;seniors,InContext,true,Arabic,ar,Standard,Human,true,94%,false
+1973,Regional Transit Auth,2023-07-13,2024-10-12,827,fire@city.gov,programs;sports;community,InContext,true,French,fr,Standard,Human,false,95%,false
+1974,Public Works Dept,2022-08-17,2024-08-30,753,media@college.edu,safety;training;emergency,InContext,false,French,fr,Standard,Machine,true,96%,true
+1975,Economic Development,2023-09-13,2024-08-21,283,water@district.gov,conservation;billing;services,InContext,true,Spanish,es,EAD,Upload,true,98%,true
+1976,Transportation Dept,2023-10-17,2024-03-09,416,library@public.org,services;permits;applications,InContext,false,Arabic,ar,Standard,Upload,false,100%,true
+1977,Tech College Online,2022-03-11,2024-03-31,2023,archives@state.gov,benefits;healthcare;support,InContext,true,French,fr,Standard,Human,false,99%,false
+1978,Community Center,2022-01-22,2024-03-08,195,media@college.edu,benefits;healthcare;support,InContext,false,Spanish,es,Standard,Upload,true,94%,false
+1979,Community College,2023-09-08,2024-06-30,2917,online@techcollege.edu,programs;sports;community,InContext,false,-,-,-,-,-,-,-
+1980,Building Dept,2022-10-29,2024-01-16,757,va@veterans.gov,safety;training;emergency,InContext,true,French,fr,Standard,Upload,false,100%,false
+1981,Stormwater Management,2023-04-18,2024-04-17,1247,library@public.org,applications;assistance;programs,InContext,true,Mandarin,zh,EAD,Human,false,98%,false
+1982,Municipal Services,2022-05-14,2024-09-29,1051,parks@county.gov,services;permits;applications,InContext,false,-,-,-,-,-,-,-
+1983,Public Information,2023-10-04,2024-09-27,1815,media@college.edu,conservation;recycling;climate,InContext,false,French,fr,Standard,Human,true,90%,false
+1984,Planning Commission,2022-10-27,2024-06-11,164,webmaster@city.gov,programs;sports;community,InContext,true,Mandarin,zh,EAD,Upload,true,90%,false
+1985,Community Outreach,2022-08-21,2024-02-19,1915,online@techcollege.edu,applications;assistance;programs,InContext,true,Spanish,es,EAD,Machine,false,98%,false
+1986,Public Works Dept,2022-07-13,2024-03-02,2396,media@college.edu,conservation;billing;services,InContext,false,Arabic,ar,Standard,Human,true,95%,true
+1987,Planning Commission,2022-01-14,2024-05-22,1986,parks@county.gov,programs;sports;community,InContext,false,Spanish,es,EAD,Machine,false,100%,false
+1988,Veterans Affairs,2023-02-02,2024-08-27,1653,works@city.gov,courses;programming;certificates,InContext,false,-,-,-,-,-,-,-
+1989,Cultural Center,2023-06-23,2024-05-22,2504,parks@county.gov,programs;sports;community,InContext,false,-,-,-,-,-,-,-
+1990,Code Enforcement,2022-03-02,2024-03-23,1163,transit@regional.gov,events;classes;seniors,InContext,false,Mandarin,zh,EAD,Machine,true,96%,true
+1991,Human Resources,2022-08-01,2024-05-10,1921,parks@county.gov,applications;assistance;programs,InContext,false,Mandarin,zh,EAD,Upload,true,99%,false
+1992,Job Training Center,2022-02-23,2024-05-09,958,water@district.gov,tutorial;reading;kids,InContext,true,Spanish,es,EAD,Human,false,96%,true
+1993,Business Licensing,2022-07-30,2024-10-18,1038,fire@city.gov,infrastructure;roads;maintenance,InContext,false,German,de,Standard,Human,false,99%,false
+1994,Emergency Management,2023-02-11,2024-03-16,243,environment@agency.gov,events;classes;seniors,InContext,false,-,-,-,-,-,-,-
+1995,County Health Dept,2023-07-10,2024-05-31,1283,fire@city.gov,training;teachers;professional,InContext,false,French,fr,EAD,Human,false,95%,true
+1996,Community Center,2023-06-01,2024-08-17,372,admin@university.edu,tutorial;reading;kids,InContext,true,German,de,Standard,Upload,true,91%,false
+1997,Grant Administration,2022-07-05,2024-06-16,2295,water@district.gov,infrastructure;roads;maintenance,InContext,false,English,en,Standard,Human,false,93%,false
+1998,Disability Services,2022-07-13,2024-08-03,1980,va@veterans.gov,services;permits;applications,InContext,true,German,de,Standard,Upload,true,95%,true
+1999,Fleet Management,2023-08-18,2024-08-08,2169,online@techcollege.edu,council;meeting;public,InContext,true,Mandarin,zh,EAD,Machine,true,91%,false
+2000,Grant Administration,2023-09-06,2024-08-07,2247,info@municipal.gov,training;teachers;professional,InContext,true,Arabic,ar,EAD,Human,true,100%,false

@@ -2,23 +2,26 @@
 
 import { useState, useEffect, useRef } from 'react';
 import ResultsTable from './ResultsTable';
-import DataVisualization from './DataVisualization';
+import ComplianceDashboard from './ComplianceDashboard';
 
 interface ResultsViewProps {
   results: any[];
+  insights?: string | null;
+  executiveSummary?: string | null;
+  query?: string;
 }
 
-export default function ResultsView({ results }: ResultsViewProps) {
-  const [activeTab, setActiveTab] = useState<'table' | 'chart'>('table');
+export default function ResultsView({ results, insights, executiveSummary, query }: ResultsViewProps) {
+  const [activeTab, setActiveTab] = useState<'table' | 'chart'>('chart');
   const [exporting, setExporting] = useState(false);
   const resultsRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    // Reset to table view and scroll to results when they update
+    // Reset to chart view and scroll to results when they update
     if (results.length > 0) {
-      setActiveTab('table');
+      setActiveTab('chart');
       
       if (resultsRef.current) {
         setTimeout(() => {
@@ -65,49 +68,29 @@ export default function ResultsView({ results }: ResultsViewProps) {
       pdf.setTextColor(0, 0, 0);
       yPosition += 15;
 
-      // Capture and add chart if on chart tab
-      if (activeTab === 'chart' && chartRef.current) {
+      // Build professional PDF from data if on chart tab
+      if (activeTab === 'chart') {
         try {
-          pdf.setFontSize(14);
-          pdf.setFont('helvetica', 'bold');
-          pdf.text('Chart Visualization', 14, yPosition);
-          yPosition += 8;
-
-          const canvas = await html2canvas(chartRef.current, {
-            backgroundColor: '#252d47',
-            scale: 2,
-            logging: false,
-          });
-          
-          const imgData = canvas.toDataURL('image/png');
-          const imgWidth = 180;
-          const imgHeight = (canvas.height * imgWidth) / canvas.width;
-          
-          // Center the chart
-          const xPosition = (210 - imgWidth) / 2;
-          
-          if (yPosition + imgHeight > 270) {
-            pdf.addPage();
-            yPosition = 20;
-          }
-          
-          pdf.addImage(imgData, 'PNG', xPosition, yPosition, imgWidth, imgHeight);
-          yPosition += imgHeight + 10;
-          
-          // Add explanation
-          pdf.setFontSize(9);
-          pdf.setFont('helvetica', 'italic');
-          pdf.setTextColor(80, 80, 80);
-          pdf.text('Chart shows distribution of data. Top 20 categories displayed for clarity.', 105, yPosition, { align: 'center' });
-          pdf.setTextColor(0, 0, 0);
-          pdf.setFont('helvetica', 'normal');
-          yPosition += 10;
-        } catch (chartError) {
-          console.warn('Could not capture chart:', chartError);
+          console.log('Attempting to build compliance PDF...', { hasExecutiveSummary: !!executiveSummary, resultsCount: results.length });
+          // Use the new clean PDF builder
+          const { buildCompliancePDF } = await import('../utils/pdfBuilder');
+          const compilancePdf = await buildCompliancePDF(
+            executiveSummary || 'No executive summary available', 
+            results,
+            query || 'No query specified'
+          );
+          compilancePdf.save(`Title_II_Compliance_Report_${new Date().toISOString().split('T')[0]}.pdf`);
+          setExporting(false);
+          return;
+        } catch (pdfError) {
+          console.error('PDF generation failed:', pdfError);
+          alert(`PDF generation failed: ${pdfError instanceof Error ? pdfError.message : 'Unknown error'}`);
+          setExporting(false);
+          return;
         }
       }
 
-      // Summary Statistics
+      // Summary Statistics for table export
       if (results.length > 0) {
         if (yPosition > 240) {
           pdf.addPage();
@@ -310,14 +293,46 @@ export default function ResultsView({ results }: ResultsViewProps) {
       {/* Tab Content */}
       <div ref={contentRef} className="transition-opacity duration-200">
         {activeTab === 'table' ? (
-          <ResultsTable results={results} />
+          <>
+            <ResultsTable results={results} />
+          </>
         ) : (
-          <DataVisualization 
-            data={results} 
-            onChartRefReady={(ref) => { chartRef.current = ref; }}
-            onExportPDF={handleExportPDF}
-            isExporting={exporting}
-          />
+          <>
+            {/* Executive Summary under Chart View */}
+            {executiveSummary && (
+              <div className="mb-6">
+                <div className="bg-gradient-to-r from-slate-800/60 to-slate-700/60 rounded-lg p-6 border border-slate-600/50 shadow-lg">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-gradient-to-br from-slate-600 to-slate-500 rounded-full flex items-center justify-center">
+                        <span className="text-2xl">📊</span>
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
+                        Executive Summary
+                        <span className="text-xs font-normal text-gray-300 bg-slate-700/80 px-2 py-1 rounded">
+                          Title II Compliance Status
+                        </span>
+                      </h3>
+                      <div className="text-gray-100 leading-relaxed">
+                        {executiveSummary}
+                      </div>
+                      <div className="mt-3 text-xs text-gray-400">
+                        Content inventory and accessibility metrics for institutional compliance review. WCAG 2.1 AA compliance deadline: April 24, 2026.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            <ComplianceDashboard 
+              data={results} 
+              onChartRefReady={(ref) => { chartRef.current = ref; }}
+              onExportPDF={handleExportPDF}
+              isExporting={exporting}
+            />
+          </>
         )}
       </div>
     </div>

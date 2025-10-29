@@ -18,6 +18,8 @@ import { queryDb } from "./src/tools/queryDb.ts";
 import { generateSql } from "./src/tools/generateSql.ts";
 import { loadCsvFolder } from "./src/tools/loadCsvFolder.ts";
 import { exportExcel } from "./src/tools/exportExcel.ts";
+import { analyzeResults } from "./src/tools/analyzeResults.ts";
+// import { generateInsights } from "./src/tools/generateInsights.ts"; // No longer used - AI Insights removed
 import { authenticateToken, requireAdmin } from "./src/middleware/auth.ts";
 import type { AuthRequest } from "./src/middleware/auth.ts";
 import { validateAndSanitizeSql, logSuspiciousQuery } from "./src/utils/sqlSanitizer.ts";
@@ -528,12 +530,35 @@ app.post('/api/query', async (req, res) => {
             conversation.push(`AGENT: First result: ${JSON.stringify(rows[0], null, 2)}`);
         }
         
+        // Generate executive summary (compliance-focused) - AI Insights removed
+        let executiveSummary: string | null = null;
+        
+        try {
+            if (rows.length > 0) {
+                // Generate Executive Summary (compliance metrics)
+                conversation.push("AGENT: Generating executive summary...");
+                const analysisResult = await analyzeResults.handler({
+                    userQuestion: naturalQuery,
+                    queryResults: rows,
+                    sqlQuery: finalSql
+                });
+                executiveSummary = analysisResult.answer;
+                conversation.push(`AGENT: Executive summary generated successfully.`);
+            }
+        } catch (analysisError) {
+            console.error("[POST /api/query] AI analysis failed:", analysisError);
+            conversation.push(`AGENT: AI analysis failed, but query results are still available.`);
+            // Don't fail the whole request if analysis fails
+        }
+        
         // Return JSON (not HTML)
         return res.json({
             success: true,
             conversation,
             results: rows,
-            sql: finalSql
+            sql: finalSql,
+            insights: null, // No longer generating insights
+            executiveSummary: executiveSummary
         });
 
     } catch (error) {
