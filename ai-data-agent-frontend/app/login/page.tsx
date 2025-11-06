@@ -1,14 +1,44 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react';
+
+interface SSOStatus {
+  ssoEnabled: boolean;
+  provider: 'azure-ad' | null;
+  localAuthEnabled: boolean;
+}
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [ssoStatus, setSsoStatus] = useState<SSOStatus | null>(null);
+  const [loadingStatus, setLoadingStatus] = useState(true);
   const router = useRouter();
+
+  useEffect(() => {
+    // Load SSO status
+    setLoadingStatus(true);
+    fetch('/api/sso-status')
+      .then(res => res.json())
+      .then(data => {
+        console.log('SSO Status received:', data);
+        setSsoStatus(data);
+      })
+      .catch(err => {
+        console.error('Failed to load SSO status:', err);
+        // Default to local auth enabled on error
+        setSsoStatus({
+          ssoEnabled: false,
+          provider: null,
+          localAuthEnabled: true,
+        });
+      })
+      .finally(() => setLoadingStatus(false));
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,26 +46,39 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      console.log('Attempting login...');
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
+      console.log('Attempting NextAuth login...');
+      const result = await signIn('credentials', {
+        username,
+        password,
+        redirect: false,
+        callbackUrl: '/',
       });
 
-      const data = await response.json();
+      console.log('SignIn result:', result);
 
-      if (response.ok) {
-        console.log('Login successful, redirecting...');
-        router.push('/');
-        router.refresh();
+      if (result?.error || !result?.ok) {
+        console.log('Login failed:', result?.error || 'Unknown error');
+        setError('Invalid username or password');
       } else {
-        setError(data.error || 'Invalid username or password');
+        console.log('Login successful, redirecting...');
+        // Use window.location for hard redirect to ensure session is recognized
+        window.location.href = '/';
       }
     } catch (err) {
       console.error('Login exception:', err);
       setError('An error occurred. Please try again.');
     } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleAzureSignIn = async () => {
+    try {
+      setLoading(true);
+      await signIn('azure-ad', { callbackUrl: '/' });
+    } catch (err) {
+      console.error('Azure sign-in error:', err);
+      setError('Azure sign-in failed. Please try again.');
       setLoading(false);
     }
   };
@@ -49,14 +92,54 @@ export default function LoginPage() {
             <p className="text-gray-400">Sign in to continue</p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          {loadingStatus ? (
+            <div className="text-center py-8">
+              <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+              <p className="text-gray-400 mt-4">Loading...</p>
+            </div>
+          ) : (
+          <div className="space-y-6">
             {error && (
               <div className="bg-red-500/10 border border-red-500/50 text-red-400 px-4 py-3 rounded-lg text-sm">
                 {error}
               </div>
             )}
 
-            <div>
+            {/* Azure AD SSO Button */}
+            {ssoStatus?.ssoEnabled && ssoStatus?.provider === 'azure-ad' && (
+              <>
+                <button
+                  type="button"
+                  onClick={handleAzureSignIn}
+                  disabled={loading}
+                  className="w-full px-6 py-3 bg-white hover:bg-gray-100 disabled:bg-gray-300 disabled:cursor-not-allowed text-gray-800 font-medium rounded-lg transition-colors duration-200 flex items-center justify-center gap-3 border border-gray-300"
+                >
+                  <svg className="w-5 h-5" viewBox="0 0 23 23" fill="none">
+                    <path d="M0 0h10.931v10.931H0V0z" fill="#f25022"/>
+                    <path d="M12.069 0H23v10.931H12.069V0z" fill="#7fba00"/>
+                    <path d="M0 12.069h10.931V23H0V12.069z" fill="#00a4ef"/>
+                    <path d="M12.069 12.069H23V23H12.069V12.069z" fill="#ffb900"/>
+                  </svg>
+                  Sign in with Microsoft
+                </button>
+
+                {ssoStatus?.localAuthEnabled && (
+                  <div className="relative">
+                    <div className="absolute inset-0 flex items-center">
+                      <div className="w-full border-t border-[#3d4571]"></div>
+                    </div>
+                    <div className="relative flex justify-center text-sm">
+                      <span className="px-2 bg-[#252d47] text-gray-400">Or continue with username</span>
+                    </div>
+                  </div>
+                )}
+              </>
+            )}
+
+            {/* Local Auth Form */}
+            {ssoStatus?.localAuthEnabled && (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
               <label htmlFor="username" className="block text-sm font-medium text-gray-300 mb-2">
                 Username
               </label>
@@ -88,38 +171,38 @@ export default function LoginPage() {
               />
             </div>
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-colors duration-200"
-            >
-              {loading ? 'Signing in...' : 'Sign In'}
-            </button>
-          </form>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-colors duration-200"
+                >
+                  {loading ? 'Signing in...' : 'Sign In'}
+                </button>
+              </form>
+            )}
 
-          <div className="mt-6 text-center">
-            <button
-              onClick={() => router.push('/forgot-password')}
-              className="text-blue-400 hover:text-blue-300 text-sm transition-colors"
-            >
-              Forgot your password?
-            </button>
-          </div>
+            {/* Show message if both SSO and local auth are disabled */}
+            {!ssoStatus?.ssoEnabled && !ssoStatus?.localAuthEnabled && (
+              <div className="bg-yellow-500/10 border border-yellow-500/50 text-yellow-400 px-4 py-3 rounded-lg text-sm text-center">
+                Authentication is currently unavailable. Please contact your administrator.
+              </div>
+            )}
 
-          <div className="mt-6 text-center text-sm text-gray-400">
-            <p className="font-semibold mb-2">Default Credentials:</p>
-            <div className="space-y-1 text-xs">
-              <p className="text-gray-500">
-                <span className="text-yellow-400 font-semibold">Super Admin:</span> superadmin / SuperAdmin123!
-              </p>
-              <p className="text-gray-500">
-                <span className="text-blue-400 font-semibold">Admin:</span> admin / Admin123!
-              </p>
-              <p className="text-gray-500">
-                <span className="text-gray-400 font-semibold">User:</span> user / User123!
-              </p>
-            </div>
+            {ssoStatus?.localAuthEnabled && (
+              <>
+                <div className="mt-6 text-center">
+                  <button
+                    onClick={() => router.push('/forgot-password')}
+                    className="text-blue-400 hover:text-blue-300 text-sm transition-colors"
+                  >
+                    Forgot your password?
+                  </button>
+                </div>
+
+              </>
+            )}
           </div>
+          )}
         </div>
       </div>
     </div>

@@ -1,32 +1,19 @@
 version: '3.8'
 
 services:
-  # Nginx Reverse Proxy with SSL
-  nginx:
-    build: ./nginx
-    ports:
-      - "80:80"
-      - "443:443"
-    depends_on:
-      - frontend
-      - backend
-    networks:
-      - app-network
-    restart: unless-stopped
-
   # Backend API Server
   backend:
     build: ./agentkit-csv-agent
+    ports:
+      - "3001:3001"
     environment:
       - NODE_ENV=production
       - PORT=3001
-      - FRONTEND_URL=http://frontend:3000
+      - FRONTEND_URL=http://localhost:3000
       - JWT_SECRET=${JWT_SECRET}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
     volumes:
       - backend-data:/app/data
-    networks:
-      - app-network
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3001/api/health"]
@@ -40,34 +27,27 @@ services:
     build:
       context: ./ai-data-agent-frontend
       args:
-        NEXTAUTH_URL: https://localhost
-        NEXT_PUBLIC_API_URL: https://localhost
+        NEXTAUTH_URL: http://localhost:3000
+        NEXT_PUBLIC_API_URL: http://localhost:3001
+    ports:
+      - "3000:3000"
     environment:
       - NODE_ENV=production
       - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
       - AUTH_SECRET=${AUTH_SECRET}
       - SESSION_SECRET=${SESSION_SECRET}
       - JWT_SECRET=${JWT_SECRET}
-      - NEXTAUTH_URL=https://localhost
-      - NEXTAUTH_URL_INTERNAL=http://frontend:3000
-      - NEXT_PUBLIC_API_URL=https://localhost
+      - NEXTAUTH_URL=http://localhost:3000
+      - NEXT_PUBLIC_API_URL=http://localhost:3001
     volumes:
       - frontend-data:/app/data
-    networks:
-      - app-network
     restart: unless-stopped
     depends_on:
       backend:
         condition: service_healthy
 
-networks:
-  app-network:
-    driver: bridge
-
 volumes:
   backend-data:
-    driver: local
-  backend-db:
     driver: local
   frontend-data:
     driver: local

@@ -17,7 +17,8 @@ export default function DatabaseInfo({ onClose }: DatabaseInfoProps) {
 
   const fetchDatabaseInfo = async () => {
     try {
-      const response = await fetch('/api/database-info');
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+      const response = await fetch(`${apiUrl}/api/database-info`);
       if (!response.ok) {
         throw new Error('Failed to fetch database info');
       }

@@ -1,15 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getIronSession } from 'iron-session';
-import { cookies } from 'next/headers';
-import { sessionOptions, SessionData } from '@/lib/session';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth-config';
 import { getUsers, addUser, deleteUser as removeUser, findUserByUsername } from '@/lib/user-storage';
 import { validatePassword } from '@/lib/password-validation';
 
 // GET - List all users (admin only)
 export async function GET(request: NextRequest) {
-  const session = await getIronSession<SessionData>(cookies(), sessionOptions);
+  const session = await getServerSession(authOptions);
   
-  if (!session.isLoggedIn || session.role !== 'admin') {
+  if (!session?.user || (session.user as any).role !== 'admin') {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
@@ -23,9 +22,9 @@ export async function GET(request: NextRequest) {
 
 // POST - Create new user (admin only)
 export async function POST(request: NextRequest) {
-  const session = await getIronSession<SessionData>(cookies(), sessionOptions);
+  const session = await getServerSession(authOptions);
   
-  if (!session.isLoggedIn || session.role !== 'admin') {
+  if (!session?.user || (session.user as any).role !== 'admin') {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
@@ -88,9 +87,9 @@ export async function POST(request: NextRequest) {
 
 // DELETE - Delete user (admin only)
 export async function DELETE(request: NextRequest) {
-  const session = await getIronSession<SessionData>(cookies(), sessionOptions);
+  const session = await getServerSession(authOptions);
   
-  if (!session.isLoggedIn || session.role !== 'admin') {
+  if (!session?.user || (session.user as any).role !== 'admin') {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
@@ -118,7 +117,8 @@ export async function DELETE(request: NextRequest) {
     }
 
     // Prevent admins from deleting themselves
-    if (user.id === session.userId) {
+    const currentUserId = (session.user as any).id;
+    if (user.id === currentUserId) {
       return NextResponse.json(
         { error: 'You cannot delete your own account' },
         { status: 400 }

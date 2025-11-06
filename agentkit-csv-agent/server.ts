@@ -23,6 +23,7 @@ import { analyzeResults } from "./src/tools/analyzeResults.ts";
 import { authenticateToken, requireAdmin } from "./src/middleware/auth.ts";
 import type { AuthRequest } from "./src/middleware/auth.ts";
 import { validateAndSanitizeSql, logSuspiciousQuery } from "./src/utils/sqlSanitizer.ts";
+import { deduplicateEntries } from "./src/utils/deduplicateEntries.ts";
 
 const app = express();
 const port = process.env.PORT || 3001; // Changed to 3001
@@ -523,8 +524,15 @@ app.post('/api/query', async (req, res) => {
             connection: connection 
         });
         
-        const rows = queryResult.rows;
+        let rows = queryResult.rows;
         conversation.push(`AGENT: Query successful! Found ${rows.length} results.`);
+        
+        // Deduplicate entries based on caption display rules
+        const dedupedRows = deduplicateEntries(rows);
+        if (dedupedRows.length !== rows.length) {
+            conversation.push(`AGENT: Deduplicated ${rows.length} results to ${dedupedRows.length} (removed duplicate caption entries).`);
+            rows = dedupedRows;
+        }
         
         if (rows.length > 0) {
             conversation.push(`AGENT: First result: ${JSON.stringify(rows[0], null, 2)}`);

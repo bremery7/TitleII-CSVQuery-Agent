@@ -17,10 +17,14 @@ COPY . .
 
 # Set environment variables for build
 ENV NEXT_TELEMETRY_DISABLED 1
-# Dummy values for build time (will be overridden at runtime)
+# Build args that can be overridden
+ARG NEXTAUTH_URL=http://localhost:3000
+ARG NEXT_PUBLIC_API_URL=http://localhost:3001
+
+# Set as environment variables for build
 ENV NEXTAUTH_SECRET=build-time-secret-will-be-replaced
-ENV NEXTAUTH_URL=http://localhost:3000
-ENV NEXT_PUBLIC_API_URL=http://localhost:3001
+ENV NEXTAUTH_URL=${NEXTAUTH_URL}
+ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
 
 # Build Next.js application
 RUN npm run build
@@ -59,5 +63,6 @@ CMD sh -c 'echo "NEXTAUTH_SECRET=$NEXTAUTH_SECRET" > /app/.env.local && \
     echo "SESSION_SECRET=$SESSION_SECRET" >> /app/.env.local && \
     echo "JWT_SECRET=$JWT_SECRET" >> /app/.env.local && \
     echo "NEXTAUTH_URL=$NEXTAUTH_URL" >> /app/.env.local && \
+    echo "NEXTAUTH_URL_INTERNAL=$NEXTAUTH_URL_INTERNAL" >> /app/.env.local && \
     echo "NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL" >> /app/.env.local && \
     node server.js'

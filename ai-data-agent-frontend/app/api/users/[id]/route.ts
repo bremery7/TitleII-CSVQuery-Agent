@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getIronSession } from 'iron-session';
-import { cookies } from 'next/headers';
-import { sessionOptions, SessionData } from '@/lib/session';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth-config';
 import { getUsers, findUserById, updateUser as saveUser, findUserByUsername } from '@/lib/user-storage';
 
 // PATCH - Update user (admin only)
@@ -9,11 +8,14 @@ export async function PATCH(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  const session = await getIronSession<SessionData>(cookies(), sessionOptions);
+  const session = await getServerSession(authOptions);
   
-  if (!session.isLoggedIn || session.role !== 'admin') {
+  if (!session?.user || (session.user as any).role !== 'admin') {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
+  
+  const currentUserId = (session.user as any).id;
+  const isSuperAdmin = (session.user as any).isSuperAdmin;
 
   try {
     const userId = params.id;
@@ -35,7 +37,7 @@ export async function PATCH(
     }
 
     // Prevent users from changing their own role
-    if (userId === session.userId && role && role !== user.role) {
+    if (userId === currentUserId && role && role !== user.role) {
       return NextResponse.json(
         { error: 'You cannot change your own role' },
         { status: 403 }
@@ -80,7 +82,7 @@ export async function PATCH(
     // Update password if provided
     if (password) {
       // Only super admins can change admin passwords
-      if (user.role === 'admin' && !session.isSuperAdmin) {
+      if (user.role === 'admin' && !isSuperAdmin) {
         return NextResponse.json(
           { error: 'Only super admins can change admin passwords. Regular admins must use "Change Password" or "Forgot Password".' },
           { status: 403 }

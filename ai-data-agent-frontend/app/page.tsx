@@ -68,7 +68,8 @@ export default function Home() {
     
     const checkDatabase = async () => {
       try {
-        const response = await fetch('/api/database-info');
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+        const response = await fetch(`${apiUrl}/api/database-info`);
         const data = await response.json();
         
         // If no tables or no data, show upload modal
@@ -103,7 +104,8 @@ export default function Home() {
     });
 
     try {
-      const response = await fetch('/api/query', {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+      const response = await fetch(`${apiUrl}/api/query`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query: trimmedQuery })
@@ -147,7 +149,8 @@ export default function Home() {
     formData.append('csvFile', file);
 
     try {
-      const response = await fetch('/api/upload', {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+      const response = await fetch(`${apiUrl}/api/upload`, {
         method: 'POST',
         body: formData,
       });

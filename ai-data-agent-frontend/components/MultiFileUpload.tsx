@@ -58,7 +58,8 @@ export default function MultiFileUpload({ onClose }: MultiFileUploadProps) {
         const formData = new FormData();
         formData.append('csvFile', file);
 
-        const response = await fetch('/api/upload', {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+        const response = await fetch(`${apiUrl}/api/upload`, {
           method: 'POST',
           body: formData,
         });

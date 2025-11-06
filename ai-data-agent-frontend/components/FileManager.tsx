@@ -24,7 +24,8 @@ export default function FileManager({ onClose }: FileManagerProps) {
 
   const fetchFiles = async () => {
     try {
-      const response = await fetch('/api/files');
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+      const response = await fetch(`${apiUrl}/api/files`);
       const data = await response.json();
       setFiles(data.files || []);
     } catch (error) {
@@ -65,7 +66,8 @@ export default function FileManager({ onClose }: FileManagerProps) {
     setDeleting(true);
 
     try {
-      const response = await fetch('/api/files', {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+      const response = await fetch(`${apiUrl}/api/files`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ files: Array.from(selectedFiles) })

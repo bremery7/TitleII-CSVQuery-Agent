@@ -1,16 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getIronSession } from 'iron-session';
-import { cookies } from 'next/headers';
-import { sessionOptions, SessionData } from '@/lib/session';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth-config';
 import { findUserById, updateUser } from '@/lib/user-storage';
 import { validatePassword } from '@/lib/password-validation';
 
 export async function POST(request: NextRequest) {
-  const session = await getIronSession<SessionData>(cookies(), sessionOptions);
+  const session = await getServerSession(authOptions);
   
-  if (!session.isLoggedIn) {
+  if (!session?.user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
+  
+  const userId = (session.user as any).id;
 
   try {
     const body = await request.json();
@@ -24,7 +25,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Get current user
-    const user = findUserById(session.userId);
+    const user = findUserById(userId);
 
     if (!user) {
       return NextResponse.json({ error: 'User not found' }, { status: 404 });
@@ -59,7 +60,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Update password
-    updateUser(session.userId, { password: newPassword });
+    updateUser(userId, { password: newPassword });
 
     console.log('Password changed successfully for user:', user.username);
 

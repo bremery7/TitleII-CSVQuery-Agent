@@ -22,6 +22,7 @@ export default function UserManagement({ onClose }: UserManagementProps) {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [showCreateForm, setShowCreateForm] = useState(false);
+  const [showSSOConfig, setShowSSOConfig] = useState(false);
   const [editingUser, setEditingUser] = useState<User | null>(null);
   const [formData, setFormData] = useState({
     username: '',
@@ -29,9 +30,20 @@ export default function UserManagement({ onClose }: UserManagementProps) {
     email: '',
     role: 'user' as 'admin' | 'user',
   });
+  const [ssoConfig, setSsoConfig] = useState({
+    enabled: false,
+    provider: 'azure-ad' as 'azure-ad' | null,
+    localAuthEnabled: true,
+    azureAd: {
+      clientId: '',
+      clientSecret: '',
+      tenantId: '',
+    }
+  });
 
   useEffect(() => {
     fetchUsers();
+    fetchSSOConfig();
   }, []);
 
   const fetchUsers = async () => {
@@ -43,6 +55,46 @@ export default function UserManagement({ onClose }: UserManagementProps) {
       console.error('Failed to fetch users:', error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchSSOConfig = async () => {
+    try {
+      const response = await fetch('/api/sso-config');
+      if (response.ok) {
+        const data = await response.json();
+        setSsoConfig({
+          enabled: data.enabled || false,
+          provider: data.provider || 'azure-ad',
+          localAuthEnabled: data.localAuthEnabled !== false,
+          azureAd: {
+            clientId: data.azureAd?.clientId || '',
+            clientSecret: '', // Never sent from server
+            tenantId: data.azureAd?.tenantId || '',
+          }
+        });
+      }
+    } catch (error) {
+      console.error('Failed to fetch SSO config:', error);
+    }
+  };
+
+  const handleSaveSSO = async () => {
+    try {
+      const response = await fetch('/api/sso-config', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(ssoConfig),
+      });
+
+      if (response.ok) {
+        alert('SSO configuration saved successfully! Please restart the server for changes to take effect.');
+      } else {
+        const data = await response.json();
+        alert('Failed to save SSO config: ' + data.error);
+      }
+    } catch (error) {
+      alert('Failed to save SSO config: ' + error);
     }
   };
 
@@ -103,6 +155,121 @@ export default function UserManagement({ onClose }: UserManagementProps) {
         >
           ✕
         </button>
+      </div>
+
+      {/* SSO Configuration Section */}
+      <div className="mb-6 p-4 bg-[#1a1f3a] rounded-lg border border-[#3d4571]">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-lg font-medium text-white">🔐 SSO Configuration</h3>
+          <button
+            onClick={() => setShowSSOConfig(!showSSOConfig)}
+            className="text-sm text-blue-400 hover:text-blue-300"
+          >
+            {showSSOConfig ? 'Hide' : 'Configure'}
+          </button>
+        </div>
+
+        {showSSOConfig && (
+          <div className="space-y-4">
+            <div className="flex items-center gap-4">
+              <label className="flex items-center gap-2 text-gray-300">
+                <input
+                  type="checkbox"
+                  checked={ssoConfig.enabled}
+                  onChange={(e) => setSsoConfig({ ...ssoConfig, enabled: e.target.checked })}
+                  className="w-4 h-4 rounded"
+                />
+                Enable SSO
+              </label>
+              
+              <label className="flex items-center gap-2 text-gray-300">
+                <input
+                  type="checkbox"
+                  checked={ssoConfig.localAuthEnabled}
+                  onChange={(e) => setSsoConfig({ ...ssoConfig, localAuthEnabled: e.target.checked })}
+                  className="w-4 h-4 rounded"
+                />
+                Allow Local Authentication
+              </label>
+            </div>
+
+            {ssoConfig.enabled && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    Azure AD Client ID
+                  </label>
+                  <input
+                    type="text"
+                    value={ssoConfig.azureAd.clientId}
+                    onChange={(e) => setSsoConfig({
+                      ...ssoConfig,
+                      azureAd: { ...ssoConfig.azureAd, clientId: e.target.value }
+                    })}
+                    className="w-full px-4 py-2 bg-[#252d47] border border-[#3d4571] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Enter Client ID"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    Azure AD Client Secret
+                  </label>
+                  <input
+                    type="password"
+                    value={ssoConfig.azureAd.clientSecret}
+                    onChange={(e) => setSsoConfig({
+                      ...ssoConfig,
+                      azureAd: { ...ssoConfig.azureAd, clientSecret: e.target.value }
+                    })}
+                    className="w-full px-4 py-2 bg-[#252d47] border border-[#3d4571] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Enter Client Secret"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
+                    Azure AD Tenant ID
+                  </label>
+                  <input
+                    type="text"
+                    value={ssoConfig.azureAd.tenantId}
+                    onChange={(e) => setSsoConfig({
+                      ...ssoConfig,
+                      azureAd: { ...ssoConfig.azureAd, tenantId: e.target.value }
+                    })}
+                    className="w-full px-4 py-2 bg-[#252d47] border border-[#3d4571] rounded-md text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Enter Tenant ID"
+                  />
+                </div>
+              </div>
+            )}
+
+            <div className="mt-4 flex gap-2">
+              <button
+                onClick={handleSaveSSO}
+                className="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
+              >
+                Save SSO Config
+              </button>
+              <button
+                onClick={() => alert('Test Connection feature coming soon!')}
+                className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+                disabled
+                title="Coming soon"
+              >
+                Test Connection
+              </button>
+            </div>
+
+            <div className="mt-4 p-3 bg-yellow-500/10 border border-yellow-500/50 rounded-lg">
+              <p className="text-sm text-yellow-400">
+                <strong>Note:</strong> SSO configuration requires server restart to take effect. 
+                Make sure to save your changes before testing.
+              </p>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Create User Button */}
@@ -260,7 +427,7 @@ export default function UserManagement({ onClose }: UserManagementProps) {
         <EditUserModal
           user={editingUser}
           currentUserRole={session?.role || 'user'}
-          currentUserId={session?.userId}
+          currentUserId={session?.id}
           isSuperAdmin={session?.isSuperAdmin}
           onClose={() => setEditingUser(null)}
           onSave={() => {

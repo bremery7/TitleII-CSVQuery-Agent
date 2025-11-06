@@ -18,10 +18,16 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
+        source: '/api/query/:path*',
         destination: process.env.NEXT_PUBLIC_API_URL 
-          ? `${process.env.NEXT_PUBLIC_API_URL}/api/:path*`
-          : 'http://localhost:3001/api/:path*'
+          ? `${process.env.NEXT_PUBLIC_API_URL}/api/query/:path*`
+          : 'http://localhost:3001/api/query/:path*'
+      },
+      {
+        source: '/api/agent/:path*',
+        destination: process.env.NEXT_PUBLIC_API_URL 
+          ? `${process.env.NEXT_PUBLIC_API_URL}/api/agent/:path*`
+          : 'http://localhost:3001/api/agent/:path*'
       }
     ];
   }

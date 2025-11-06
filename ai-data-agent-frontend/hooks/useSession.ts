@@ -1,31 +1,35 @@
-import { useState, useEffect } from 'react';
-import { SessionData, defaultSession } from '@/lib/session';
+import { useSession as useNextAuthSession, signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 export function useSession() {
-  const [session, setSession] = useState<SessionData>(defaultSession);
-  const [status, setStatus] = useState<'loading' | 'authenticated' | 'unauthenticated'>('loading');
+  const { data: nextAuthSession, status: nextAuthStatus } = useNextAuthSession();
+  const router = useRouter();
 
-  useEffect(() => {
-    fetch('/api/session')
-      .then(res => res.json())
-      .then(data => {
-        setSession(data);
-        setStatus(data.isLoggedIn ? 'authenticated' : 'unauthenticated');
-      })
-      .catch(() => {
-        setStatus('unauthenticated');
-      });
-  }, []);
+  // Map NextAuth session to app session format
+  const session = nextAuthSession?.user ? {
+    isLoggedIn: true,
+    username: nextAuthSession.user.name || '',
+    email: nextAuthSession.user.email || '',
+    role: (nextAuthSession.user as any).role || 'user',
+    id: (nextAuthSession.user as any).id || '',
+    isSuperAdmin: (nextAuthSession.user as any).isSuperAdmin || false,
+  } : {
+    isLoggedIn: false,
+    username: '',
+    email: '',
+    role: 'user' as const,
+    id: '',
+    isSuperAdmin: false,
+  };
 
   const logout = async () => {
-    await fetch('/api/logout', { method: 'POST' });
-    setSession(defaultSession);
-    setStatus('unauthenticated');
+    await signOut({ redirect: false });
+    router.push('/login');
   };
 
   return {
     session,
-    status,
+    status: nextAuthStatus,
     logout,
   };
 }
