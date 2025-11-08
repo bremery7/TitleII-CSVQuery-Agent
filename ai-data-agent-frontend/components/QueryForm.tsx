@@ -56,9 +56,16 @@ export default function QueryForm({ onSubmit, isLoading, initialQuery = '' }: Qu
           <button
             type="submit"
             disabled={isLoading || !query.trim()}
-            className="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-colors duration-200"
+            className="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
           >
-            {isLoading ? 'Running Query...' : 'Run Query'}
+            {isLoading && (
+              <div className="flex gap-1">
+                <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+              </div>
+            )}
+            <span>{isLoading ? 'Running Query...' : 'Run Query'}</span>
           </button>
         </form>
       </div>

@@ -25,7 +25,11 @@ function ensureDataDir() {
 function initializeUsers() {
   ensureDataDir();
   
+  console.log('[Users] Checking for users file at:', USERS_FILE);
+  console.log('[Users] File exists:', fs.existsSync(USERS_FILE));
+  
   if (!fs.existsSync(USERS_FILE)) {
+    console.log('[Users] No users file found, creating default admin user');
     const defaultAdmin: User = {
       id: '1',
       username: 'admin',
@@ -36,7 +40,9 @@ function initializeUsers() {
     };
     
     fs.writeFileSync(USERS_FILE, JSON.stringify([defaultAdmin], null, 2));
-    console.log('Created default admin user (username: admin, password: admin123)');
+    console.log('[Users] Created default admin user at:', USERS_FILE);
+  } else {
+    console.log('[Users] Users file already exists, skipping initialization');
   }
 }
 

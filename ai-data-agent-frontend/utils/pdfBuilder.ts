@@ -634,6 +634,75 @@ export async function buildCompliancePDF(
     yPosition += 6;
   });
 
+  // Add Caption Accuracy Distribution section
+  if (yPosition > 200) {
+    pdf.addPage();
+    yPosition = addHeader('Title II ADA Compliance Report (continued)');
+  }
+
+  pdf.setFillColor(245, 245, 245);
+  pdf.rect(15, yPosition, 180, 8, 'F');
+  pdf.setFontSize(12);
+  pdf.setFont('helvetica', 'bold');
+  pdf.text('Caption Accuracy Distribution', 20, yPosition + 6);
+  yPosition += 15;
+
+  // Calculate accuracy distribution
+  const accuracyDistribution = calculateAccuracyDistribution(results);
+  
+  // Create table for accuracy distribution
+  const accuracyTableData = [
+    ['Accuracy Range', 'Number of Entries', 'Percentage'],
+    ...accuracyDistribution.map(item => [
+      item.range,
+      item.count.toLocaleString(),
+      `${item.percentage.toFixed(1)}%`
+    ])
+  ];
+
+  autoTable(pdf, {
+    startY: yPosition,
+    head: [accuracyTableData[0]],
+    body: accuracyTableData.slice(1),
+    theme: 'grid',
+    headStyles: { fillColor: [41, 98, 255], textColor: 255, fontStyle: 'bold' },
+    styles: { fontSize: 10, cellPadding: 4 },
+    columnStyles: {
+      0: { fontStyle: 'bold', cellWidth: 60 },
+      1: { halign: 'center', cellWidth: 60 },
+      2: { halign: 'center', cellWidth: 60 }
+    },
+    margin: { left: 15, right: 15 },
+    didDrawCell: (data: any) => {
+      // Color code the rows based on accuracy range
+      if (data.section === 'body' && data.column.index === 0) {
+        const rowIndex = data.row.index;
+        const colors = ['#ff6b6b', '#ffd93d', '#a78bfa', '#50c878'];
+        if (rowIndex < colors.length) {
+          pdf.setFillColor(colors[rowIndex]);
+          pdf.rect(data.cell.x + 2, data.cell.y + 2, 4, 4, 'F');
+        }
+      }
+    }
+  });
+
+  yPosition = (pdf as any).lastAutoTable.finalY + 10;
+
+  // Add note about accuracy distribution
+  pdf.setFontSize(9);
+  pdf.setTextColor(100, 100, 100);
+  pdf.setFont('helvetica', 'italic');
+  const noteText = 'Note: This distribution shows caption accuracy for entries with captions. Entries below 80% accuracy are not shown.';
+  const noteLines = pdf.splitTextToSize(noteText, 170);
+  noteLines.forEach((line: string) => {
+    if (yPosition > 270) {
+      pdf.addPage();
+      yPosition = 30;
+    }
+    pdf.text(line, 20, yPosition);
+    yPosition += 5;
+  });
+
   return pdf;
 }
 
@@ -688,4 +757,52 @@ function calculateMetrics(results: any[]): ComplianceData {
     withEAD,
     withAD,
   };
+}
+
+function calculateAccuracyDistribution(results: any[]): Array<{ range: string; count: number; percentage: number }> {
+  const hasCaptions = (row: any) => {
+    const captionFields = [
+      row.captions_language,
+      row.CAPTIONS_LANGUAGE,
+      row.caption_language,
+      row.captions_usage_type,
+      row.CAPTIONS_USAGE_TYPE,
+      row.caption_type
+    ];
+    return captionFields.some(field => 
+      field && 
+      field !== null && 
+      field !== '-' &&
+      String(field).trim() !== '' &&
+      String(field).toLowerCase() !== 'none'
+    );
+  };
+
+  const getAccuracy = (row: any) => {
+    const accuracyField = row.captions_accuracy || row.CAPTIONS_ACCURACY || row.caption_accuracy || '0';
+    return parseFloat(String(accuracyField).replace('%', ''));
+  };
+
+  const captionedData = results.filter(row => hasCaptions(row));
+  const totalCaptioned = captionedData.length;
+
+  const ranges = [
+    { range: '80-85%', min: 80, max: 85 },
+    { range: '85-90%', min: 85, max: 90 },
+    { range: '90-95%', min: 90, max: 95 },
+    { range: '95-100%', min: 95, max: 100 }
+  ];
+
+  return ranges.map(({ range, min, max }) => {
+    const count = captionedData.filter(row => {
+      const acc = getAccuracy(row);
+      return acc >= min && (max === 100 ? acc <= max : acc < max);
+    }).length;
+
+    return {
+      range,
+      count,
+      percentage: totalCaptioned > 0 ? (count / totalCaptioned) * 100 : 0
+    };
+  });
 }

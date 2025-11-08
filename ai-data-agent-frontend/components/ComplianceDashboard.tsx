@@ -137,6 +137,69 @@ export default function ComplianceDashboard({ data, onChartRefReady, onExportPDF
     };
   }, [data]);
 
+  // Caption Accuracy Distribution (grouped by ranges)
+  const accuracyDistribution = useMemo(() => {
+    const getAccuracy = (row: any) => {
+      const accuracyField = row.captions_accuracy || row.CAPTIONS_ACCURACY || row.caption_accuracy || '0';
+      return parseFloat(String(accuracyField).replace('%', ''));
+    };
+
+    const hasCaptions = (row: any) => {
+      const captionFields = [
+        row.captions_language,
+        row.CAPTIONS_LANGUAGE,
+        row.caption_language,
+        row.captions_usage_type,
+        row.CAPTIONS_USAGE_TYPE,
+        row.caption_type
+      ];
+      return captionFields.some(field => 
+        field && 
+        field !== null && 
+        field !== '-' &&
+        String(field).trim() !== '' &&
+        String(field).toLowerCase() !== 'none'
+      );
+    };
+
+    const captionedData = data.filter(row => hasCaptions(row));
+
+    return [
+      { 
+        range: '80-85%', 
+        count: captionedData.filter(row => {
+          const acc = getAccuracy(row);
+          return acc >= 80 && acc < 85;
+        }).length,
+        color: '#ff6b6b'
+      },
+      { 
+        range: '85-90%', 
+        count: captionedData.filter(row => {
+          const acc = getAccuracy(row);
+          return acc >= 85 && acc < 90;
+        }).length,
+        color: '#ffd93d'
+      },
+      { 
+        range: '90-95%', 
+        count: captionedData.filter(row => {
+          const acc = getAccuracy(row);
+          return acc >= 90 && acc < 95;
+        }).length,
+        color: '#a78bfa'
+      },
+      { 
+        range: '95-100%', 
+        count: captionedData.filter(row => {
+          const acc = getAccuracy(row);
+          return acc >= 95;
+        }).length,
+        color: '#50c878'
+      }
+    ];
+  }, [data]);
+
   // Pie chart data
   const machineCaptionPieData = [
     { name: 'Accurate (≥95%)', value: captionData.machineAccurate, color: COLORS.good },
@@ -261,6 +324,64 @@ export default function ComplianceDashboard({ data, onChartRefReady, onExportPDF
             <Bar dataKey="nonCompliant" fill={COLORS.none} name="Non-Compliant" stackId="a" />
           </BarChart>
         </ResponsiveContainer>
+      </div>
+
+      {/* Caption Accuracy Distribution */}
+      <div className="bg-[#252d47] rounded-lg p-6 border border-[#3d4571]">
+        <h3 className="text-lg font-medium text-white mb-4">Caption Accuracy Distribution</h3>
+        <p className="text-sm text-gray-400 mb-6">Distribution of caption accuracy across all entries with captions</p>
+        <ResponsiveContainer width="100%" height={350}>
+          <BarChart data={accuracyDistribution}>
+            <CartesianGrid strokeDasharray="3 3" stroke="#3d4571" />
+            <XAxis 
+              dataKey="range" 
+              stroke="#e0e0e0"
+              label={{ value: 'Accuracy Range', position: 'insideBottom', offset: -5, fill: '#e0e0e0' }}
+            />
+            <YAxis 
+              stroke="#e0e0e0"
+              label={{ value: 'Number of Entries', angle: -90, position: 'insideLeft', fill: '#e0e0e0' }}
+            />
+            <Tooltip 
+              contentStyle={{ 
+                backgroundColor: '#1a1f3a', 
+                border: '2px solid #4a90e2',
+                borderRadius: '8px',
+                padding: '12px',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.5)'
+              }}
+              labelStyle={{ 
+                color: '#ffffff', 
+                fontSize: '14px',
+                fontWeight: 'bold',
+                marginBottom: '4px'
+              }}
+              itemStyle={{
+                color: '#e0e0e0',
+                fontSize: '13px'
+              }}
+            />
+            <Bar dataKey="count" name="Entries" radius={[8, 8, 0, 0]}>
+              {accuracyDistribution.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={entry.color} />
+              ))}
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+        
+        {/* Legend */}
+        <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+          {accuracyDistribution.map((entry, index) => (
+            <div key={index} className="bg-[#1f2640] p-3 rounded-md border border-[#3d4571]">
+              <div className="flex items-center gap-2 mb-1">
+                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: entry.color }}></div>
+                <span className="text-gray-300 text-sm font-medium">{entry.range}</span>
+              </div>
+              <div className="text-white text-xl font-semibold">{entry.count}</div>
+              <div className="text-gray-400 text-xs">entries</div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Caption Compliance - Pie Charts */}

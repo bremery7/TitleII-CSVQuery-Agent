@@ -28,15 +28,23 @@ import { deduplicateEntries } from "./src/utils/deduplicateEntries.ts";
 const app = express();
 const port = process.env.PORT || 3001; // Changed to 3001
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename); 
+const __dirname = dirname(__filename);
+
+// Query cache: Map<queryText, {sql, timestamp}>
+const queryCache = new Map<string, { sql: string; timestamp: number }>();
+const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours in milliseconds 
 
 // --- Security Middleware ---
 app.use(helmet({
   crossOriginResourcePolicy: { policy: "cross-origin" }
 }));
 
+// CORS configuration
+const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
+console.log('[CORS] Allowing origin:', frontendUrl);
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: frontendUrl,
   credentials: true
 }));
 
@@ -443,15 +451,32 @@ app.post('/api/query', async (req, res) => {
     }
 
     try {
-        conversation.push("AGENT: Generating SQL from query...");
+        let templateSql: string;
         
-        const firstTable = allTableNames[0];
-        const sqlGenerationResult = await generateSql.handler({
-            naturalLanguageQuery: naturalQuery,
-            tableName: firstTable,
-            columnSchema: columnNames,
-        });
-        let templateSql = sqlGenerationResult.generatedSql.replace(/;$/, '').trim();
+        // Check cache first
+        const cached = queryCache.get(naturalQuery);
+        const now = Date.now();
+        
+        if (cached && (now - cached.timestamp) < CACHE_TTL) {
+            console.log(`[POST /api/query] Using cached SQL for query: "${naturalQuery}"`);
+            conversation.push("AGENT: Using cached SQL (fast path)...");
+            templateSql = cached.sql;
+        } else {
+            // Generate new SQL and cache it
+            conversation.push("AGENT: Generating SQL from query...");
+            
+            const firstTable = allTableNames[0];
+            const sqlGenerationResult = await generateSql.handler({
+                naturalLanguageQuery: naturalQuery,
+                tableName: firstTable,
+                columnSchema: columnNames,
+            });
+            templateSql = sqlGenerationResult.generatedSql.replace(/;$/, '').trim();
+            
+            // Cache the generated SQL
+            queryCache.set(naturalQuery, { sql: templateSql, timestamp: now });
+            console.log(`[POST /api/query] Cached SQL for query: "${naturalQuery}"`);
+        }
         
         let finalSql = templateSql;
 

@@ -17,14 +17,16 @@ COPY . .
 
 # Set environment variables for build
 ENV NEXT_TELEMETRY_DISABLED 1
-# Build args that can be overridden
-ARG NEXTAUTH_URL=http://localhost:3000
-ARG NEXT_PUBLIC_API_URL=http://localhost:3001
-
-# Set as environment variables for build
 ENV NEXTAUTH_SECRET=build-time-secret-will-be-replaced
-ENV NEXTAUTH_URL=${NEXTAUTH_URL}
+
+# CRITICAL: NEXT_PUBLIC_* variables MUST be set at build time
+# Railway passes environment variables as build args automatically
+ARG NEXT_PUBLIC_API_URL
+ARG NEXTAUTH_URL
+
+# Set them as ENV so Next.js can access during build
 ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+ENV NEXTAUTH_URL=${NEXTAUTH_URL}
 
 # Build Next.js application
 RUN npm run build

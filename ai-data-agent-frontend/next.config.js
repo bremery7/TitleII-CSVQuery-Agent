@@ -15,22 +15,7 @@ const nextConfig = {
     JWT_SECRET: process.env.JWT_SECRET,
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
   },
-  async rewrites() {
-    return [
-      {
-        source: '/api/query/:path*',
-        destination: process.env.NEXT_PUBLIC_API_URL 
-          ? `${process.env.NEXT_PUBLIC_API_URL}/api/query/:path*`
-          : 'http://localhost:3001/api/query/:path*'
-      },
-      {
-        source: '/api/agent/:path*',
-        destination: process.env.NEXT_PUBLIC_API_URL 
-          ? `${process.env.NEXT_PUBLIC_API_URL}/api/agent/:path*`
-          : 'http://localhost:3001/api/agent/:path*'
-      }
-    ];
-  }
+  // Rewrites removed - API calls will be made directly from client using NEXT_PUBLIC_API_URL
 };
 
 module.exports = nextConfig;
