@@ -150,7 +150,20 @@ export const authOptions: NextAuthOptions = {
         token.id = user.id || (user as any).id
         token.role = (user as any).role || 'user'
         token.isSuperAdmin = (user as any).isSuperAdmin || false
+        // Set initial login time
+        token.loginTime = Date.now()
       }
+      
+      // Check for absolute session timeout (8 hours)
+      const ABSOLUTE_TIMEOUT = 8 * 60 * 60 * 1000; // 8 hours in milliseconds
+      if (token.loginTime && Date.now() - (token.loginTime as number) > ABSOLUTE_TIMEOUT) {
+        console.log('Session expired due to absolute timeout (8 hours)');
+        return null as any; // Force logout
+      }
+      
+      // Update last activity time for idle timeout check
+      token.lastActivity = Date.now()
+      
       return token
     },
     async session({ session, token }) {
@@ -168,7 +181,8 @@ export const authOptions: NextAuthOptions = {
   },
   session: {
     strategy: "jwt" as const,
-    maxAge: 7 * 24 * 60 * 60, // 7 days
+    maxAge: 30 * 60, // 30 minutes idle timeout
+    updateAge: 5 * 60, // Update session every 5 minutes of activity
   },
   secret: process.env.NEXTAUTH_SECRET,
   debug: true, // Enable debug mode to see what's happening

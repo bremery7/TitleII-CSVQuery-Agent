@@ -17,9 +17,19 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false);
   const [ssoStatus, setSsoStatus] = useState<SSOStatus | null>(null);
   const [loadingStatus, setLoadingStatus] = useState(true);
+  const [timeoutMessage, setTimeoutMessage] = useState('');
   const router = useRouter();
 
   useEffect(() => {
+    // Check for timeout parameter in URL
+    const params = new URLSearchParams(window.location.search);
+    const timeout = params.get('timeout');
+    if (timeout === 'idle') {
+      setTimeoutMessage('Your session expired due to inactivity. Please log in again.');
+    } else if (timeout === 'absolute') {
+      setTimeoutMessage('Your session expired after 8 hours. Please log in again.');
+    }
+
     // Load SSO status
     setLoadingStatus(true);
     fetch('/api/sso-status')
@@ -99,6 +109,15 @@ export default function LoginPage() {
             </div>
           ) : (
           <div className="space-y-6">
+            {timeoutMessage && (
+              <div className="bg-yellow-500/10 border border-yellow-500/50 text-yellow-400 px-4 py-3 rounded-lg text-sm">
+                <div className="flex items-center gap-2">
+                  <span>⚠️</span>
+                  <span>{timeoutMessage}</span>
+                </div>
+              </div>
+            )}
+            
             {error && (
               <div className="bg-red-500/10 border border-red-500/50 text-red-400 px-4 py-3 rounded-lg text-sm">
                 {error}
