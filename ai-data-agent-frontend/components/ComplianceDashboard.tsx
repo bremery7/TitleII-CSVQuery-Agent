@@ -8,6 +8,8 @@ import {
 
 interface ComplianceDashboardProps {
   data: any[];
+  aggregations?: any;
+  totalCount?: number;
   onChartRefReady?: (ref: HTMLDivElement | null) => void;
   onExportPDF?: () => void;
   isExporting?: boolean;
@@ -24,7 +26,7 @@ const COLORS = {
   medium: '#ffd93d'
 };
 
-export default function ComplianceDashboard({ data, onChartRefReady, onExportPDF, isExporting }: ComplianceDashboardProps) {
+export default function ComplianceDashboard({ data, aggregations, totalCount, onChartRefReady, onExportPDF, isExporting }: ComplianceDashboardProps) {
   const chartRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -33,9 +35,19 @@ export default function ComplianceDashboard({ data, onChartRefReady, onExportPDF
     }
   }, [onChartRefReady]);
 
-  // Caption Analysis - check multiple possible field names
+  // Use server-side aggregations if available, otherwise calculate client-side
+  const useServerAggregations = aggregations && totalCount;
+
+  // Caption Analysis - use server aggregations if available
   const captionData = useMemo(() => {
-    // Helper to check if row has captions
+    if (useServerAggregations && aggregations?.captionData) {
+      return {
+        ...aggregations.captionData,
+        total: totalCount
+      };
+    }
+
+    // Fallback to client-side calculation
     const hasCaptions = (row: any) => {
       const captionFields = [
         row.captions_language,
@@ -54,19 +66,16 @@ export default function ComplianceDashboard({ data, onChartRefReady, onExportPDF
       );
     };
 
-    // Helper to get caption accuracy
     const getAccuracy = (row: any) => {
       const accuracyField = row.captions_accuracy || row.CAPTIONS_ACCURACY || row.caption_accuracy || '0';
       return parseFloat(String(accuracyField).replace('%', ''));
     };
 
-    // Helper to check if machine captions
     const isMachine = (row: any) => {
       const creationMode = row.captions_creation_mode || row.CAPTIONS_CREATION_MODE || '';
       return String(creationMode).toLowerCase() === 'machine';
     };
 
-    // Helper to check if human captions
     const isHuman = (row: any) => {
       const creationMode = row.captions_creation_mode || row.CAPTIONS_CREATION_MODE || '';
       return String(creationMode).toLowerCase() === 'human' ||
@@ -97,13 +106,21 @@ export default function ComplianceDashboard({ data, onChartRefReady, onExportPDF
       humanAccurate,
       humanPoor,
       noCaptions,
+      withCaptions: data.length - noCaptions,
       total: data.length
     };
-  }, [data]);
+  }, [data, useServerAggregations, aggregations, totalCount]);
 
-  // Audio Description Analysis
+  // Audio Description Analysis - use server aggregations if available
   const audioDescData = useMemo(() => {
-    // Helper to check if has EAD
+    if (useServerAggregations && aggregations?.audioDescData) {
+      return {
+        ...aggregations.audioDescData,
+        total: totalCount
+      };
+    }
+
+    // Fallback to client-side calculation
     const hasEADField = (row: any) => {
       const eadField = row.has_ead || row.HAS_EAD || row.is_ead || row.IS_EAD || row.ead || row.EAD;
       return eadField === true || 
@@ -113,7 +130,6 @@ export default function ComplianceDashboard({ data, onChartRefReady, onExportPDF
              String(eadField).toLowerCase() === 'true';
     };
 
-    // Helper to check if has AD
     const hasADField = (row: any) => {
       const adField = row.has_audio_description_flavor || row.HAS_AUDIO_DESCRIPTION_FLAVOR || row.has_ad || row.HAS_AD || row.ad || row.AD;
       return adField === true || 
@@ -135,10 +151,19 @@ export default function ComplianceDashboard({ data, onChartRefReady, onExportPDF
       noAD,
       total: data.length
     };
-  }, [data]);
+  }, [data, useServerAggregations, aggregations, totalCount]);
 
-  // Caption Accuracy Distribution (grouped by ranges)
+  // Caption Accuracy Distribution - use server aggregations if available
   const accuracyDistribution = useMemo(() => {
+    if (useServerAggregations && aggregations?.accuracyDistribution) {
+      // Add colors to server data
+      return aggregations.accuracyDistribution.map((item: any, index: number) => ({
+        ...item,
+        color: ['#ff6b6b', '#ffd93d', '#a78bfa', '#50c878'][index]
+      }));
+    }
+
+    // Fallback to client-side calculation
     const getAccuracy = (row: any) => {
       const accuracyField = row.captions_accuracy || row.CAPTIONS_ACCURACY || row.caption_accuracy || '0';
       return parseFloat(String(accuracyField).replace('%', ''));
@@ -198,7 +223,7 @@ export default function ComplianceDashboard({ data, onChartRefReady, onExportPDF
         color: '#50c878'
       }
     ];
-  }, [data]);
+  }, [data, useServerAggregations, aggregations]);
 
   // Pie chart data
   const machineCaptionPieData = [
@@ -271,23 +296,23 @@ export default function ComplianceDashboard({ data, onChartRefReady, onExportPDF
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-6">
           <div className="bg-[#1f2640] p-4 rounded-md border border-[#3d4571]">
             <div className="text-gray-400 text-sm">Total Entries</div>
-            <div className="text-2xl font-semibold text-white">{data.length}</div>
+            <div className="text-2xl font-semibold text-white">{(totalCount || data.length).toLocaleString()}</div>
           </div>
           <div className="bg-[#1f2640] p-4 rounded-md border border-[#3d4571]">
             <div className="text-gray-400 text-sm">With Captions</div>
-            <div className="text-2xl font-semibold text-green-400">{data.length - captionData.noCaptions}</div>
+            <div className="text-2xl font-semibold text-green-400">{(captionData.withCaptions || (totalCount || data.length) - captionData.noCaptions).toLocaleString()}</div>
           </div>
           <div className="bg-[#1f2640] p-4 rounded-md border border-[#3d4571]">
             <div className="text-gray-400 text-sm">No Captions</div>
-            <div className="text-2xl font-semibold text-red-400">{captionData.noCaptions}</div>
+            <div className="text-2xl font-semibold text-red-400">{captionData.noCaptions.toLocaleString()}</div>
           </div>
           <div className="bg-[#1f2640] p-4 rounded-md border border-[#3d4571]">
             <div className="text-gray-400 text-sm">With EAD</div>
-            <div className="text-2xl font-semibold text-green-400">{audioDescData.hasEAD}</div>
+            <div className="text-2xl font-semibold text-green-400">{audioDescData.hasEAD.toLocaleString()}</div>
           </div>
           <div className="bg-[#1f2640] p-4 rounded-md border border-[#3d4571]">
             <div className="text-gray-400 text-sm">With AD</div>
-            <div className="text-2xl font-semibold text-green-400">{audioDescData.hasAD}</div>
+            <div className="text-2xl font-semibold text-green-400">{audioDescData.hasAD.toLocaleString()}</div>
           </div>
         </div>
       </div>

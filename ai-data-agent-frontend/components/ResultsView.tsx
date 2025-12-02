@@ -9,9 +9,11 @@ interface ResultsViewProps {
   insights?: string | null;
   executiveSummary?: string | null;
   query?: string;
+  aggregations?: any;
+  totalCount?: number;
 }
 
-export default function ResultsView({ results, insights, executiveSummary, query }: ResultsViewProps) {
+export default function ResultsView({ results, insights, executiveSummary, query, aggregations, totalCount }: ResultsViewProps) {
   const [activeTab, setActiveTab] = useState<'table' | 'chart'>('chart');
   const [exporting, setExporting] = useState(false);
   const resultsRef = useRef<HTMLDivElement>(null);
@@ -64,7 +66,7 @@ export default function ResultsView({ results, insights, executiveSummary, query
       pdf.setTextColor(100, 100, 100);
       pdf.text(`Generated: ${new Date().toLocaleString()}`, 105, yPosition, { align: 'center' });
       yPosition += 5;
-      pdf.text(`Total Records: ${results.length}`, 105, yPosition, { align: 'center' });
+      pdf.text(`Total Records: ${totalCount || results.length}`, 105, yPosition, { align: 'center' });
       pdf.setTextColor(0, 0, 0);
       yPosition += 15;
 
@@ -328,6 +330,8 @@ export default function ResultsView({ results, insights, executiveSummary, query
             )}
             <ComplianceDashboard 
               data={results} 
+              aggregations={aggregations}
+              totalCount={totalCount || results.length}
               onChartRefReady={(ref) => { chartRef.current = ref; }}
               onExportPDF={handleExportPDF}
               isExporting={exporting}

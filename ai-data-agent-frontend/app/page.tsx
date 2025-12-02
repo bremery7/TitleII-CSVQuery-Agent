@@ -25,6 +25,8 @@ export default function Home() {
   const [insights, setInsights] = useState<string | null>(null);
   const [executiveSummary, setExecutiveSummary] = useState<string | null>(null);
   const [currentQuery, setCurrentQuery] = useState<string>('');
+  const [aggregations, setAggregations] = useState<any>(null);
+  const [totalCount, setTotalCount] = useState<number>(0);
   const [showFileManager, setShowFileManager] = useState(false);
   const [showUploadModal, setShowUploadModal] = useState(false);
   const [showDatabaseInfo, setShowDatabaseInfo] = useState(false);
@@ -116,6 +118,8 @@ export default function Home() {
       setConversation(data.conversation || []);
       setInsights(data.insights || null);
       setExecutiveSummary(data.executiveSummary || null);
+      setAggregations(data.aggregations || null);
+      setTotalCount(data.totalCount || data.results?.length || 0);
     } catch (error) {
       console.error('Query failed:', error);
     } finally {
@@ -464,7 +468,14 @@ export default function Home() {
             />
 
             {/* Results with Tabs (includes AI Insights) */}
-            <ResultsView results={results} insights={insights} executiveSummary={executiveSummary} query={currentQuery} />
+            <ResultsView 
+              results={results} 
+              insights={insights} 
+              executiveSummary={executiveSummary} 
+              query={currentQuery}
+              aggregations={aggregations}
+              totalCount={totalCount}
+            />
 
             {/* Conversation Log */}
             <ConversationLog conversation={conversation} />
