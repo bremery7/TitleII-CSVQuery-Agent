@@ -108,11 +108,24 @@ export default function Home() {
 
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+      
+      // Add timeout for very large queries (2 minutes)
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 120000);
+      
       const response = await fetch(`${apiUrl}/api/query`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: trimmedQuery })
+        body: JSON.stringify({ query: trimmedQuery }),
+        signal: controller.signal
       });
+      
+      clearTimeout(timeoutId);
+      
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+        throw new Error(errorData.error || `Server error: ${response.status}`);
+      }
       
       const data = await response.json();
       setResults(data.results || []);
@@ -124,6 +137,26 @@ export default function Home() {
       setSql(data.sql || '');
     } catch (error) {
       console.error('Query failed:', error);
+      
+      // Show user-friendly error message
+      if (error instanceof Error) {
+        if (error.name === 'AbortError') {
+          alert('Query timed out. This query is taking too long to process (>2 minutes). Please try a more specific query or add filters to reduce the dataset size.');
+        } else {
+          alert(`Query failed: ${error.message}`);
+        }
+      } else {
+        alert('Query failed. Please check the console for details.');
+      }
+      
+      // Clear results on error
+      setResults([]);
+      setConversation([]);
+      setInsights(null);
+      setExecutiveSummary(null);
+      setAggregations(null);
+      setTotalCount(0);
+      setSql('');
     } finally {
       setIsLoading(false);
     }

@@ -656,13 +656,45 @@ app.post('/api/query', async (req, res) => {
 
         conversation.push("AGENT: Executing query...");
         
-        const queryResult = await queryDb.handler({ 
-            sql: validation.sanitizedSql || finalSql, 
+        // First, check the count to avoid loading huge datasets into memory
+        const countSql = `SELECT COUNT(*) as total FROM (${validation.sanitizedSql || finalSql}) AS count_query`;
+        console.log("[POST /api/query] Checking result count first...");
+        
+        const countResult = await queryDb.handler({ 
+            sql: countSql, 
             connection: connection 
         });
         
-        let rows = queryResult.rows;
-        conversation.push(`AGENT: Query successful! Found ${rows.length} results.`);
+        const totalRows = countResult.rows[0]?.total || 0;
+        console.log(`[POST /api/query] Query will return ${totalRows} rows`);
+        
+        // If query returns more than 2M rows, use sampling + aggregation instead
+        const MAX_SAFE_ROWS = 2000000;
+        let rows: any[];
+        let isSampled = false;
+        
+        if (totalRows > MAX_SAFE_ROWS) {
+            console.log(`[POST /api/query] Large dataset detected (${totalRows} rows). Using sampling...`);
+            conversation.push(`AGENT: Large dataset detected (${totalRows.toLocaleString()} rows). Using statistical sampling for performance...`);
+            
+            // Get a sample for preview and aggregations
+            const sampleSql = `SELECT * FROM (${validation.sanitizedSql || finalSql}) AS sample_query ORDER BY RANDOM() LIMIT 50000`;
+            const sampleResult = await queryDb.handler({ 
+                sql: sampleSql, 
+                connection: connection 
+            });
+            rows = sampleResult.rows;
+            isSampled = true;
+            conversation.push(`AGENT: Sampled ${rows.length.toLocaleString()} rows for analysis. Charts show estimated values. Export will include all ${totalRows.toLocaleString()} rows.`);
+        } else {
+            // Normal query execution for reasonable datasets
+            const queryResult = await queryDb.handler({ 
+                sql: validation.sanitizedSql || finalSql, 
+                connection: connection 
+            });
+            rows = queryResult.rows;
+            conversation.push(`AGENT: Query successful! Found ${rows.length} results.`);
+        }
         
         // Deduplicate entries based on caption display rules
         const dedupedRows = deduplicateEntries(rows);
@@ -702,11 +734,15 @@ app.post('/api/query', async (req, res) => {
         // Limit preview results to prevent JSON string length errors
         const MAX_PREVIEW = 1000; // Maximum rows for preview table
         let previewRows = rows.slice(0, MAX_PREVIEW);
-        let totalRowCount = rows.length;
+        
+        // Use actual total count (from COUNT query) if sampled, otherwise use rows.length
+        let totalRowCount = isSampled ? totalRows : rows.length;
         
         if (rows.length > MAX_PREVIEW) {
-            console.log(`[POST /api/query] Returning ${MAX_PREVIEW} preview rows from ${rows.length} total`);
-            conversation.push(`AGENT: Found ${totalRowCount.toLocaleString()} total results. Showing first ${MAX_PREVIEW.toLocaleString()} rows in preview. Charts show full dataset. Export to Excel for all data.`);
+            console.log(`[POST /api/query] Returning ${MAX_PREVIEW} preview rows from ${totalRowCount} total`);
+            if (!isSampled) {
+                conversation.push(`AGENT: Found ${totalRowCount.toLocaleString()} total results. Showing first ${MAX_PREVIEW.toLocaleString()} rows in preview. Charts show full dataset. Export to Excel for all data.`);
+            }
         }
         
         // Return JSON (not HTML)
@@ -714,10 +750,11 @@ app.post('/api/query', async (req, res) => {
             success: true,
             conversation,
             results: previewRows, // Preview rows for table
-            aggregations: aggregations, // Pre-calculated stats for charts
+            aggregations: aggregations, // Pre-calculated stats for charts (from sample if large)
             totalCount: totalRowCount, // Always show the actual total count
             displayedCount: previewRows.length,
             limitedResults: totalRowCount > MAX_PREVIEW,
+            isSampled: isSampled, // Flag to indicate if data is sampled
             sql: finalSql,
             insights: null, // No longer generating insights
             executiveSummary: executiveSummary
