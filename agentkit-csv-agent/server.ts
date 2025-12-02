@@ -771,26 +771,67 @@ app.post('/api/export', async (req, res) => {
         }
         
         const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
-        const filename = `query_results_${timestamp}.xlsx`;
         
-        const exportResult = await exportExcel.handler({
-            data: rows,
-            filename: filename
-        });
-        
-        console.log(`[POST /api/export] File created: ${exportResult.file}`);
-        
-        res.download(exportResult.file, filename, (err) => {
-            if (err) {
-                console.error("Error sending file:", err);
-            }
-            // Clean up file after download
-            setTimeout(() => {
-                if (fs.existsSync(exportResult.file)) {
-                    fs.unlinkSync(exportResult.file);
+        // For large datasets (>1M rows), use CSV to avoid memory issues
+        // Excel has a limit of 1,048,576 rows anyway
+        if (rows.length > 1000000) {
+            console.log(`[POST /api/export] Large dataset detected, using CSV format`);
+            const filename = `query_results_${timestamp}.csv`;
+            
+            // Stream CSV to avoid memory issues
+            const columns = Object.keys(rows[0]);
+            const csvHeader = columns.join(',') + '\n';
+            
+            res.setHeader('Content-Type', 'text/csv');
+            res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+            
+            // Write header
+            res.write(csvHeader);
+            
+            // Stream rows in chunks
+            const chunkSize = 10000;
+            for (let i = 0; i < rows.length; i += chunkSize) {
+                const chunk = rows.slice(i, i + chunkSize);
+                const csvChunk = chunk.map(row => 
+                    columns.map(col => {
+                        const value = row[col];
+                        const stringValue = value !== null && value !== undefined ? String(value) : '';
+                        return stringValue.includes(',') || stringValue.includes('\n') ? `"${stringValue.replace(/"/g, '""')}"` : stringValue;
+                    }).join(',')
+                ).join('\n') + '\n';
+                res.write(csvChunk);
+                
+                // Log progress
+                if (i % 100000 === 0) {
+                    console.log(`[POST /api/export] Streamed ${i + chunk.length} / ${rows.length} rows`);
                 }
-            }, 5000);
-        });
+            }
+            
+            res.end();
+            console.log(`[POST /api/export] CSV export completed`);
+        } else {
+            // For smaller datasets, use Excel
+            const filename = `query_results_${timestamp}.xlsx`;
+            
+            const exportResult = await exportExcel.handler({
+                data: rows,
+                filename: filename
+            });
+            
+            console.log(`[POST /api/export] File created: ${exportResult.file}`);
+            
+            res.download(exportResult.file, filename, (err) => {
+                if (err) {
+                    console.error("Error sending file:", err);
+                }
+                // Clean up file after download
+                setTimeout(() => {
+                    if (fs.existsSync(exportResult.file)) {
+                        fs.unlinkSync(exportResult.file);
+                    }
+                }, 5000);
+            });
+        }
         
     } catch (error) {
         console.error("[POST /api/export] Error:", error);
