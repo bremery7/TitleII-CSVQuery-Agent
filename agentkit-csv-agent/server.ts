@@ -598,11 +598,25 @@ app.post('/api/query', async (req, res) => {
             // Don't fail the whole request if analysis fails
         }
         
+        // Limit results to prevent JSON string length errors, but always show total count
+        const MAX_RESULTS = 10000; // Maximum rows to return in response
+        let returnedRows = rows;
+        let totalRowCount = rows.length;
+        
+        if (rows.length > MAX_RESULTS) {
+            console.log(`[POST /api/query] Limiting results from ${rows.length} to ${MAX_RESULTS} rows`);
+            returnedRows = rows.slice(0, MAX_RESULTS);
+            conversation.push(`AGENT: Found ${totalRowCount.toLocaleString()} total results. Showing first ${MAX_RESULTS.toLocaleString()} rows. Export to Excel to get all results.`);
+        }
+        
         // Return JSON (not HTML)
         return res.json({
             success: true,
             conversation,
-            results: rows,
+            results: returnedRows,
+            totalCount: totalRowCount, // Always show the actual total count
+            displayedCount: returnedRows.length,
+            limitedResults: totalRowCount > MAX_RESULTS,
             sql: finalSql,
             insights: null, // No longer generating insights
             executiveSummary: executiveSummary
