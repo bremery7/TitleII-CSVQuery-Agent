@@ -10,6 +10,7 @@ interface ResultsTableProps {
 
 export default function ResultsTable({ results, totalCount, sql }: ResultsTableProps) {
   const [currentPage, setCurrentPage] = useState(1);
+  const [isExporting, setIsExporting] = useState(false);
   const rowsPerPage = 10;
 
   if (!results || results.length === 0) {
@@ -31,17 +32,24 @@ export default function ResultsTable({ results, totalCount, sql }: ResultsTableP
   const exportToSpreadsheet = async () => {
     // If we have SQL, call backend API to export all rows
     if (sql) {
+      setIsExporting(true);
       try {
         console.log('[Export] Starting export with SQL:', sql.substring(0, 100) + '...');
         const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
         console.log('[Export] API URL:', apiUrl);
         
+        // Add timeout for large exports (5 minutes)
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 300000);
+        
         const response = await fetch(`${apiUrl}/api/export`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ sql })
+          body: JSON.stringify({ sql }),
+          signal: controller.signal
         });
 
+        clearTimeout(timeoutId);
         console.log('[Export] Response status:', response.status);
 
         if (!response.ok) {
@@ -54,10 +62,15 @@ export default function ResultsTable({ results, totalCount, sql }: ResultsTableP
         const blob = await response.blob();
         console.log('[Export] Blob size:', blob.size, 'bytes');
         
+        // Detect file type from response
+        const contentType = response.headers.get('content-type');
+        const isCSV = contentType?.includes('csv');
+        const extension = isCSV ? 'csv' : 'xlsx';
+        
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `query-results-${new Date().toISOString().split('T')[0]}.xlsx`;
+        a.download = `query-results-${new Date().toISOString().split('T')[0]}.${extension}`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -66,7 +79,13 @@ export default function ResultsTable({ results, totalCount, sql }: ResultsTableP
         console.log('[Export] Download initiated successfully');
       } catch (error) {
         console.error('[Export] Export failed:', error);
-        alert(`Failed to export data: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        if (error instanceof Error && error.name === 'AbortError') {
+          alert('Export timed out. The dataset is very large. Please try a more specific query or contact support.');
+        } else {
+          alert(`Failed to export data: ${error instanceof Error ? error.message : 'Unknown error'}. Check console for details.`);
+        }
+      } finally {
+        setIsExporting(false);
       }
     } else {
       // Fallback: export preview data as CSV
@@ -101,10 +120,11 @@ export default function ResultsTable({ results, totalCount, sql }: ResultsTableP
         <div className="flex items-center gap-4">
           <button
             onClick={exportToSpreadsheet}
-            className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors duration-200"
+            disabled={isExporting}
+            className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white rounded-lg transition-colors duration-200"
           >
             <span>📊</span>
-            <span>Export to Spreadsheet</span>
+            <span>{isExporting ? 'Exporting...' : 'Export to Spreadsheet'}</span>
           </button>
           <div className="text-sm text-gray-400">
             Showing {startIndex + 1}-{Math.min(endIndex, results.length)} of {(totalCount || results.length).toLocaleString()}
