@@ -387,7 +387,7 @@ export default function ComplianceDashboard({ data, aggregations, totalCount, on
               }}
             />
             <Bar dataKey="count" name="Entries" radius={[8, 8, 0, 0]}>
-              {accuracyDistribution.map((entry, index) => (
+              {accuracyDistribution.map((entry: any, index: number) => (
                 <Cell key={`cell-${index}`} fill={entry.color} />
               ))}
             </Bar>
@@ -396,7 +396,7 @@ export default function ComplianceDashboard({ data, aggregations, totalCount, on
         
         {/* Legend */}
         <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-          {accuracyDistribution.map((entry, index) => (
+          {accuracyDistribution.map((entry: any, index: number) => (
             <div key={index} className="bg-[#1f2640] p-3 rounded-md border border-[#3d4571]">
               <div className="flex items-center gap-2 mb-1">
                 <div className="w-3 h-3 rounded-full" style={{ backgroundColor: entry.color }}></div>
