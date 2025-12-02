@@ -179,7 +179,9 @@ app.get('/api/database-info', async (req, res) => {
                         connection: connection
                     });
                     if (countResult.rows && countResult.rows.length > 0) {
-                        totalRows += countResult.rows[0].count;
+                        // Convert to number since BigInt is returned as string
+                        const rowCount = Number(countResult.rows[0].count);
+                        totalRows += rowCount;
                     }
                 } catch (err) {
                     console.warn(`[GET /api/database-info] Could not count rows for ${tableName}:`, err);
@@ -501,13 +503,19 @@ app.post('/api/query', async (req, res) => {
                     const whereClause = whereMatch[1].replace(/\s+ORDER\s+BY\s+.+$/i, '').trim();
                     const query = `SELECT ${selectClause} FROM "${tableName}" WHERE ${whereClause}`;
                     unionQueries.push(query);
-                    console.log(`[DEBUG] Query for ${tableName}: ${query}`);
+                    // Only log first few tables to avoid console spam
+                    if (allTableNames.indexOf(tableName) < 3) {
+                        console.log(`[DEBUG] Query for ${tableName}: ${query}`);
+                    }
                 } else {
                     // Fallback: replace table name in FROM clause and remove ORDER BY
                     let query = templateSql.replace(/FROM\s+["']?\w+["']?/i, `FROM "${tableName}"`);
                     query = query.replace(/\s+ORDER\s+BY\s+.+$/i, '').trim();
                     unionQueries.push(query);
-                    console.log(`[DEBUG] Query for ${tableName} (fallback): ${query}`);
+                    // Only log first few tables to avoid console spam
+                    if (allTableNames.indexOf(tableName) < 3) {
+                        console.log(`[DEBUG] Query for ${tableName} (fallback): ${query}`);
+                    }
                 }
             }
             
@@ -517,14 +525,20 @@ app.post('/api/query', async (req, res) => {
                 // Wrap in subquery to handle complex ORDER BY expressions
                 finalSql = `SELECT * FROM (${finalSql}) AS union_result ORDER BY ${orderByClause}`;
             }
-            console.log(`[POST /api/query] Final UNION query: ${finalSql}`);
+            // Log only a summary for large queries to avoid string length errors
+            if (finalSql.length > 10000) {
+                console.log(`[POST /api/query] Final UNION query length: ${finalSql.length} chars (too long to log)`);
+            } else {
+                console.log(`[POST /api/query] Final UNION query: ${finalSql}`);
+            }
             
+            // Keep conversation short for large queries
             const shortSql = finalSql.length > 200 
                 ? finalSql.substring(0, 200) + '... (UNION query across all tables)'
                 : finalSql;
             
             conversation.push(`AGENT: Generated SQL: ${shortSql}`);
-            conversation.push(`AGENT: Combining results from ${allTableNames.length} tables: ${allTableNames.join(', ')}`);
+            conversation.push(`AGENT: Combining results from ${allTableNames.length} tables`);
         } else {
             conversation.push(`AGENT: Generated SQL: ${templateSql}`);
         }
