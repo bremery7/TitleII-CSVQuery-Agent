@@ -32,28 +32,41 @@ export default function ResultsTable({ results, totalCount, sql }: ResultsTableP
     // If we have SQL, call backend API to export all rows
     if (sql) {
       try {
+        console.log('[Export] Starting export with SQL:', sql.substring(0, 100) + '...');
         const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+        console.log('[Export] API URL:', apiUrl);
+        
         const response = await fetch(`${apiUrl}/api/export`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ sql })
         });
 
+        console.log('[Export] Response status:', response.status);
+
         if (!response.ok) {
-          throw new Error('Export failed');
+          const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+          console.error('[Export] Error response:', errorData);
+          throw new Error(errorData.error || 'Export failed');
         }
 
         // Download the file
         const blob = await response.blob();
+        console.log('[Export] Blob size:', blob.size, 'bytes');
+        
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
         a.download = `query-results-${new Date().toISOString().split('T')[0]}.xlsx`;
+        document.body.appendChild(a);
         a.click();
+        document.body.removeChild(a);
         window.URL.revokeObjectURL(url);
+        
+        console.log('[Export] Download initiated successfully');
       } catch (error) {
-        console.error('Export failed:', error);
-        alert('Failed to export data. Please try again.');
+        console.error('[Export] Export failed:', error);
+        alert(`Failed to export data: ${error instanceof Error ? error.message : 'Unknown error'}`);
       }
     } else {
       // Fallback: export preview data as CSV
