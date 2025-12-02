@@ -161,65 +161,71 @@ function calculateAggregations(data: any[]) {
         return null;
     }
 
-    // Helper functions
-    const hasCaptions = (row: any) => {
+    console.log(`[Aggregations] Starting calculation for ${data.length} rows...`);
+    const startTime = Date.now();
+
+    // Initialize counters
+    let machineAccurate = 0, machinePoor = 0;
+    let humanAccurate = 0, humanPoor = 0;
+    let noCaptions = 0;
+    let hasEADCount = 0, hasADCount = 0;
+    let acc_80_85 = 0, acc_85_90 = 0, acc_90_95 = 0, acc_95_100 = 0;
+
+    // Single pass through data
+    for (const row of data) {
+        // Check captions
         const captionFields = [
             row.captions_language, row.CAPTIONS_LANGUAGE, row.caption_language,
             row.captions_usage_type, row.CAPTIONS_USAGE_TYPE, row.caption_type
         ];
-        return captionFields.some(field => 
+        const hasCaps = captionFields.some(field => 
             field && field !== null && field !== '-' &&
             String(field).trim() !== '' && String(field).toLowerCase() !== 'none'
         );
-    };
 
-    const getAccuracy = (row: any) => {
-        const accuracyField = row.captions_accuracy || row.CAPTIONS_ACCURACY || row.caption_accuracy || '0';
-        return parseFloat(String(accuracyField).replace('%', ''));
-    };
+        if (hasCaps) {
+            const accuracyField = row.captions_accuracy || row.CAPTIONS_ACCURACY || row.caption_accuracy || '0';
+            const accuracy = parseFloat(String(accuracyField).replace('%', ''));
+            const creationMode = String(row.captions_creation_mode || row.CAPTIONS_CREATION_MODE || '').toLowerCase();
+            
+            const isMach = creationMode === 'machine';
+            const isHum = creationMode === 'human' || creationMode === 'upload';
+            
+            if (isMach) {
+                if (accuracy >= 95) machineAccurate++;
+                else machinePoor++;
+            } else if (isHum) {
+                if (accuracy >= 95) humanAccurate++;
+                else humanPoor++;
+            }
 
-    const isMachine = (row: any) => {
-        const creationMode = row.captions_creation_mode || row.CAPTIONS_CREATION_MODE || '';
-        return String(creationMode).toLowerCase() === 'machine';
-    };
+            // Accuracy distribution
+            if (accuracy >= 80 && accuracy < 85) acc_80_85++;
+            else if (accuracy >= 85 && accuracy < 90) acc_85_90++;
+            else if (accuracy >= 90 && accuracy < 95) acc_90_95++;
+            else if (accuracy >= 95) acc_95_100++;
+        } else {
+            noCaptions++;
+        }
 
-    const isHuman = (row: any) => {
-        const creationMode = row.captions_creation_mode || row.CAPTIONS_CREATION_MODE || '';
-        return String(creationMode).toLowerCase() === 'human' || String(creationMode).toLowerCase() === 'upload';
-    };
-
-    const hasEAD = (row: any) => {
+        // Check EAD
         const eadField = row.has_ead || row.HAS_EAD || row.is_ead || row.IS_EAD || row.ead || row.EAD;
-        return eadField === true || eadField === 'true' || eadField === 1 ||
-               String(eadField).toLowerCase() === 'yes' || String(eadField).toLowerCase() === 'true';
-    };
+        if (eadField === true || eadField === 'true' || eadField === 1 ||
+            String(eadField).toLowerCase() === 'yes' || String(eadField).toLowerCase() === 'true') {
+            hasEADCount++;
+        }
 
-    const hasAD = (row: any) => {
+        // Check AD
         const adField = row.has_audio_description_flavor || row.HAS_AUDIO_DESCRIPTION_FLAVOR || 
                        row.has_ad || row.HAS_AD || row.ad || row.AD;
-        return adField === true || adField === 'true' || adField === 1 ||
-               String(adField).toLowerCase() === 'yes' || String(adField).toLowerCase() === 'true';
-    };
+        if (adField === true || adField === 'true' || adField === 1 ||
+            String(adField).toLowerCase() === 'yes' || String(adField).toLowerCase() === 'true') {
+            hasADCount++;
+        }
+    }
 
-    // Calculate caption data
-    const machineAccurate = data.filter(row => hasCaptions(row) && isMachine(row) && getAccuracy(row) >= 95).length;
-    const machinePoor = data.filter(row => hasCaptions(row) && isMachine(row) && getAccuracy(row) < 95).length;
-    const humanAccurate = data.filter(row => hasCaptions(row) && isHuman(row) && getAccuracy(row) >= 95).length;
-    const humanPoor = data.filter(row => hasCaptions(row) && isHuman(row) && getAccuracy(row) < 95).length;
-    const noCaptions = data.filter(row => !hasCaptions(row)).length;
-
-    // Calculate audio description data
-    const hasEADCount = data.filter(row => hasEAD(row)).length;
-    const hasADCount = data.filter(row => hasAD(row)).length;
-
-    // Calculate accuracy distribution
-    const captionedData = data.filter(row => hasCaptions(row));
-    const accuracyDistribution = [
-        { range: '80-85%', count: captionedData.filter(row => { const acc = getAccuracy(row); return acc >= 80 && acc < 85; }).length },
-        { range: '85-90%', count: captionedData.filter(row => { const acc = getAccuracy(row); return acc >= 85 && acc < 90; }).length },
-        { range: '90-95%', count: captionedData.filter(row => { const acc = getAccuracy(row); return acc >= 90 && acc < 95; }).length },
-        { range: '95-100%', count: captionedData.filter(row => { const acc = getAccuracy(row); return acc >= 95; }).length }
-    ];
+    const elapsed = Date.now() - startTime;
+    console.log(`[Aggregations] Completed in ${elapsed}ms`);
 
     return {
         totalEntries: data.length,
@@ -237,7 +243,12 @@ function calculateAggregations(data: any[]) {
             hasAD: hasADCount,
             noAD: data.length - hasADCount
         },
-        accuracyDistribution
+        accuracyDistribution: [
+            { range: '80-85%', count: acc_80_85 },
+            { range: '85-90%', count: acc_85_90 },
+            { range: '90-95%', count: acc_90_95 },
+            { range: '95-100%', count: acc_95_100 }
+        ]
     };
 }
 
