@@ -151,7 +151,94 @@ async function reloadTables() {
         }
     } catch (error) {
         console.error("[API Server] Error reloading tables:", error);
+        throw error;
     }
+}
+
+// --- Helper function to calculate aggregations for charts ---
+function calculateAggregations(data: any[]) {
+    if (!data || data.length === 0) {
+        return null;
+    }
+
+    // Helper functions
+    const hasCaptions = (row: any) => {
+        const captionFields = [
+            row.captions_language, row.CAPTIONS_LANGUAGE, row.caption_language,
+            row.captions_usage_type, row.CAPTIONS_USAGE_TYPE, row.caption_type
+        ];
+        return captionFields.some(field => 
+            field && field !== null && field !== '-' &&
+            String(field).trim() !== '' && String(field).toLowerCase() !== 'none'
+        );
+    };
+
+    const getAccuracy = (row: any) => {
+        const accuracyField = row.captions_accuracy || row.CAPTIONS_ACCURACY || row.caption_accuracy || '0';
+        return parseFloat(String(accuracyField).replace('%', ''));
+    };
+
+    const isMachine = (row: any) => {
+        const creationMode = row.captions_creation_mode || row.CAPTIONS_CREATION_MODE || '';
+        return String(creationMode).toLowerCase() === 'machine';
+    };
+
+    const isHuman = (row: any) => {
+        const creationMode = row.captions_creation_mode || row.CAPTIONS_CREATION_MODE || '';
+        return String(creationMode).toLowerCase() === 'human' || String(creationMode).toLowerCase() === 'upload';
+    };
+
+    const hasEAD = (row: any) => {
+        const eadField = row.has_ead || row.HAS_EAD || row.is_ead || row.IS_EAD || row.ead || row.EAD;
+        return eadField === true || eadField === 'true' || eadField === 1 ||
+               String(eadField).toLowerCase() === 'yes' || String(eadField).toLowerCase() === 'true';
+    };
+
+    const hasAD = (row: any) => {
+        const adField = row.has_audio_description_flavor || row.HAS_AUDIO_DESCRIPTION_FLAVOR || 
+                       row.has_ad || row.HAS_AD || row.ad || row.AD;
+        return adField === true || adField === 'true' || adField === 1 ||
+               String(adField).toLowerCase() === 'yes' || String(adField).toLowerCase() === 'true';
+    };
+
+    // Calculate caption data
+    const machineAccurate = data.filter(row => hasCaptions(row) && isMachine(row) && getAccuracy(row) >= 95).length;
+    const machinePoor = data.filter(row => hasCaptions(row) && isMachine(row) && getAccuracy(row) < 95).length;
+    const humanAccurate = data.filter(row => hasCaptions(row) && isHuman(row) && getAccuracy(row) >= 95).length;
+    const humanPoor = data.filter(row => hasCaptions(row) && isHuman(row) && getAccuracy(row) < 95).length;
+    const noCaptions = data.filter(row => !hasCaptions(row)).length;
+
+    // Calculate audio description data
+    const hasEADCount = data.filter(row => hasEAD(row)).length;
+    const hasADCount = data.filter(row => hasAD(row)).length;
+
+    // Calculate accuracy distribution
+    const captionedData = data.filter(row => hasCaptions(row));
+    const accuracyDistribution = [
+        { range: '80-85%', count: captionedData.filter(row => { const acc = getAccuracy(row); return acc >= 80 && acc < 85; }).length },
+        { range: '85-90%', count: captionedData.filter(row => { const acc = getAccuracy(row); return acc >= 85 && acc < 90; }).length },
+        { range: '90-95%', count: captionedData.filter(row => { const acc = getAccuracy(row); return acc >= 90 && acc < 95; }).length },
+        { range: '95-100%', count: captionedData.filter(row => { const acc = getAccuracy(row); return acc >= 95; }).length }
+    ];
+
+    return {
+        totalEntries: data.length,
+        captionData: {
+            machineAccurate,
+            machinePoor,
+            humanAccurate,
+            humanPoor,
+            noCaptions,
+            withCaptions: data.length - noCaptions
+        },
+        audioDescData: {
+            hasEAD: hasEADCount,
+            noEAD: data.length - hasEADCount,
+            hasAD: hasADCount,
+            noAD: data.length - hasADCount
+        },
+        accuracyDistribution
+    };
 }
 
 // --- API Routes (JSON only, no HTML) ---
@@ -598,25 +685,28 @@ app.post('/api/query', async (req, res) => {
             // Don't fail the whole request if analysis fails
         }
         
-        // Limit results to prevent JSON string length errors, but always show total count
-        const MAX_RESULTS = 10000; // Maximum rows to return in response
-        let returnedRows = rows;
+        // Calculate aggregations for charts (server-side to avoid sending huge datasets)
+        const aggregations = calculateAggregations(rows);
+        
+        // Limit preview results to prevent JSON string length errors
+        const MAX_PREVIEW = 1000; // Maximum rows for preview table
+        let previewRows = rows.slice(0, MAX_PREVIEW);
         let totalRowCount = rows.length;
         
-        if (rows.length > MAX_RESULTS) {
-            console.log(`[POST /api/query] Limiting results from ${rows.length} to ${MAX_RESULTS} rows`);
-            returnedRows = rows.slice(0, MAX_RESULTS);
-            conversation.push(`AGENT: Found ${totalRowCount.toLocaleString()} total results. Showing first ${MAX_RESULTS.toLocaleString()} rows. Export to Excel to get all results.`);
+        if (rows.length > MAX_PREVIEW) {
+            console.log(`[POST /api/query] Returning ${MAX_PREVIEW} preview rows from ${rows.length} total`);
+            conversation.push(`AGENT: Found ${totalRowCount.toLocaleString()} total results. Showing first ${MAX_PREVIEW.toLocaleString()} rows in preview. Charts show full dataset. Export to Excel for all data.`);
         }
         
         // Return JSON (not HTML)
         return res.json({
             success: true,
             conversation,
-            results: returnedRows,
+            results: previewRows, // Preview rows for table
+            aggregations: aggregations, // Pre-calculated stats for charts
             totalCount: totalRowCount, // Always show the actual total count
-            displayedCount: returnedRows.length,
-            limitedResults: totalRowCount > MAX_RESULTS,
+            displayedCount: previewRows.length,
+            limitedResults: totalRowCount > MAX_PREVIEW,
             sql: finalSql,
             insights: null, // No longer generating insights
             executiveSummary: executiveSummary
