@@ -4,9 +4,11 @@ import { useState } from 'react';
 
 interface ResultsTableProps {
   results: any[];
+  totalCount?: number;
+  sql?: string;
 }
 
-export default function ResultsTable({ results }: ResultsTableProps) {
+export default function ResultsTable({ results, totalCount, sql }: ResultsTableProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 10;
 
@@ -17,7 +19,7 @@ export default function ResultsTable({ results }: ResultsTableProps) {
   const columns = Object.keys(results[0]);
   
   // Calculate pagination
-  const totalPages = Math.ceil(results.length / rowsPerPage);
+  const totalPages = Math.ceil((totalCount || results.length) / rowsPerPage);
   const startIndex = (currentPage - 1) * rowsPerPage;
   const endIndex = startIndex + rowsPerPage;
   const currentRows = results.slice(startIndex, endIndex);
@@ -26,33 +28,62 @@ export default function ResultsTable({ results }: ResultsTableProps) {
     setCurrentPage(Math.max(1, Math.min(page, totalPages)));
   };
 
-  const exportToSpreadsheet = () => {
-    const columns = Object.keys(results[0]);
-    const csv = [
-      columns.join(','),
-      ...results.map(row => 
-        columns.map(col => {
-          const value = row[col];
-          const stringValue = value !== null && value !== undefined ? String(value) : '';
-          return stringValue.includes(',') ? `"${stringValue}"` : stringValue;
-        }).join(',')
-      )
-    ].join('\n');
+  const exportToSpreadsheet = async () => {
+    // If we have SQL, call backend API to export all rows
+    if (sql) {
+      try {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+        const response = await fetch(`${apiUrl}/api/export`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ sql })
+        });
 
-    const blob = new Blob([csv], { type: 'text/csv' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `query-results-${new Date().toISOString().split('T')[0]}.csv`;
-    a.click();
-    window.URL.revokeObjectURL(url);
+        if (!response.ok) {
+          throw new Error('Export failed');
+        }
+
+        // Download the file
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `query-results-${new Date().toISOString().split('T')[0]}.xlsx`;
+        a.click();
+        window.URL.revokeObjectURL(url);
+      } catch (error) {
+        console.error('Export failed:', error);
+        alert('Failed to export data. Please try again.');
+      }
+    } else {
+      // Fallback: export preview data as CSV
+      const columns = Object.keys(results[0]);
+      const csv = [
+        columns.join(','),
+        ...results.map(row => 
+          columns.map(col => {
+            const value = row[col];
+            const stringValue = value !== null && value !== undefined ? String(value) : '';
+            return stringValue.includes(',') ? `"${stringValue}"` : stringValue;
+          }).join(',')
+        )
+      ].join('\n');
+
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `query-results-${new Date().toISOString().split('T')[0]}.csv`;
+      a.click();
+      window.URL.revokeObjectURL(url);
+    }
   };
 
   return (
     <div className="mt-8">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-xl font-medium text-white">
-          Query Results ({results.length} total rows)
+          Query Results ({(totalCount || results.length).toLocaleString()} total rows)
         </h2>
         <div className="flex items-center gap-4">
           <button
@@ -63,7 +94,7 @@ export default function ResultsTable({ results }: ResultsTableProps) {
             <span>Export to Spreadsheet</span>
           </button>
           <div className="text-sm text-gray-400">
-            Showing {startIndex + 1}-{Math.min(endIndex, results.length)} of {results.length}
+            Showing {startIndex + 1}-{Math.min(endIndex, results.length)} of {(totalCount || results.length).toLocaleString()}
           </div>
         </div>
       </div>

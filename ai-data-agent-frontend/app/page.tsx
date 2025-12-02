@@ -27,6 +27,7 @@ export default function Home() {
   const [currentQuery, setCurrentQuery] = useState<string>('');
   const [aggregations, setAggregations] = useState<any>(null);
   const [totalCount, setTotalCount] = useState<number>(0);
+  const [sql, setSql] = useState<string>('');
   const [showFileManager, setShowFileManager] = useState(false);
   const [showUploadModal, setShowUploadModal] = useState(false);
   const [showDatabaseInfo, setShowDatabaseInfo] = useState(false);
@@ -120,6 +121,7 @@ export default function Home() {
       setExecutiveSummary(data.executiveSummary || null);
       setAggregations(data.aggregations || null);
       setTotalCount(data.totalCount || data.results?.length || 0);
+      setSql(data.sql || '');
     } catch (error) {
       console.error('Query failed:', error);
     } finally {
@@ -475,6 +477,7 @@ export default function Home() {
               query={currentQuery}
               aggregations={aggregations}
               totalCount={totalCount}
+              sql={sql}
             />
 
             {/* Conversation Log */}

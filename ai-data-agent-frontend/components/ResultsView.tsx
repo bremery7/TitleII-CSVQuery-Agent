@@ -11,9 +11,10 @@ interface ResultsViewProps {
   query?: string;
   aggregations?: any;
   totalCount?: number;
+  sql?: string;
 }
 
-export default function ResultsView({ results, insights, executiveSummary, query, aggregations, totalCount }: ResultsViewProps) {
+export default function ResultsView({ results, insights, executiveSummary, query, aggregations, totalCount, sql }: ResultsViewProps) {
   const [activeTab, setActiveTab] = useState<'table' | 'chart'>('chart');
   const [exporting, setExporting] = useState(false);
   const resultsRef = useRef<HTMLDivElement>(null);
@@ -296,7 +297,7 @@ export default function ResultsView({ results, insights, executiveSummary, query
       <div ref={contentRef} className="transition-opacity duration-200">
         {activeTab === 'table' ? (
           <>
-            <ResultsTable results={results} />
+            <ResultsTable results={results} totalCount={totalCount} sql={sql} />
           </>
         ) : (
           <>
