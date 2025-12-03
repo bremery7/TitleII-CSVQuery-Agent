@@ -711,8 +711,8 @@ app.post('/api/query', async (req, res) => {
         let executiveSummary: string | null = null;
         
         try {
-            if (rows.length > 0) {
-                // Generate Executive Summary (compliance metrics)
+            if (rows.length > 0 && !isSampled) {
+                // Only generate summary for non-sampled data to avoid misleading statistics
                 conversation.push("AGENT: Generating executive summary...");
                 const analysisResult = await analyzeResults.handler({
                     userQuestion: naturalQuery,
@@ -721,6 +721,10 @@ app.post('/api/query', async (req, res) => {
                 });
                 executiveSummary = analysisResult.answer;
                 conversation.push(`AGENT: Executive summary generated successfully.`);
+            } else if (isSampled) {
+                // For sampled queries, provide a note instead of misleading summary
+                executiveSummary = `**Note:** This query returned ${totalRows.toLocaleString()} total entries, which is too large to analyze in detail. The dashboard shows estimated statistics based on a statistical sample of 50,000 rows. For detailed analysis, please use more specific filters or export the full dataset.`;
+                conversation.push(`AGENT: Skipping detailed summary for large dataset. Showing sample-based statistics.`);
             }
         } catch (analysisError) {
             console.error("[POST /api/query] AI analysis failed:", analysisError);
