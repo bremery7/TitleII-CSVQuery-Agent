@@ -361,11 +361,11 @@ export default function ComplianceDashboard({ data, aggregations, totalCount, on
             <XAxis 
               dataKey="range" 
               stroke="#e0e0e0"
-              label={{ value: 'Accuracy Range', position: 'insideBottom', offset: -5, fill: '#e0e0e0' }}
+              label={{ value: 'Accuracy Range', position: 'insideBottom', offset: 0, fill: '#e0e0e0' }}
             />
             <YAxis 
               stroke="#e0e0e0"
-              label={{ value: 'Number of Entries', angle: -90, position: 'insideLeft', fill: '#e0e0e0' }}
+              label={{ value: 'Number of Entries', angle: -90, position: 'insideLeft', offset: 10, fill: '#e0e0e0' }}
             />
             <Tooltip 
               contentStyle={{ 
@@ -386,7 +386,7 @@ export default function ComplianceDashboard({ data, aggregations, totalCount, on
                 fontSize: '13px'
               }}
             />
-            <Bar dataKey="count" name="Entries" radius={[8, 8, 0, 0]}>
+            <Bar dataKey="count" name="Entries">
               {accuracyDistribution.map((entry: any, index: number) => (
                 <Cell key={`cell-${index}`} fill={entry.color} />
               ))}
