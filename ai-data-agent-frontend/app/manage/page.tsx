@@ -67,6 +67,25 @@ export default function ManagePage() {
               <p className="text-gray-400 text-sm">Add, edit, and remove users. Manage user roles and permissions.</p>
             </button>
 
+            {/* Branding Card */}
+            <button
+              onClick={() => router.push('/manage/branding')}
+              className="bg-[#1a1f3a] hover:bg-[#252d47] border border-[#3d4571] rounded-lg p-6 text-left transition-colors group"
+            >
+              <div className="flex items-start justify-between mb-4">
+                <div className="p-3 bg-indigo-600/20 rounded-lg">
+                  <svg className="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <svg className="w-5 h-5 text-gray-400 group-hover:text-indigo-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">Branding</h3>
+              <p className="text-gray-400 text-sm">Upload and manage your organization's logo and branding.</p>
+            </button>
+
             {/* SSO Configuration Card */}
             <button
               onClick={() => router.push('/manage/sso')}
