@@ -33,6 +33,7 @@ export default function Home() {
   const [showDatabaseInfo, setShowDatabaseInfo] = useState(false);
   const [showUserManagement, setShowUserManagement] = useState(false);
   const [showChangePassword, setShowChangePassword] = useState(false);
+  const [abortController, setAbortController] = useState<AbortController | null>(null);
   const [showSavedQueries, setShowSavedQueries] = useState(true);
   const [showRecentQueries, setShowRecentQueries] = useState(true);
   const [showSuggestedPrompts, setShowSuggestedPrompts] = useState(true);
@@ -111,6 +112,7 @@ export default function Home() {
       
       // Add timeout for very large queries (2 minutes)
       const controller = new AbortController();
+      setAbortController(controller); // Store for stop button
       const timeoutId = setTimeout(() => controller.abort(), 120000);
       
       const response = await fetch(`${apiUrl}/api/query`, {
@@ -121,6 +123,7 @@ export default function Home() {
       });
       
       clearTimeout(timeoutId);
+      setAbortController(null); // Clear after completion
       
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
@@ -158,6 +161,15 @@ export default function Home() {
       setTotalCount(0);
       setSql('');
     } finally {
+      setIsLoading(false);
+      setAbortController(null); // Always clear abort controller
+    }
+  };
+
+  const handleStopQuery = () => {
+    if (abortController) {
+      abortController.abort();
+      setAbortController(null);
       setIsLoading(false);
     }
   };
@@ -329,7 +341,7 @@ export default function Home() {
         <div className="flex flex-col lg:flex-row gap-6 relative">
           {/* Left Sidebar - Fixed/Sticky on Desktop, Stacked on Mobile - Recent & Suggested Queries */}
           <div className="w-full lg:w-64 flex-shrink-0">
-            <div className="lg:sticky lg:top-8 space-y-4 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto">
+            <div className="lg:sticky lg:top-8 space-y-4 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto lg:pr-2">
               {/* Saved Queries */}
               {savedQueries.length > 0 && (
                 <div className="bg-[#252d47] rounded-lg border border-[#3d4571] p-4">
@@ -500,6 +512,7 @@ export default function Home() {
               onSubmit={handleQuery} 
               isLoading={isLoading}
               initialQuery={currentQuery}
+              onStop={handleStopQuery}
             />
 
             {/* Results with Tabs (includes AI Insights) */}

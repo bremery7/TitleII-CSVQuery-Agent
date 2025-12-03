@@ -6,9 +6,10 @@ interface QueryFormProps {
   onSubmit: (query: string) => void;
   isLoading: boolean;
   initialQuery?: string;
+  onStop?: () => void;
 }
 
-export default function QueryForm({ onSubmit, isLoading, initialQuery = '' }: QueryFormProps) {
+export default function QueryForm({ onSubmit, isLoading, initialQuery = '', onStop }: QueryFormProps) {
   const [query, setQuery] = useState('');
 
   // Update query when initialQuery changes
@@ -53,20 +54,33 @@ export default function QueryForm({ onSubmit, isLoading, initialQuery = '' }: Qu
             disabled={isLoading}
           />
 
-          <button
-            type="submit"
-            disabled={isLoading || !query.trim()}
-            className="w-full sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
-          >
-            {isLoading && (
-              <div className="flex gap-1">
-                <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
-                <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
-                <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
-              </div>
+          <div className="flex gap-3">
+            <button
+              type="submit"
+              disabled={isLoading || !query.trim()}
+              className="flex-1 sm:flex-none sm:w-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+            >
+              {isLoading && (
+                <div className="flex gap-1">
+                  <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                  <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                  <span className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+                </div>
+              )}
+              <span>{isLoading ? 'Running Query...' : 'Run Query'}</span>
+            </button>
+            
+            {isLoading && onStop && (
+              <button
+                type="button"
+                onClick={onStop}
+                className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center gap-2"
+              >
+                <span>⏹</span>
+                <span>Stop</span>
+              </button>
             )}
-            <span>{isLoading ? 'Running Query...' : 'Run Query'}</span>
-          </button>
+          </div>
         </form>
       </div>
     </div>

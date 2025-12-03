@@ -37,7 +37,7 @@ export default function UserMenu({ username, role, onChangePassword, onLogout }:
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 px-4 py-2 bg-[#1a1f3a] hover:bg-[#252d47] border border-[#3d4571] rounded-lg transition-colors duration-200"
       >
-        <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-semibold">
+        <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center text-white font-semibold">
           {username.charAt(0).toUpperCase()}
         </div>
         <div className="text-left">
