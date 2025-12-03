@@ -258,7 +258,7 @@ export default function Home() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               {logo && (
-                <div className="relative w-32 h-20 flex-shrink-0">
+                <div className="relative w-64 h-40 flex-shrink-0">
                   <Image
                     src={logo}
                     alt="Organization Logo"
