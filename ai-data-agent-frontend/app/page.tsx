@@ -12,6 +12,7 @@ import MultiFileUpload from '@/components/MultiFileUpload';
 import UserManagement from '@/components/UserManagement';
 import ChangePassword from '@/components/ChangePassword';
 import UserMenu from '@/components/UserMenu';
+import Image from 'next/image';
 
 export default function Home() {
   const { session, status, logout } = useSession();
@@ -37,6 +38,7 @@ export default function Home() {
   const [showSavedQueries, setShowSavedQueries] = useState(true);
   const [showRecentQueries, setShowRecentQueries] = useState(true);
   const [showSuggestedPrompts, setShowSuggestedPrompts] = useState(true);
+  const [logo, setLogo] = useState<string | null>(null);
 
   // Redirect to login if not authenticated
   useEffect(() => {
@@ -44,6 +46,22 @@ export default function Home() {
       router.push('/login');
     }
   }, [status, router]);
+
+  // Load logo on mount
+  useEffect(() => {
+    const fetchLogo = async () => {
+      try {
+        const response = await fetch('/api/branding/logo');
+        if (response.ok) {
+          const data = await response.json();
+          setLogo(data.logoUrl);
+        }
+      } catch (error) {
+        console.error('Failed to fetch logo:', error);
+      }
+    };
+    fetchLogo();
+  }, []);
 
   // Load saved queries from localStorage on mount
   useEffect(() => {
@@ -238,7 +256,19 @@ export default function Home() {
       <div className="bg-[#252d47] border-b border-[#3d4571]">
         <div className="max-w-[1600px] mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
-            <h1 className="text-4xl font-semibold text-white">Title II Reports Agent</h1>
+            <div className="flex items-center gap-4">
+              {logo && (
+                <div className="relative w-16 h-16 flex-shrink-0">
+                  <Image
+                    src={logo}
+                    alt="Organization Logo"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              )}
+              <h1 className="text-4xl font-semibold text-white">Title II Reports Agent</h1>
+            </div>
             <div className="flex items-center gap-3">
               <UserMenu
                 username={session.username}
