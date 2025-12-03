@@ -2,21 +2,50 @@ import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
-const LOGO_DIR = path.join(process.cwd(), 'public', 'branding');
-const LOGO_FILE = path.join(LOGO_DIR, 'logo.txt');
+const DATA_DIR = path.join(process.cwd(), 'data');
+const SETTINGS_FILE = path.join(DATA_DIR, 'settings.json');
 
-// Ensure directory exists
-if (!fs.existsSync(LOGO_DIR)) {
-  fs.mkdirSync(LOGO_DIR, { recursive: true });
+interface Settings {
+  logo?: string;
+}
+
+// Ensure data directory exists
+function ensureDataDir() {
+  if (!fs.existsSync(DATA_DIR)) {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+  }
+}
+
+// Load settings
+function loadSettings(): Settings {
+  try {
+    ensureDataDir();
+    if (fs.existsSync(SETTINGS_FILE)) {
+      const data = fs.readFileSync(SETTINGS_FILE, 'utf-8');
+      return JSON.parse(data);
+    }
+    return {};
+  } catch (error) {
+    console.error('Error loading settings:', error);
+    return {};
+  }
+}
+
+// Save settings
+function saveSettings(settings: Settings): void {
+  try {
+    ensureDataDir();
+    fs.writeFileSync(SETTINGS_FILE, JSON.stringify(settings, null, 2));
+  } catch (error) {
+    console.error('Error saving settings:', error);
+    throw error;
+  }
 }
 
 export async function GET() {
   try {
-    if (fs.existsSync(LOGO_FILE)) {
-      const logoData = fs.readFileSync(LOGO_FILE, 'utf-8');
-      return NextResponse.json({ logoUrl: logoData });
-    }
-    return NextResponse.json({ logoUrl: null });
+    const settings = loadSettings();
+    return NextResponse.json({ logoUrl: settings.logo || null });
   } catch (error) {
     console.error('Error reading logo:', error);
     return NextResponse.json({ error: 'Failed to read logo' }, { status: 500 });
@@ -31,8 +60,14 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Invalid image data' }, { status: 400 });
     }
 
-    // Save the base64 data
-    fs.writeFileSync(LOGO_FILE, logoData, 'utf-8');
+    // Load current settings
+    const settings = loadSettings();
+    
+    // Update logo
+    settings.logo = logoData;
+    
+    // Save settings
+    saveSettings(settings);
 
     return NextResponse.json({ success: true, logoUrl: logoData });
   } catch (error) {
@@ -43,9 +78,15 @@ export async function POST(request: NextRequest) {
 
 export async function DELETE() {
   try {
-    if (fs.existsSync(LOGO_FILE)) {
-      fs.unlinkSync(LOGO_FILE);
-    }
+    // Load current settings
+    const settings = loadSettings();
+    
+    // Remove logo
+    delete settings.logo;
+    
+    // Save settings
+    saveSettings(settings);
+    
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Error deleting logo:', error);
