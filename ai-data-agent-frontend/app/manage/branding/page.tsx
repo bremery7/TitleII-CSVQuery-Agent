@@ -11,6 +11,7 @@ export default function BrandingPage() {
   const [logo, setLogo] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [selectedFileName, setSelectedFileName] = useState<string>('');
 
   useEffect(() => {
     if (status === 'unauthenticated') {
@@ -58,6 +59,7 @@ export default function BrandingPage() {
       }
 
       // Create preview
+      setSelectedFileName(file.name);
       const reader = new FileReader();
       reader.onloadend = () => {
         setPreviewUrl(reader.result as string);
@@ -177,12 +179,18 @@ export default function BrandingPage() {
               {!previewUrl ? (
                 <div>
                   <label className="block text-gray-300 mb-2">Select Image</label>
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleFileSelect}
-                    className="block w-full text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-blue-600 file:text-white hover:file:bg-blue-700 file:cursor-pointer cursor-pointer"
-                  />
+                  <div className="flex items-center gap-4">
+                    <label className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors cursor-pointer inline-block">
+                      Choose File
+                      <input
+                        type="file"
+                        accept="image/*"
+                        onChange={handleFileSelect}
+                        className="hidden"
+                      />
+                    </label>
+                    <span className="text-gray-400 text-sm">{selectedFileName || 'No file selected'}</span>
+                  </div>
                   <p className="text-sm text-gray-400 mt-2">
                     Recommended: PNG or SVG format, transparent background, max 2MB
                   </p>
@@ -210,7 +218,10 @@ export default function BrandingPage() {
                       {uploading ? 'Uploading...' : 'Upload Logo'}
                     </button>
                     <button
-                      onClick={() => setPreviewUrl(null)}
+                      onClick={() => {
+                        setPreviewUrl(null);
+                        setSelectedFileName('');
+                      }}
                       disabled={uploading}
                       className="px-6 py-2 bg-gray-600 hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
                     >
