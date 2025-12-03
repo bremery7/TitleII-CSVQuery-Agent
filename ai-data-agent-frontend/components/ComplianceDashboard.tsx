@@ -365,7 +365,6 @@ export default function ComplianceDashboard({ data, aggregations, totalCount, on
             />
             <YAxis 
               stroke="#e0e0e0"
-              label={{ value: 'Number of Entries', angle: -90, position: 'insideLeft', offset: 10, fill: '#e0e0e0' }}
             />
             <Tooltip 
               contentStyle={{ 
