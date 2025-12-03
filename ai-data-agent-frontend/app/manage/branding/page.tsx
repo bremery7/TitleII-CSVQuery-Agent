@@ -174,23 +174,23 @@ export default function BrandingPage() {
           <div>
             <h2 className="text-xl font-semibold text-white mb-4">Upload New Logo</h2>
             <div className="bg-[#1a1f3a] border border-[#3d4571] rounded-lg p-6">
-              <div className="mb-4">
-                <label className="block text-gray-300 mb-2">Select Image</label>
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleFileSelect}
-                  className="w-full px-4 py-2 bg-[#252d47] border border-[#3d4571] rounded-lg text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-blue-600 file:text-white hover:file:bg-blue-700 file:cursor-pointer"
-                />
-                <p className="text-sm text-gray-400 mt-2">
-                  Recommended: PNG or SVG format, transparent background, max 2MB
-                </p>
-              </div>
-
-              {previewUrl && (
-                <div className="mb-4">
+              {!previewUrl ? (
+                <div>
+                  <label className="block text-gray-300 mb-2">Select Image</label>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleFileSelect}
+                    className="block w-full text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-blue-600 file:text-white hover:file:bg-blue-700 file:cursor-pointer cursor-pointer"
+                  />
+                  <p className="text-sm text-gray-400 mt-2">
+                    Recommended: PNG or SVG format, transparent background, max 2MB
+                  </p>
+                </div>
+              ) : (
+                <div>
                   <label className="block text-gray-300 mb-2">Preview</label>
-                  <div className="bg-[#252d47] border border-[#3d4571] rounded-lg p-4 flex items-center justify-center min-h-[150px]">
+                  <div className="bg-[#252d47] border border-[#3d4571] rounded-lg p-4 flex items-center justify-center min-h-[150px] mb-4">
                     <div className="relative w-48 h-24">
                       <Image
                         src={previewUrl}
@@ -200,26 +200,25 @@ export default function BrandingPage() {
                       />
                     </div>
                   </div>
+                  
+                  <div className="flex gap-3">
+                    <button
+                      onClick={handleUpload}
+                      disabled={uploading}
+                      className="px-6 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
+                    >
+                      {uploading ? 'Uploading...' : 'Upload Logo'}
+                    </button>
+                    <button
+                      onClick={() => setPreviewUrl(null)}
+                      disabled={uploading}
+                      className="px-6 py-2 bg-gray-600 hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
+                    >
+                      Cancel
+                    </button>
+                  </div>
                 </div>
               )}
-
-              <div className="flex gap-3">
-                <button
-                  onClick={handleUpload}
-                  disabled={!previewUrl || uploading}
-                  className="px-6 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white rounded-lg transition-colors"
-                >
-                  {uploading ? 'Uploading...' : 'Upload Logo'}
-                </button>
-                {previewUrl && (
-                  <button
-                    onClick={() => setPreviewUrl(null)}
-                    className="px-6 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-colors"
-                  >
-                    Cancel
-                  </button>
-                )}
-              </div>
             </div>
           </div>
         </div>
